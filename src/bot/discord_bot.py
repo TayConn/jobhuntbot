@@ -14,7 +14,8 @@ class JobHuntBot:
     def __init__(self):
         intents = discord.Intents.default()
         intents.message_content = True
-        intents.members = True  # Required for on_member_join events
+        # Note: members intent disabled to avoid privileged intent requirement
+        # Welcome messages can still be sent manually with !welcome command
         
         self.bot = commands.Bot(command_prefix="!", intents=intents)
         
@@ -51,27 +52,8 @@ class JobHuntBot:
                 await ctx.send(f"❌ An error occurred: {error}")
                 print(f"[ERROR] Command error: {error}")
         
-        @self.bot.event
-        async def on_member_join(member):
-            """Send welcome message when a new member joins"""
-            print(f"[INFO] New member joined: {member.name} ({member.id})")
-            
-            # Check if we should send welcome message (if MAIN_CHANNEL_ID is configured)
-            from ..utils.config import Config
-            if Config.MAIN_CHANNEL_ID != 0:
-                # Only send welcome if member joined the main channel
-                # Note: This is a simplified check - in practice, all members join the guild
-                # You might want to add more specific logic based on your server setup
-                print(f"[INFO] Main channel configured: {Config.MAIN_CHANNEL_ID}")
-            
-            # Get the commands cog to access the welcome message function
-            commands_cog = self.bot.get_cog('JobBotCommands')
-            if commands_cog:
-                success = await commands_cog._send_welcome_message(member)
-                if success:
-                    print(f"[INFO] Welcome message sent to {member.name}")
-                else:
-                    print(f"[INFO] Could not send welcome message to {member.name} (DMs disabled)")
+        # Note: on_member_join event removed due to privileged intent requirement
+        # Users can still get welcome messages using the !welcome command
     
     async def setup_commands(self):
         """Setup Discord bot commands"""

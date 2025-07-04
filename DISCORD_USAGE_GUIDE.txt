@@ -21,7 +21,7 @@ Welcome to Job Hunt Buddy! This bot automatically monitors job postings from Dis
 !addlocation [location] - Add a location preference (e.g., "San Francisco")
 !addcompany [company] - Add a company preference (e.g., "discord")
 !clearpreferences  - Clear all your preferences
-!welcome           - Send yourself a welcome message
+!welcome           - Send yourself a welcome message (manual)
 !bothelp           - Show this help message
 
 🛠️ ADMIN COMMANDS (Admin only)
