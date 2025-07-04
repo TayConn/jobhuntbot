@@ -208,6 +208,7 @@ async def run_job_scrapers(send_to_channel):
 @bot.event
 async def on_ready():
     if not hasattr(bot, "monitor_started"):
+        print(f'Welcome to Job Hunt Bot!')
         print(f'✅ Logged in as {bot.user}')
         print(f"[{datetime.now()}] ✅ Job check complete. Next run in 2 hours.")
         bot.monitor_started = True
