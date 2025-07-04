@@ -19,4 +19,4 @@ jobs:
           git pull --no-rebase origin main
           source ./venv/bin/activate
           pkill -f job_hunt_bot.py || true
-          nohup python job_hunt_bot.py > output.log 2>&1 &
+          sudo systemctl restart jobhuntbot
