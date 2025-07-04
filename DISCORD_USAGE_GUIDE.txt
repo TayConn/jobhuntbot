@@ -3,23 +3,32 @@
 
 Welcome to Job Hunt Buddy! This bot automatically monitors job postings from Discord, Reddit, and Monarch Money, and sends you personalized notifications based on your preferences.
 
+🎯 NEW: INTERACTIVE UI SYSTEM
+============================
+
+Most commands now support an interactive, emoji-based interface! Simply type the command without arguments to use the interactive UI:
+
+• `!dumpjobs` - Interactive job search with filters
+• `!subscribe` - Interactive category subscription  
+• `!unsubscribe` - Interactive category unsubscription
+• `!addlocation` - Interactive location addition
+• `!addcompany` - Interactive company addition
+
 📋 AVAILABLE COMMANDS
 ====================
 
 🔍 JOB CHECKING
 --------------
 !checknow          - Manually check for new jobs right now
-!dumpjobs          - Show all current job listings from all companies
+!dumpjobs          - Interactive job search with filters
 
 ⚙️ PREFERENCES MANAGEMENT
 -------------------------
-!subscribe         - Show available job categories to subscribe to
-!subscribe [category] - Subscribe to a specific job category
-!unsubscribe       - Show your current subscriptions
-!unsubscribe [category] - Unsubscribe from a specific category
+!subscribe         - Interactive category subscription
+!unsubscribe       - Interactive category unsubscription
 !preferences       - View all your current preferences
-!addlocation [location] - Add a location preference (e.g., "San Francisco")
-!addcompany [company] - Add a company preference (e.g., "discord")
+!addlocation       - Interactive location addition
+!addcompany        - Interactive company addition
 !clearpreferences  - Clear all your preferences
 !welcome           - Send yourself a welcome message (manual)
 !bothelp           - Show this help message
@@ -51,63 +60,62 @@ Welcome to Job Hunt Buddy! This bot automatically monitors job postings from Dis
 💡 QUICK START GUIDE
 ====================
 
-1. SUBSCRIBE TO JOB CATEGORIES:
+1. SUBSCRIBE TO JOB CATEGORIES (Interactive):
    ```
-   !subscribe software engineer
-   !subscribe frontend
-   !subscribe product manager
+   !subscribe
    ```
+   Then react with emojis to select categories!
 
-2. ADD LOCATION PREFERENCES:
+2. ADD LOCATION PREFERENCES (Interactive):
    ```
-   !addlocation "San Francisco"
-   !addlocation "Remote"
-   !addlocation "New York"
+   !addlocation
    ```
+   Then react with emojis to select locations!
 
-3. ADD COMPANY PREFERENCES:
+3. ADD COMPANY PREFERENCES (Interactive):
    ```
-   !addcompany discord
-   !addcompany reddit
-   !addcompany monarch
+   !addcompany
    ```
+   Then react with emojis to select companies!
 
 4. CHECK YOUR PREFERENCES:
    ```
    !preferences
    ```
 
-5. MANUALLY CHECK FOR JOBS:
+5. SEARCH FOR JOBS (Interactive):
    ```
-   !checknow
+   !dumpjobs
    ```
+   Then react with emojis to set filters and search!
 
-📝 EXAMPLES
-===========
+📝 INTERACTIVE UI EXAMPLES
+==========================
 
-Example 1: Subscribe to frontend jobs
-```
-!subscribe frontend
-```
-Response: "✅ Subscribed! You're now subscribed to frontend jobs"
-
-Example 2: Add location preference
-```
-!addlocation "San Francisco"
-```
-Response: "📍 Location Added! Added San Francisco to your location preferences"
-
-Example 3: Check current preferences
-```
-!preferences
-```
-Response: Shows an embed with all your current preferences
-
-Example 4: Get all current jobs
+Example 1: Interactive job search
 ```
 !dumpjobs
 ```
-Response: Shows all current job listings from all companies
+Response: Bot sends interactive menu with emoji reactions for:
+- 🗂 Categories (backend, frontend, etc.)
+- 🌍 Locations (Remote, San Francisco, etc.)  
+- 🏢 Companies (Discord, Reddit, etc.)
+- 🟢 Done (run search)
+- ❌ Cancel
+
+Example 2: Interactive category subscription
+```
+!subscribe
+```
+Response: Bot sends list of categories with number emojis (1️⃣, 2️⃣, etc.)
+User reacts to select categories, then clicks 🟢 to subscribe.
+
+Example 3: Interactive location addition
+```
+!addlocation
+```
+Response: Bot sends list of common locations with letter emojis (A️⃣, B️⃣, etc.)
+User reacts to select locations, then clicks 🟢 to add them.
 
 🔄 HOW IT WORKS
 ===============
@@ -117,6 +125,7 @@ Response: Shows all current job listings from all companies
 • Jobs are filtered based on your preferences (if any)
 • Duplicate jobs are automatically filtered out
 • You can manually check for jobs anytime with !checknow
+• NEW: Interactive UI makes it easy to set preferences and search!
 
 ⚙️ PREFERENCE LOGIC
 ===================
@@ -139,8 +148,11 @@ A: Use !subscribe to add more specific categories, or !addlocation to filter by 
 Q: I want to see all jobs regardless of preferences
 A: Use !clearpreferences to remove all filters
 
-Q: How do I see what categories are available?
-A: Use !subscribe without any arguments to see the full list
+Q: How do I use the interactive UI?
+A: Just type the command without arguments (e.g., !dumpjobs) and follow the emoji prompts!
+
+Q: The interactive UI isn't responding
+A: Make sure you're reacting to the bot's message, not typing commands. Sessions expire after 30 minutes.
 
 📞 NEED HELP?
 =============
@@ -154,10 +166,10 @@ If you're having issues:
 🎯 PRO TIPS
 ===========
 
-• Use specific categories like "frontend" instead of "engineer" for better filtering
-• Add "Remote" as a location if you're open to remote work
-• Subscribe to multiple categories to cast a wider net
-• Use !dumpjobs to see what's currently available before setting preferences
+• Use the interactive UI for easier preference management
+• Interactive sessions expire after 30 minutes - complete them quickly
+• You can still use command arguments for quick actions (e.g., !subscribe backend)
+• Large job search results are automatically sent as files
 • The bot automatically filters out duplicate jobs, so you won't see the same job twice
 
 ---

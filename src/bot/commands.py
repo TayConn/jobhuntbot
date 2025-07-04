@@ -6,6 +6,7 @@ from ..services.storage_service import StorageService
 from ..services.notification_service import NotificationService
 from ..models.user_preferences import UserPreferences
 from ..utils.config import Config
+from .interactive_ui import InteractiveUI
 
 class JobBotCommands(commands.Cog):
     """Discord bot commands for job hunting"""
@@ -16,6 +17,7 @@ class JobBotCommands(commands.Cog):
         self.job_monitor = job_monitor
         self.notification_service = notification_service
         self.storage_service = StorageService()
+        self.interactive_ui = InteractiveUI(bot)
     
     @commands.command(name="checknow")
     async def check_now(self, ctx):
@@ -41,13 +43,18 @@ class JobBotCommands(commands.Cog):
         """Get all current job listings with optional filters
         
         Usage examples:
-        !dumpjobs                                    - Show all jobs
+        !dumpjobs                                    - Interactive filter selection
         !dumpjobs category="backend"                 - Filter by category
         !dumpjobs location="Remote"                  - Filter by location  
         !dumpjobs company="discord"                  - Filter by company
         !dumpjobs category="backend, frontend"       - Multiple categories
         !dumpjobs category="backend" location="Remote" - Multiple filters
         """
+        if not filters:
+            # Start interactive session
+            await self.interactive_ui.start_dumpjobs_session(ctx)
+            return
+        
         await ctx.send("🕵️ Scraping all current job listings (this may take a few seconds)...")
         
         try:
@@ -122,23 +129,8 @@ class JobBotCommands(commands.Cog):
     async def subscribe(self, ctx, category: str = None):
         """Subscribe to job categories. Usage: !subscribe [category] or !subscribe to see available categories"""
         if not category:
-            # Show available categories
-            embed = discord.Embed(
-                title="📋 Available Job Categories",
-                description="Use `!subscribe <category>` to subscribe to a category",
-                color=0x0099ff
-            )
-            
-            categories_text = "\n".join([f"• {cat}" for cat in Config.DEFAULT_CATEGORIES])
-            embed.add_field(name="Categories", value=categories_text, inline=False)
-            
-            embed.add_field(
-                name="Examples", 
-                value="`!subscribe software engineer`\n`!subscribe frontend`\n`!subscribe product manager`",
-                inline=False
-            )
-            
-            await ctx.send(embed=embed)
+            # Start interactive session
+            await self.interactive_ui.start_subscribe_session(ctx)
             return
         
         # Add category to user preferences
@@ -157,24 +149,12 @@ class JobBotCommands(commands.Cog):
     @commands.command(name="unsubscribe")
     async def unsubscribe(self, ctx, category: str = None):
         """Unsubscribe from job categories. Usage: !unsubscribe [category] or !unsubscribe to see your subscriptions"""
-        user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
-        
         if not category:
-            # Show current subscriptions
-            embed = discord.Embed(
-                title="📋 Your Current Subscriptions",
-                description="Use `!unsubscribe <category>` to unsubscribe",
-                color=0x0099ff
-            )
-            
-            if user_prefs.categories:
-                categories_text = "\n".join([f"• {cat}" for cat in user_prefs.categories])
-                embed.add_field(name="Categories", value=categories_text, inline=False)
-            else:
-                embed.add_field(name="Categories", value="No categories subscribed", inline=False)
-            
-            await ctx.send(embed=embed)
+            # Start interactive session
+            await self.interactive_ui.start_unsubscribe_session(ctx)
             return
+        
+        user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
         
         # Remove category from user preferences
         user_prefs.remove_category(category)
@@ -228,8 +208,13 @@ class JobBotCommands(commands.Cog):
         await ctx.send(embed=embed)
     
     @commands.command(name="addlocation")
-    async def add_location(self, ctx, location: str):
-        """Add a location preference. Usage: !addlocation 'San Francisco'"""
+    async def add_location(self, ctx, location: str = None):
+        """Add a location preference. Usage: !addlocation [location] or !addlocation for interactive selection"""
+        if not location:
+            # Start interactive session
+            await self.interactive_ui.start_addlocation_session(ctx)
+            return
+        
         user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
         user_prefs.add_location(location)
         self.storage_service.save_user_preferences(user_prefs)
@@ -243,8 +228,13 @@ class JobBotCommands(commands.Cog):
         await ctx.send(embed=embed)
     
     @commands.command(name="addcompany")
-    async def add_company(self, ctx, company: str):
-        """Add a company preference. Usage: !addcompany discord"""
+    async def add_company(self, ctx, company: str = None):
+        """Add a company preference. Usage: !addcompany [company] or !addcompany for interactive selection"""
+        if not company:
+            # Start interactive session
+            await self.interactive_ui.start_addcompany_session(ctx)
+            return
+        
         user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
         user_prefs.add_company(company)
         self.storage_service.save_user_preferences(user_prefs)
@@ -284,12 +274,12 @@ class JobBotCommands(commands.Cog):
 
         commands_info = [
             ("!checknow", "Manually check for new jobs"),
-            ("!dumpjobs [filters]", "Show all current job listings with optional filters"),
-            ("!subscribe [category]", "Subscribe to job categories"),
-            ("!unsubscribe [category]", "Unsubscribe from job categories"),
+            ("!dumpjobs", "Interactive job search with filters"),
+            ("!subscribe", "Interactive category subscription"),
+            ("!unsubscribe", "Interactive category unsubscription"),
             ("!preferences", "Show your current preferences"),
-            ("!addlocation [location]", "Add location preference"),
-            ("!addcompany [company]", "Add company preference"),
+            ("!addlocation", "Interactive location addition"),
+            ("!addcompany", "Interactive company addition"),
             ("!clearpreferences", "Clear all preferences"),
             ("!welcome", "Send yourself a welcome message"),
             ("!bothelp", "Show this help message")
@@ -320,8 +310,8 @@ class JobBotCommands(commands.Cog):
         )
 
         embed.add_field(
-            name="🔍 Dumpjobs Filtering", 
-            value="Use `!dumpjobs category=\"backend\" location=\"Remote\"` to filter results. Large results are sent as files.",
+            name="🎯 Interactive Commands", 
+            value="Most commands now support interactive UI! Just type `!dumpjobs`, `!subscribe`, etc. without arguments to use the emoji-based interface.",
             inline=False
         )
 
@@ -357,14 +347,14 @@ class JobBotCommands(commands.Cog):
         # Core Commands
         embed.add_field(
             name="🔍 Core Commands",
-            value="• `!checknow` - Check for new jobs\n• `!dumpjobs [filters]` - Show all current jobs\n• `!preferences` - View your settings",
+            value="• `!checknow` - Check for new jobs\n• `!dumpjobs` - Interactive job search\n• `!preferences` - View your settings",
             inline=True
         )
         
         # Preference Commands
         embed.add_field(
             name="⚙️ Preference Commands",
-            value="• `!subscribe [category]` - Subscribe to job types\n• `!addlocation [location]` - Add location filter\n• `!addcompany [company]` - Add company filter",
+            value="• `!subscribe` - Interactive category subscription\n• `!addlocation` - Interactive location addition\n• `!addcompany` - Interactive company addition",
             inline=True
         )
         
@@ -393,7 +383,7 @@ class JobBotCommands(commands.Cog):
         # Pro Tips
         embed.add_field(
             name="💡 Pro Tips",
-            value="• Use `!subscribe` to see all categories\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Use `!dumpjobs category=\"backend\" location=\"Remote\"` to filter results\n• Check `!bothelp` for full command list",
+            value="• Use `!subscribe` for interactive category selection\n• Use `!dumpjobs` for interactive job filtering\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Check `!bothelp` for full command list",
             inline=False
         )
 
@@ -441,14 +431,14 @@ class JobBotCommands(commands.Cog):
             # Core Commands
             embed.add_field(
                 name="🔍 Core Commands",
-                value="• `!checknow` - Check for new jobs\n• `!dumpjobs [filters]` - Show all current jobs\n• `!preferences` - View your settings",
+                value="• `!checknow` - Check for new jobs\n• `!dumpjobs` - Interactive job search\n• `!preferences` - View your settings",
                 inline=True
             )
             
             # Preference Commands
             embed.add_field(
                 name="⚙️ Preference Commands",
-                value="• `!subscribe [category]` - Subscribe to job types\n• `!addlocation [location]` - Add location filter\n• `!addcompany [company]` - Add company filter",
+                value="• `!subscribe` - Interactive category subscription\n• `!addlocation` - Interactive location addition\n• `!addcompany` - Interactive company addition",
                 inline=True
             )
             
@@ -477,7 +467,7 @@ class JobBotCommands(commands.Cog):
             # Pro Tips
             embed.add_field(
                 name="💡 Pro Tips",
-                value="• Use `!subscribe` to see all categories\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Use `!dumpjobs category=\"backend\" location=\"Remote\"` to filter results\n• Check `!bothelp` for full command list",
+                value="• Use `!subscribe` for interactive category selection\n• Use `!dumpjobs` for interactive job filtering\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Check `!bothelp` for full command list",
                 inline=False
             )
             
@@ -505,19 +495,19 @@ class JobBotCommands(commands.Cog):
         
         embed.add_field(
             name="🚀 Get Started",
-            value="1. **Subscribe to job categories**: `!subscribe software engineer`\n2. **Add location preferences**: `!addlocation \"San Francisco\"`\n3. **Check for jobs**: `!checknow`",
+            value="1. **Subscribe to job categories**: `!subscribe` (interactive)\n2. **Add location preferences**: `!addlocation` (interactive)\n3. **Search for jobs**: `!dumpjobs` (interactive)",
             inline=False
         )
         
         embed.add_field(
             name="📋 Popular Commands",
-            value="• `!subscribe` - See available job categories\n• `!preferences` - View your current settings\n• `!bothelp` - Show all commands\n• `!dumpjobs [filters]` - See all current openings",
+            value="• `!subscribe` - Interactive category subscription\n• `!preferences` - View your current settings\n• `!bothelp` - Show all commands\n• `!dumpjobs` - Interactive job search",
             inline=False
         )
         
         embed.add_field(
             name="💡 Quick Tips",
-            value="• I check for new jobs every 2 hours automatically\n• You'll only see jobs that match your preferences\n• Use `!clearpreferences` to see all jobs\n• Each job is posted only once",
+            value="• I check for new jobs every 2 hours automatically\n• You'll only see jobs that match your preferences\n• Use `!clearpreferences` to see all jobs\n• Each job is posted only once\n• **NEW**: Most commands now have interactive UI!",
             inline=False
         )
         

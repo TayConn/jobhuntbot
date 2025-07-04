@@ -87,8 +87,8 @@ class JobHuntBot:
                 "1. **Be Respectful:** Treat all members with respect. No harassment, hate speech, or discrimination of any kind.\n"
                 "2. **Keep It Professional:** This is a job-focused community. Please keep discussions relevant to job hunting, career growth, and professional development.\n"
                 "3. **No Spam or Self-Promotion:** Do not spam channels or DM members unsolicited offers, advertisements, or promotions.\n"
-                "4. **Protect Privacy:** Do not share personal information (yours or others’) publicly. Use DMs for sensitive topics, and never share anyone’s private info without consent.\n"
-                "5. **Follow Discord’s Terms of Service:** All activity must comply with Discord’s Terms of Service and Community Guidelines.\n"
+                "4. **Protect Privacy:** Do not share personal information (yours or others's) publicly. Use DMs for sensitive topics, and never share anyone's private info without consent.\n"
+                "5. **Follow Discord's Terms of Service:** All activity must comply with Discord's Terms of Service and Community Guidelines.\n"
                 "6. **Use Channels Appropriately:** Post in the correct channels. Job preferences and personal commands should be sent via DM to the bot for privacy.\n"
                 "7. **No NSFW or Inappropriate Content:** This is a professional space. Keep all content safe for work.\n"
                 "8. **Listen to Staff:** Moderators and admins are here to help. Please follow their instructions.\n\n"
@@ -104,6 +104,7 @@ class JobHuntBot:
 
         @self.bot.event
         async def on_raw_reaction_add(payload):
+            # Handle onboarding verification
             import json
             # Only care about the guide channel and the terms message
             try:
@@ -111,9 +112,11 @@ class JobHuntBot:
                     data = json.load(f)
                     terms_message_id = data["message_id"]
             except Exception:
-                return  # No terms message set
+                terms_message_id = None
+            
             if (
                 payload.channel_id == Config.GUIDE_CHANNEL_ID and
+                terms_message_id and
                 payload.message_id == terms_message_id and
                 str(payload.emoji) == "✅"
             ):
@@ -139,6 +142,11 @@ class JobHuntBot:
                         print(f"[INFO] Could not DM user {member.display_name} after verification.")
                 except Exception as e:
                     print(f"[ERROR] Could not assign verified role: {e}")
+            
+            # Handle interactive UI reactions
+            commands_cog = self.bot.get_cog('JobBotCommands')
+            if commands_cog and hasattr(commands_cog, 'interactive_ui'):
+                await commands_cog.interactive_ui.handle_reaction(payload)
 
         # Note: on_member_join event removed due to privileged intent requirement
         # Users can still get welcome messages using the !welcome command
