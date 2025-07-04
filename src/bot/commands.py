@@ -210,7 +210,7 @@ class JobBotCommands(commands.Cog):
             description="Here are the available commands:",
             color=0x0099ff
         )
-        
+
         commands_info = [
             ("!checknow", "Manually check for new jobs"),
             ("!dumpjobs", "Show all current job listings"),
@@ -223,31 +223,39 @@ class JobBotCommands(commands.Cog):
             ("!welcome", "Send yourself a welcome message"),
             ("!bothelp", "Show this help message")
         ]
-        
-        # Admin commands (only show if user has permissions)
-        if ctx.author.guild_permissions.manage_messages:
-            admin_commands = [
-                ("!postguide", "Post guide embed to current channel"),
-                ("!postguidetochannel [id]", "Post guide embed to specific channel"),
-                ("!postguidetoconfig", "Post guide embed to configured guide channel")
-            ]
-            commands_info.extend(admin_commands)
-        
+
+        # Only show admin commands if in a guild and user has permissions
+        if ctx.guild is not None:
+            if hasattr(ctx.author, "guild_permissions") and ctx.author.guild_permissions.manage_messages:
+                admin_commands = [
+                    ("!postguide", "Post guide embed to current channel"),
+                    ("!postguidetochannel [id]", "Post guide embed to specific channel"),
+                    ("!postguidetoconfig", "Post guide embed to configured guide channel")
+                ]
+                commands_info.extend(admin_commands)
+        else:
+            # DM context: add a note about limited functionality
+            embed.add_field(
+                name="⚠️ Note",
+                value="Some admin commands are only available in servers.",
+                inline=False
+            )
+
         for cmd, desc in commands_info:
             embed.add_field(name=cmd, value=desc, inline=False)
-        
+
         embed.add_field(
             name="💡 Tip", 
             value="Use `!subscribe` without a category to see available options!",
             inline=False
         )
-        
+
         embed.add_field(
             name="ℹ️ Note", 
             value="Use `!help` for Discord's built-in help, or `!bothelp` for bot-specific commands.",
             inline=False
         )
-        
+
         await ctx.send(embed=embed)
     
     @commands.command(name="postguide")
