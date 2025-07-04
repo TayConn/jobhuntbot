@@ -16,7 +16,7 @@ jobs:
         run: |
           set -e
           cd ~/Development/jobhuntbot
-          git pull origin main
+          git pull --no-rebase origin main
           source ./venv/bin/activate
           pkill -f job_hunt_bot.py || true
           nohup python job_hunt_bot.py > output.log 2>&1 &
