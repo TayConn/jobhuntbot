@@ -346,6 +346,13 @@ class JobBotCommands(commands.Cog):
                 color=0x0099ff,
                 url="https://github.com/yourusername/jobhuntbuddy"  # Replace with your repo URL
             )
+
+            # Privacy Tip
+            embed.add_field(
+                name="🔒 Privacy Tip",
+                value="For privacy, DM the bot directly to set your job preferences and use personal commands (like `!subscribe`, `!preferences`, etc.).",
+                inline=False
+            )
             
             # Quick Start Section
             embed.add_field(
@@ -397,18 +404,11 @@ class JobBotCommands(commands.Cog):
                 inline=False
             )
             
-            # Privacy Tip
-            embed.add_field(
-                name="🔒 Privacy Tip",
-                value="For privacy, DM the bot directly to set your job preferences and use personal commands (like `!subscribe`, `!preferences`, etc.).",
-                inline=False
-            )
-            
             embed.set_footer(text="Job Hunt Buddy v1.0 - Built with ❤️ for job seekers")
             embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1234567890.png")  # Optional: Add bot avatar
             
             await target_channel.send(embed=embed)
-            await ctx.send(f"✅ Guide posted to configured channel: <#{Config.GUIDE_CHANNEL_ID}>")
+            #await ctx.send(f"✅ Guide posted to configured channel: <#{Config.GUIDE_CHANNEL_ID}>")
             
         except Exception as e:
             await ctx.send(f"❌ Error posting guide: {e}")

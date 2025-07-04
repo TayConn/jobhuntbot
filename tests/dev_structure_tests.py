@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Simple test script to verify the refactored code structure
+Simple test script to verify the code is working as expected before running
 """
 
 import sys

@@ -82,9 +82,17 @@ class JobHuntBot:
                 await ctx.send("❌ Could not find the guide channel.")
                 return
             terms_text = (
-                "**Welcome to the server!**\n\n"
-                "By clicking ✅, you agree to the server rules and will gain access to the main channels.\n\n"
-                "If you have any questions, ask a moderator."
+                "**Welcome to Job Hunt Buddy!**\n\n"
+                "**Server Rules:**\n"
+                "1. **Be Respectful:** Treat all members with respect. No harassment, hate speech, or discrimination of any kind.\n"
+                "2. **Keep It Professional:** This is a job-focused community. Please keep discussions relevant to job hunting, career growth, and professional development.\n"
+                "3. **No Spam or Self-Promotion:** Do not spam channels or DM members unsolicited offers, advertisements, or promotions.\n"
+                "4. **Protect Privacy:** Do not share personal information (yours or others’) publicly. Use DMs for sensitive topics, and never share anyone’s private info without consent.\n"
+                "5. **Follow Discord’s Terms of Service:** All activity must comply with Discord’s Terms of Service and Community Guidelines.\n"
+                "6. **Use Channels Appropriately:** Post in the correct channels. Job preferences and personal commands should be sent via DM to the bot for privacy.\n"
+                "7. **No NSFW or Inappropriate Content:** This is a professional space. Keep all content safe for work.\n"
+                "8. **Listen to Staff:** Moderators and admins are here to help. Please follow their instructions.\n\n"
+                "By clicking ✅, you acknowledge and agree to follow these rules. Failure to comply may result in removal from the server."
             )
             msg = await channel.send(terms_text)
             await msg.add_reaction("✅")

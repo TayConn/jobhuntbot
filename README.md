@@ -47,6 +47,8 @@ python main.py
 - `!clearpreferences` - Clear all preferences
 - `!bothelp` - Show all available commands
 
+For privacy, DM the bot directly to set your job preferences and use personal commands (like !subscribe, !preferences, etc.).
+
 ## 🏗️ Project Structure
 
 The bot is built with a modular, scalable architecture:
@@ -79,12 +81,13 @@ jobhuntbuddy/
 ├── data/                  # Persistent storage
 │   ├── seen_jobs.json     # Tracked job URLs
 │   └── user_preferences.json # User preference settings
+├── tests/
+│   ├── dev_structure_tests.py #Simple test script to verify the code is working as expected before running
+│   └── dev_feature_tests.py #tests new bot features and commands
 ├── main.py                # Entry point
 ├── env.example            # Environment variables template
 ├── README.md              # This file
 ├── DISCORD_USAGE_GUIDE.txt # User guide for Discord
-├── test_refactor.py       # Test refactored structure
-├── test_new_features.py   # Test new Discord features
 └── requirements.txt       # Python dependencies
 ```
 
@@ -151,9 +154,7 @@ GUIDE_CHANNEL_ID=channel_for_bot_usage_instructions
 **Required:**
 - `DISCORD_BOT_TOKEN` - Your Discord bot token
 - `MAIN_CHANNEL_ID` - Channel where job notifications are posted and users join
-
-**Optional:**
-- `GUIDE_CHANNEL_ID` - Channel where the guide embed is posted (for `!postguide`)
+- `GUIDE_CHANNEL_ID` - Channel where the guide embed is posted (for `!postguide` and user onboarding)
 
 ## 📋 Available Job Categories
 
@@ -252,10 +253,11 @@ The bot now automatically checks and installs missing dependencies on startup. J
 
 ## Server Onboarding & Verification
 
-- How to configure GUIDE_CHANNEL_ID
-- How to set up the 'verified' role and permissions
-- How to restrict @everyone to only see the guide channel
-- How to run !postterms to post the onboarding message
-- How users get verified by reacting with ✅
-- What happens after verification (access to main channels, DM welcome)
-- Any troubleshooting tips for permissions/roles
+- 1. Create a “guide” channel for onboarding. This channel will be used for the bot’s terms message and user verification.
+- 2. Set up the verified role in your server.
+- 3. Only users with the verified role should be able to see and participate in main channels.
+- 4. The @everyone role should only have access to the guide channel.
+- 5. Set GUIDE_CHANNEL_ID in your .env file to the guide channel’s ID.
+- 6. Run !postterms in the server to post the onboarding message with rules and the ✅ reaction.
+- 7. Users must react with ✅ to the onboarding message to get the verified role and access the main channels.
+- 8. Admins can use !postguide to post the guide embed to the guide channel at any time.
