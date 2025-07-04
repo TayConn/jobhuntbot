@@ -37,15 +37,86 @@ class JobBotCommands(commands.Cog):
             await ctx.send(f"❌ Error checking jobs: {e}")
     
     @commands.command(name="dumpjobs")
-    async def dump_jobs(self, ctx):
-        """Get all current job listings"""
+    async def dump_jobs(self, ctx, *, filters: str = None):
+        """Get all current job listings with optional filters
+        
+        Usage examples:
+        !dumpjobs                                    - Show all jobs
+        !dumpjobs category="backend"                 - Filter by category
+        !dumpjobs location="Remote"                  - Filter by location  
+        !dumpjobs company="discord"                  - Filter by company
+        !dumpjobs category="backend, frontend"       - Multiple categories
+        !dumpjobs category="backend" location="Remote" - Multiple filters
+        """
         await ctx.send("🕵️ Scraping all current job listings (this may take a few seconds)...")
         
         try:
+            # Parse filters if provided
+            filter_prefs = None
+            if filters:
+                filter_prefs = self._parse_dump_filters(filters)
+                if filter_prefs:
+                    filter_text = []
+                    if filter_prefs.categories:
+                        filter_text.append(f"Categories: {', '.join(filter_prefs.categories)}")
+                    if filter_prefs.locations:
+                        filter_text.append(f"Locations: {', '.join(filter_prefs.locations)}")
+                    if filter_prefs.companies:
+                        filter_text.append(f"Companies: {', '.join(filter_prefs.companies)}")
+                    
+                    await ctx.send(f"🔍 Applying filters: {', '.join(filter_text)}")
+            
             jobs_by_company = await self.job_monitor.run_full_job_dump()
-            await self.notification_service.send_job_dump(jobs_by_company)
+            
+            # Apply filters if provided
+            if filter_prefs:
+                filtered_jobs_by_company = {}
+                for company, jobs in jobs_by_company.items():
+                    filtered_jobs = [
+                        job for job in jobs 
+                        if job.matches_user_preferences(filter_prefs)
+                    ]
+                    if filtered_jobs:
+                        filtered_jobs_by_company[company] = filtered_jobs
+                jobs_by_company = filtered_jobs_by_company
+            
+            # Send the results
+            await self.notification_service.send_job_dump(jobs_by_company, ctx.channel)
+            
         except Exception as e:
             await ctx.send(f"❌ Error dumping jobs: {e}")
+    
+    def _parse_dump_filters(self, filters_str: str) -> UserPreferences:
+        """Parse filter string into UserPreferences object
+        
+        Expected format: category="backend, frontend" location="Remote" company="discord"
+        """
+        try:
+            # Create a temporary UserPreferences object for filtering
+            filter_prefs = UserPreferences(user_id=0)  # user_id doesn't matter for filtering
+            
+            # Split by spaces but respect quoted strings
+            import re
+            # This regex splits on spaces but keeps quoted strings together
+            parts = re.findall(r'(\w+)="([^"]*)"', filters_str)
+            
+            for key, value in parts:
+                if key.lower() == "category":
+                    # Split by comma and strip whitespace
+                    categories = [cat.strip() for cat in value.split(",")]
+                    filter_prefs.categories.extend(categories)
+                elif key.lower() == "location":
+                    locations = [loc.strip() for loc in value.split(",")]
+                    filter_prefs.locations.extend(locations)
+                elif key.lower() == "company":
+                    companies = [comp.strip() for comp in value.split(",")]
+                    filter_prefs.companies.extend(companies)
+            
+            return filter_prefs if (filter_prefs.categories or filter_prefs.locations or filter_prefs.companies) else None
+            
+        except Exception as e:
+            print(f"[ERROR] Failed to parse dump filters: {e}")
+            return None
     
     @commands.command(name="subscribe")
     async def subscribe(self, ctx, category: str = None):
@@ -213,7 +284,7 @@ class JobBotCommands(commands.Cog):
 
         commands_info = [
             ("!checknow", "Manually check for new jobs"),
-            ("!dumpjobs", "Show all current job listings"),
+            ("!dumpjobs [filters]", "Show all current job listings with optional filters"),
             ("!subscribe [category]", "Subscribe to job categories"),
             ("!unsubscribe [category]", "Unsubscribe from job categories"),
             ("!preferences", "Show your current preferences"),
@@ -249,6 +320,12 @@ class JobBotCommands(commands.Cog):
         )
 
         embed.add_field(
+            name="🔍 Dumpjobs Filtering", 
+            value="Use `!dumpjobs category=\"backend\" location=\"Remote\"` to filter results. Large results are sent as files.",
+            inline=False
+        )
+
+        embed.add_field(
             name="ℹ️ Note", 
             value="Use `!help` for Discord's built-in help, or `!bothelp` for bot-specific commands.",
             inline=False
@@ -280,7 +357,7 @@ class JobBotCommands(commands.Cog):
         # Core Commands
         embed.add_field(
             name="🔍 Core Commands",
-            value="• `!checknow` - Check for new jobs\n• `!dumpjobs` - Show all current jobs\n• `!preferences` - View your settings",
+            value="• `!checknow` - Check for new jobs\n• `!dumpjobs [filters]` - Show all current jobs\n• `!preferences` - View your settings",
             inline=True
         )
         
@@ -316,7 +393,7 @@ class JobBotCommands(commands.Cog):
         # Pro Tips
         embed.add_field(
             name="💡 Pro Tips",
-            value="• Use `!subscribe` to see all categories\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Check `!bothelp` for full command list",
+            value="• Use `!subscribe` to see all categories\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Use `!dumpjobs category=\"backend\" location=\"Remote\"` to filter results\n• Check `!bothelp` for full command list",
             inline=False
         )
 
@@ -364,7 +441,7 @@ class JobBotCommands(commands.Cog):
             # Core Commands
             embed.add_field(
                 name="🔍 Core Commands",
-                value="• `!checknow` - Check for new jobs\n• `!dumpjobs` - Show all current jobs\n• `!preferences` - View your settings",
+                value="• `!checknow` - Check for new jobs\n• `!dumpjobs [filters]` - Show all current jobs\n• `!preferences` - View your settings",
                 inline=True
             )
             
@@ -400,7 +477,7 @@ class JobBotCommands(commands.Cog):
             # Pro Tips
             embed.add_field(
                 name="💡 Pro Tips",
-                value="• Use `!subscribe` to see all categories\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Check `!bothelp` for full command list",
+                value="• Use `!subscribe` to see all categories\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Use `!dumpjobs category=\"backend\" location=\"Remote\"` to filter results\n• Check `!bothelp` for full command list",
                 inline=False
             )
             
@@ -434,7 +511,7 @@ class JobBotCommands(commands.Cog):
         
         embed.add_field(
             name="📋 Popular Commands",
-            value="• `!subscribe` - See available job categories\n• `!preferences` - View your current settings\n• `!bothelp` - Show all commands\n• `!dumpjobs` - See all current openings",
+            value="• `!subscribe` - See available job categories\n• `!preferences` - View your current settings\n• `!bothelp` - Show all commands\n• `!dumpjobs [filters]` - See all current openings",
             inline=False
         )
         
