@@ -1,0 +1,24 @@
+[Unit]
+Description=Job Hunt Buddy Discord Bot
+After=network.target
+
+[Service]
+Type=simple
+User=taylor
+WorkingDirectory=/home/taylor/Development/jobhuntbot
+
+# Install dependencies before starting
+ExecStartPre=/home/taylor/Development/jobhuntbot/deploy/install_dependencies.sh
+
+# Start the bot
+ExecStart=/home/taylor/Development/jobhuntbot/venv/bin/python main.py
+
+# Restart configuration
+Restart=always
+RestartSec=10
+
+# Environment variables
+Environment=PATH=/home/taylor/Development/jobhuntbot/venv/bin
+
+[Install]
+WantedBy=multi-user.target 

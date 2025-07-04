@@ -114,7 +114,7 @@ jobhuntbuddy/
 2. **Set up virtual environment**
    ```bash
    python3 -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   source venv/bin/activate
    ```
 
 3. **Install dependencies**
@@ -204,6 +204,7 @@ The project includes a GitHub Actions workflow for automatic deployment to a Ras
 
 ### Systemd Service (Linux)
 
+#### Option 1: Simple Service (Manual Dependency Management)
 Create a systemd service for automatic startup:
 
 ```ini
@@ -213,10 +214,10 @@ After=network.target
 
 [Service]
 Type=simple
-User=your_user
-WorkingDirectory=/path/to/jobhuntbuddy
-Environment=PATH=/path/to/jobhuntbuddy/venv/bin
-ExecStart=/path/to/jobhuntbuddy/venv/bin/python main.py
+User=taylor
+WorkingDirectory=/home/taylor/Development/jobhuntbot
+Environment=PATH=/home/taylor/Development/jobhuntbot/venv/bin
+ExecStart=/home/taylor/Development/jobhuntbot/venv/bin/python main.py
 Restart=always
 RestartSec=10
 
@@ -224,123 +225,27 @@ RestartSec=10
 WantedBy=multi-user.target
 ```
 
-## 🧪 Testing
-
-The project includes comprehensive test suites to verify functionality:
-
-### Running Tests
+#### Option 2: Auto-Dependency Management Service
+Use the provided service file that automatically handles dependencies:
 
 ```bash
-# Test the refactored structure and imports
-python test_refactor.py
+# Copy the service file
+sudo cp deploy/jobhuntbot.service /etc/systemd/system/
 
-# Test new Discord features (embeds, welcome messages, etc.)
-python test_new_features.py
+# Make the install script executable
+chmod +x deploy/install_dependencies.sh
 
-# Run both test suites
-python test_refactor.py && python test_new_features.py
+# Reload and enable the service
+sudo systemctl daemon-reload
+sudo systemctl enable jobhuntbot
+sudo systemctl start jobhuntbot
 ```
 
-### What Tests Cover
+#### Option 3: Python-Based Auto-Dependency (Recommended)
+The bot now automatically checks and installs missing dependencies on startup. Just use the simple service file above - the bot will handle dependency management internally.
 
-**`test_refactor.py`:**
-- ✅ Module imports and dependencies
-- ✅ Job model functionality
-- ✅ User preferences model functionality
-- ✅ Configuration loading
-- ✅ Service initialization
-
-**`test_new_features.py`:**
-- ✅ Discord embed creation
-- ✅ Welcome message generation
-- ✅ Bot intents configuration
-- ✅ New command methods
-- ✅ Guide embed functionality
-
-### Test Output Example
-
-```
-🧪 Testing refactored Job Hunt Bot...
-
-Testing imports...
-✅ Config imported successfully
-✅ Models imported successfully
-✅ Scrapers imported successfully
-✅ Services imported successfully
-✅ Bot imported successfully
-
-🎉 All imports successful! The refactored structure is working.
-
-✅ Job model test passed: Software Engineer at test_company
-✅ UserPreferences test passed: 1 categories
-
-📊 Test Results: 3/3 tests passed
-🎉 All tests passed! The refactor is ready to use.
-```
-
-### Troubleshooting Tests
-
-If tests fail:
-1. **Check dependencies**: `pip install -r requirements.txt`
-2. **Verify Python version**: Ensure you're using Python 3.11+
-3. **Check virtual environment**: Make sure you're in the correct venv
-4. **Review error messages**: Tests provide detailed error information
-
-## 📈 Adding New Features
-
-### Development Workflow
-
-1. **Make your changes** in the appropriate module
-2. **Run tests** to ensure nothing is broken:
-   ```bash
-   python test_refactor.py && python test_new_features.py
-   ```
-3. **Test manually** if needed (e.g., test new Discord commands)
-4. **Update documentation** (README, Discord guide, etc.)
-
-### Adding a New Job Scraper
-
-1. Create a new scraper class in `src/scrapers/`
-2. Inherit from `BaseScraper`
-3. Implement the `scrape_jobs()` method
-4. Add the scraper to `JobMonitor.scrapers`
-5. **Run tests** to verify the new scraper works
-
-### Adding New Commands
-
-1. Add command methods to `JobBotCommands` in `src/bot/commands.py`
-2. Use the `@commands.command()` decorator
-3. Update the help command with new command information
-4. **Test the new command** in Discord
-5. **Update documentation** if needed
-
-### Testing New Features
-
-- **Unit tests**: Add to existing test files or create new ones
-- **Integration tests**: Test with actual Discord bot
-- **Manual testing**: Test commands and features in Discord
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🆘 Support
-
-If you encounter any issues:
-
-1. Check the Discord bot logs for error messages
-2. Verify your environment variables are set correctly
-3. Ensure all dependencies are installed
-4. Check that Playwright browsers are installed
-
----
-
-**Note**: This bot is designed for personal use and educational purposes. Please respect the terms of service of the websites being scraped.
+**Benefits:**
+- ✅ No manual dependency installation needed
+- ✅ Automatic updates when requirements.txt changes
+- ✅ Works across different deployment environments
+- ✅ Graceful error handling and logging
