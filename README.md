@@ -215,9 +215,9 @@ After=network.target
 [Service]
 Type=simple
 User=taylor
-WorkingDirectory=/home/taylor/Development/jobhuntbot
-Environment=PATH=/home/taylor/Development/jobhuntbot/venv/bin
-ExecStart=/home/taylor/Development/jobhuntbot/venv/bin/python main.py
+WorkingDirectory=/path/to/your/project
+Environment=PATH=/path/to/your/project/venv/bin
+ExecStart=/path/to/your/project/venv/bin/python main.py
 Restart=always
 RestartSec=10
 
