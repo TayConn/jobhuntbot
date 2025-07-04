@@ -1,0 +1,516 @@
+import discord
+from discord.ext import commands
+from typing import List
+from ..services.job_monitor import JobMonitor
+from ..services.storage_service import StorageService
+from ..services.notification_service import NotificationService
+from ..models.user_preferences import UserPreferences
+from ..utils.config import Config
+
+class JobBotCommands(commands.Cog):
+    """Discord bot commands for job hunting"""
+    
+    def __init__(self, bot, job_monitor: JobMonitor, 
+                 notification_service: NotificationService):
+        self.bot = bot
+        self.job_monitor = job_monitor
+        self.notification_service = notification_service
+        self.storage_service = StorageService()
+    
+    @commands.command(name="checknow")
+    async def check_now(self, ctx):
+        """Manually trigger a job check"""
+        await ctx.send("🔍 Checking for new jobs now...")
+        
+        try:
+            # Get user preferences if they exist
+            user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
+            
+            new_jobs = await self.job_monitor.run_job_check(user_prefs)
+            
+            if new_jobs:
+                await self.notification_service.send_bulk_job_notifications(new_jobs, user_prefs)
+            else:
+                await ctx.send("✅ No new jobs found!")
+                
+        except Exception as e:
+            await ctx.send(f"❌ Error checking jobs: {e}")
+    
+    @commands.command(name="dumpjobs")
+    async def dump_jobs(self, ctx):
+        """Get all current job listings"""
+        await ctx.send("🕵️ Scraping all current job listings (this may take a few seconds)...")
+        
+        try:
+            jobs_by_company = await self.job_monitor.run_full_job_dump()
+            await self.notification_service.send_job_dump(jobs_by_company)
+        except Exception as e:
+            await ctx.send(f"❌ Error dumping jobs: {e}")
+    
+    @commands.command(name="subscribe")
+    async def subscribe(self, ctx, category: str = None):
+        """Subscribe to job categories. Usage: !subscribe [category] or !subscribe to see available categories"""
+        if not category:
+            # Show available categories
+            embed = discord.Embed(
+                title="📋 Available Job Categories",
+                description="Use `!subscribe <category>` to subscribe to a category",
+                color=0x0099ff
+            )
+            
+            categories_text = "\n".join([f"• {cat}" for cat in Config.DEFAULT_CATEGORIES])
+            embed.add_field(name="Categories", value=categories_text, inline=False)
+            
+            embed.add_field(
+                name="Examples", 
+                value="`!subscribe software engineer`\n`!subscribe frontend`\n`!subscribe product manager`",
+                inline=False
+            )
+            
+            await ctx.send(embed=embed)
+            return
+        
+        # Add category to user preferences
+        user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
+        user_prefs.add_category(category)
+        self.storage_service.save_user_preferences(user_prefs)
+        
+        embed = discord.Embed(
+            title="✅ Subscribed!",
+            description=f"You're now subscribed to **{category}** jobs",
+            color=0x00ff00
+        )
+        embed.add_field(name="Your Categories", value=", ".join(user_prefs.categories) or "None")
+        await ctx.send(embed=embed)
+    
+    @commands.command(name="unsubscribe")
+    async def unsubscribe(self, ctx, category: str = None):
+        """Unsubscribe from job categories. Usage: !unsubscribe [category] or !unsubscribe to see your subscriptions"""
+        user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
+        
+        if not category:
+            # Show current subscriptions
+            embed = discord.Embed(
+                title="📋 Your Current Subscriptions",
+                description="Use `!unsubscribe <category>` to unsubscribe",
+                color=0x0099ff
+            )
+            
+            if user_prefs.categories:
+                categories_text = "\n".join([f"• {cat}" for cat in user_prefs.categories])
+                embed.add_field(name="Categories", value=categories_text, inline=False)
+            else:
+                embed.add_field(name="Categories", value="No categories subscribed", inline=False)
+            
+            await ctx.send(embed=embed)
+            return
+        
+        # Remove category from user preferences
+        user_prefs.remove_category(category)
+        self.storage_service.save_user_preferences(user_prefs)
+        
+        embed = discord.Embed(
+            title="✅ Unsubscribed!",
+            description=f"You're no longer subscribed to **{category}** jobs",
+            color=0x00ff00
+        )
+        embed.add_field(name="Your Categories", value=", ".join(user_prefs.categories) or "None")
+        await ctx.send(embed=embed)
+    
+    @commands.command(name="preferences")
+    async def show_preferences(self, ctx):
+        """Show your current job preferences"""
+        user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
+        
+        embed = discord.Embed(
+            title="⚙️ Your Job Preferences",
+            description=f"User ID: {ctx.author.id}",
+            color=0x0099ff
+        )
+        
+        embed.add_field(
+            name="Categories", 
+            value=", ".join(user_prefs.categories) if user_prefs.categories else "None",
+            inline=False
+        )
+        embed.add_field(
+            name="Locations", 
+            value=", ".join(user_prefs.locations) if user_prefs.locations else "None",
+            inline=False
+        )
+        embed.add_field(
+            name="Companies", 
+            value=", ".join(user_prefs.companies) if user_prefs.companies else "None",
+            inline=False
+        )
+        embed.add_field(
+            name="Notification Frequency", 
+            value=user_prefs.notification_frequency,
+            inline=False
+        )
+        embed.add_field(
+            name="Status", 
+            value="Active" if user_prefs.is_active else "Inactive",
+            inline=False
+        )
+        
+        await ctx.send(embed=embed)
+    
+    @commands.command(name="addlocation")
+    async def add_location(self, ctx, location: str):
+        """Add a location preference. Usage: !addlocation 'San Francisco'"""
+        user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
+        user_prefs.add_location(location)
+        self.storage_service.save_user_preferences(user_prefs)
+        
+        embed = discord.Embed(
+            title="📍 Location Added!",
+            description=f"Added **{location}** to your location preferences",
+            color=0x00ff00
+        )
+        embed.add_field(name="Your Locations", value=", ".join(user_prefs.locations))
+        await ctx.send(embed=embed)
+    
+    @commands.command(name="addcompany")
+    async def add_company(self, ctx, company: str):
+        """Add a company preference. Usage: !addcompany discord"""
+        user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
+        user_prefs.add_company(company)
+        self.storage_service.save_user_preferences(user_prefs)
+        
+        embed = discord.Embed(
+            title="🏢 Company Added!",
+            description=f"Added **{company}** to your company preferences",
+            color=0x00ff00
+        )
+        embed.add_field(name="Your Companies", value=", ".join(user_prefs.companies))
+        await ctx.send(embed=embed)
+    
+    @commands.command(name="clearpreferences")
+    async def clear_preferences(self, ctx):
+        """Clear all your job preferences"""
+        user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
+        user_prefs.categories = []
+        user_prefs.locations = []
+        user_prefs.companies = []
+        self.storage_service.save_user_preferences(user_prefs)
+        
+        embed = discord.Embed(
+            title="🗑️ Preferences Cleared!",
+            description="All your job preferences have been cleared",
+            color=0x00ff00
+        )
+        await ctx.send(embed=embed)
+    
+    @commands.command(name="help")
+    async def help_command(self, ctx):
+        """Show help information"""
+        embed = discord.Embed(
+            title="🤖 Job Hunt Bot Help",
+            description="Here are the available commands:",
+            color=0x0099ff
+        )
+        
+        commands_info = [
+            ("!checknow", "Manually check for new jobs"),
+            ("!dumpjobs", "Show all current job listings"),
+            ("!subscribe [category]", "Subscribe to job categories"),
+            ("!unsubscribe [category]", "Unsubscribe from job categories"),
+            ("!preferences", "Show your current preferences"),
+            ("!addlocation [location]", "Add location preference"),
+            ("!addcompany [company]", "Add company preference"),
+            ("!clearpreferences", "Clear all preferences"),
+            ("!welcome", "Send yourself a welcome message"),
+            ("!help", "Show this help message")
+        ]
+        
+        # Admin commands (only show if user has permissions)
+        if ctx.author.guild_permissions.manage_messages:
+            admin_commands = [
+                ("!postguide", "Post guide embed to current channel"),
+                ("!postguidetochannel [id]", "Post guide embed to specific channel"),
+                ("!postguidetoconfig", "Post guide embed to configured guide channel")
+            ]
+            commands_info.extend(admin_commands)
+        
+        for cmd, desc in commands_info:
+            embed.add_field(name=cmd, value=desc, inline=False)
+        
+        embed.add_field(
+            name="💡 Tip", 
+            value="Use `!subscribe` without a category to see available options!",
+            inline=False
+        )
+        
+        await ctx.send(embed=embed)
+    
+    @commands.command(name="postguide")
+    @commands.has_permissions(manage_messages=True)  # Only admins can post the guide
+    async def post_guide(self, ctx):
+        """Post the comprehensive guide embed to the channel"""
+        embed = discord.Embed(
+            title="🤖 Job Hunt Buddy - Complete Guide",
+            description="Welcome to Job Hunt Buddy! This bot automatically monitors job postings and sends personalized notifications.",
+            color=0x0099ff,
+            url="https://github.com/yourusername/jobhuntbuddy"  # Replace with your repo URL
+        )
+        
+        # Quick Start Section
+        embed.add_field(
+            name="🚀 Quick Start",
+            value="```\n!subscribe software engineer\n!addlocation \"San Francisco\"\n!checknow\n```",
+            inline=False
+        )
+        
+        # Core Commands
+        embed.add_field(
+            name="🔍 Core Commands",
+            value="• `!checknow` - Check for new jobs\n• `!dumpjobs` - Show all current jobs\n• `!preferences` - View your settings",
+            inline=True
+        )
+        
+        # Preference Commands
+        embed.add_field(
+            name="⚙️ Preference Commands",
+            value="• `!subscribe [category]` - Subscribe to job types\n• `!addlocation [location]` - Add location filter\n• `!addcompany [company]` - Add company filter",
+            inline=True
+        )
+        
+        # Available Categories
+        categories_text = "• " + "\n• ".join(Config.DEFAULT_CATEGORIES[:6])  # Show first 6
+        embed.add_field(
+            name="📋 Popular Categories",
+            value=categories_text,
+            inline=True
+        )
+        
+        # Supported Companies
+        embed.add_field(
+            name="🏢 Supported Companies",
+            value="• Discord\n• Reddit\n• Monarch Money",
+            inline=True
+        )
+        
+        # How it works
+        embed.add_field(
+            name="🔄 How It Works",
+            value="• Checks for new jobs every 2 hours\n• Filters based on your preferences\n• Sends notifications to this channel\n• No duplicates - each job posted once",
+            inline=False
+        )
+        
+        # Pro Tips
+        embed.add_field(
+            name="💡 Pro Tips",
+            value="• Use `!subscribe` to see all categories\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Check `!help` for full command list",
+            inline=False
+        )
+        
+        embed.set_footer(text="Job Hunt Buddy v1.0 - Built with ❤️ for job seekers")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1234567890.png")  # Optional: Add bot avatar
+        
+        await ctx.send(embed=embed)
+    
+    @commands.command(name="postguidetochannel")
+    @commands.has_permissions(manage_messages=True)  # Only admins can post the guide
+    async def post_guide_to_channel(self, ctx, channel_id: int = None):
+        """Post the comprehensive guide embed to a specific channel"""
+        if channel_id is None:
+            # Use the configured guide channel ID if available
+            if Config.GUIDE_CHANNEL_ID != 0:
+                channel_id = Config.GUIDE_CHANNEL_ID
+                await ctx.send(f"📝 Using configured guide channel: <#{channel_id}>")
+            else:
+                await ctx.send("❌ Please provide a channel ID. Usage: `!postguidetochannel 1390559452599685130`")
+                return
+        
+        try:
+            target_channel = self.bot.get_channel(channel_id)
+            if not target_channel:
+                await ctx.send(f"❌ Could not find channel with ID: {channel_id}")
+                return
+            
+            embed = discord.Embed(
+                title="🤖 Job Hunt Buddy - Complete Guide",
+                description="Welcome to Job Hunt Buddy! This bot automatically monitors job postings and sends personalized notifications.",
+                color=0x0099ff,
+                url="https://github.com/yourusername/jobhuntbuddy"  # Replace with your repo URL
+            )
+            
+            # Quick Start Section
+            embed.add_field(
+                name="🚀 Quick Start",
+                value="```\n!subscribe software engineer\n!addlocation \"San Francisco\"\n!checknow\n```",
+                inline=False
+            )
+            
+            # Core Commands
+            embed.add_field(
+                name="🔍 Core Commands",
+                value="• `!checknow` - Check for new jobs\n• `!dumpjobs` - Show all current jobs\n• `!preferences` - View your settings",
+                inline=True
+            )
+            
+            # Preference Commands
+            embed.add_field(
+                name="⚙️ Preference Commands",
+                value="• `!subscribe [category]` - Subscribe to job types\n• `!addlocation [location]` - Add location filter\n• `!addcompany [company]` - Add company filter",
+                inline=True
+            )
+            
+            # Available Categories
+            categories_text = "• " + "\n• ".join(Config.DEFAULT_CATEGORIES[:6])  # Show first 6
+            embed.add_field(
+                name="📋 Popular Categories",
+                value=categories_text,
+                inline=True
+            )
+            
+            # Supported Companies
+            embed.add_field(
+                name="🏢 Supported Companies",
+                value="• Discord\n• Reddit\n• Monarch Money",
+                inline=True
+            )
+            
+            # How it works
+            embed.add_field(
+                name="🔄 How It Works",
+                value="• Checks for new jobs every 2 hours\n• Filters based on your preferences\n• Sends notifications to this channel\n• No duplicates - each job posted once",
+                inline=False
+            )
+            
+            # Pro Tips
+            embed.add_field(
+                name="💡 Pro Tips",
+                value="• Use `!subscribe` to see all categories\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Check `!help` for full command list",
+                inline=False
+            )
+            
+            embed.set_footer(text="Job Hunt Buddy v1.0 - Built with ❤️ for job seekers")
+            embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1234567890.png")  # Optional: Add bot avatar
+            
+            await target_channel.send(embed=embed)
+            await ctx.send(f"✅ Guide posted to <#{channel_id}>")
+            
+        except Exception as e:
+            await ctx.send(f"❌ Error posting guide: {e}")
+    
+    @commands.command(name="postguidetoconfig")
+    @commands.has_permissions(manage_messages=True)  # Only admins can post the guide
+    async def post_guide_to_config(self, ctx):
+        """Post the comprehensive guide embed to the configured guide channel"""
+        if Config.GUIDE_CHANNEL_ID == 0:
+            await ctx.send("❌ GUIDE_CHANNEL_ID not configured in .env file")
+            return
+        
+        try:
+            target_channel = self.bot.get_channel(Config.GUIDE_CHANNEL_ID)
+            if not target_channel:
+                await ctx.send(f"❌ Could not find configured guide channel: {Config.GUIDE_CHANNEL_ID}")
+                return
+            
+            embed = discord.Embed(
+                title="🤖 Job Hunt Buddy - Complete Guide",
+                description="Welcome to Job Hunt Buddy! This bot automatically monitors job postings and sends personalized notifications.",
+                color=0x0099ff,
+                url="https://github.com/yourusername/jobhuntbuddy"  # Replace with your repo URL
+            )
+            
+            # Quick Start Section
+            embed.add_field(
+                name="🚀 Quick Start",
+                value="```\n!subscribe software engineer\n!addlocation \"San Francisco\"\n!checknow\n```",
+                inline=False
+            )
+            
+            # Core Commands
+            embed.add_field(
+                name="🔍 Core Commands",
+                value="• `!checknow` - Check for new jobs\n• `!dumpjobs` - Show all current jobs\n• `!preferences` - View your settings",
+                inline=True
+            )
+            
+            # Preference Commands
+            embed.add_field(
+                name="⚙️ Preference Commands",
+                value="• `!subscribe [category]` - Subscribe to job types\n• `!addlocation [location]` - Add location filter\n• `!addcompany [company]` - Add company filter",
+                inline=True
+            )
+            
+            # Available Categories
+            categories_text = "• " + "\n• ".join(Config.DEFAULT_CATEGORIES[:6])  # Show first 6
+            embed.add_field(
+                name="📋 Popular Categories",
+                value=categories_text,
+                inline=True
+            )
+            
+            # Supported Companies
+            embed.add_field(
+                name="🏢 Supported Companies",
+                value="• Discord\n• Reddit\n• Monarch Money",
+                inline=True
+            )
+            
+            # How it works
+            embed.add_field(
+                name="🔄 How It Works",
+                value="• Checks for new jobs every 2 hours\n• Filters based on your preferences\n• Sends notifications to this channel\n• No duplicates - each job posted once",
+                inline=False
+            )
+            
+            # Pro Tips
+            embed.add_field(
+                name="💡 Pro Tips",
+                value="• Use `!subscribe` to see all categories\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Check `!help` for full command list",
+                inline=False
+            )
+            
+            embed.set_footer(text="Job Hunt Buddy v1.0 - Built with ❤️ for job seekers")
+            embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1234567890.png")  # Optional: Add bot avatar
+            
+            await target_channel.send(embed=embed)
+            await ctx.send(f"✅ Guide posted to configured channel: <#{Config.GUIDE_CHANNEL_ID}>")
+            
+        except Exception as e:
+            await ctx.send(f"❌ Error posting guide: {e}")
+    
+    @commands.command(name="welcome")
+    async def send_welcome(self, ctx):
+        """Send a welcome message to the user (can be used by admins or users)"""
+        await self._send_welcome_message(ctx.author)
+    
+    async def _send_welcome_message(self, user):
+        """Send a welcome message to a specific user"""
+        embed = discord.Embed(
+            title="🎉 Welcome to Job Hunt Buddy!",
+            description=f"Hi {user.mention}! I'm here to help you find your next job opportunity.",
+            color=0x00ff00
+        )
+        
+        embed.add_field(
+            name="🚀 Get Started",
+            value="1. **Subscribe to job categories**: `!subscribe software engineer`\n2. **Add location preferences**: `!addlocation \"San Francisco\"`\n3. **Check for jobs**: `!checknow`",
+            inline=False
+        )
+        
+        embed.add_field(
+            name="📋 Popular Commands",
+            value="• `!subscribe` - See available job categories\n• `!preferences` - View your current settings\n• `!help` - Show all commands\n• `!dumpjobs` - See all current openings",
+            inline=False
+        )
+        
+        embed.add_field(
+            name="💡 Quick Tips",
+            value="• I check for new jobs every 2 hours automatically\n• You'll only see jobs that match your preferences\n• Use `!clearpreferences` to see all jobs\n• Each job is posted only once",
+            inline=False
+        )
+        
+        embed.set_footer(text="Need help? Ask an admin or use !help for more commands")
+        
+        try:
+            await user.send(embed=embed)
+            return True
+        except discord.Forbidden:
+            # User has DMs disabled, can't send welcome message
+            return False 

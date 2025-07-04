@@ -1,0 +1,166 @@
+🤖 JOB HUNT BUDDY - DISCORD USAGE GUIDE
+=====================================
+
+Welcome to Job Hunt Buddy! This bot automatically monitors job postings from Discord, Reddit, and Monarch Money, and sends you personalized notifications based on your preferences.
+
+📋 AVAILABLE COMMANDS
+====================
+
+🔍 JOB CHECKING
+--------------
+!checknow          - Manually check for new jobs right now
+!dumpjobs          - Show all current job listings from all companies
+
+⚙️ PREFERENCES MANAGEMENT
+-------------------------
+!subscribe         - Show available job categories to subscribe to
+!subscribe [category] - Subscribe to a specific job category
+!unsubscribe       - Show your current subscriptions
+!unsubscribe [category] - Unsubscribe from a specific category
+!preferences       - View all your current preferences
+!addlocation [location] - Add a location preference (e.g., "San Francisco")
+!addcompany [company] - Add a company preference (e.g., "discord")
+!clearpreferences  - Clear all your preferences
+!welcome           - Send yourself a welcome message
+!help              - Show this help message
+
+🛠️ ADMIN COMMANDS (Admin only)
+------------------------------
+!postguide         - Post guide embed to current channel
+!postguidetochannel [id] - Post guide embed to specific channel
+!postguidetoconfig - Post guide embed to configured guide channel
+
+📋 AVAILABLE JOB CATEGORIES
+===========================
+• software engineer
+• frontend
+• backend
+• full stack
+• product manager
+• marketing
+• design
+• data scientist
+• devops
+• qa
+• test engineer
+
+🏢 SUPPORTED COMPANIES
+======================
+• Discord
+• Reddit
+• Monarch Money
+
+💡 QUICK START GUIDE
+====================
+
+1. SUBSCRIBE TO JOB CATEGORIES:
+   ```
+   !subscribe software engineer
+   !subscribe frontend
+   !subscribe product manager
+   ```
+
+2. ADD LOCATION PREFERENCES:
+   ```
+   !addlocation "San Francisco"
+   !addlocation "Remote"
+   !addlocation "New York"
+   ```
+
+3. ADD COMPANY PREFERENCES:
+   ```
+   !addcompany discord
+   !addcompany reddit
+   !addcompany monarch
+   ```
+
+4. CHECK YOUR PREFERENCES:
+   ```
+   !preferences
+   ```
+
+5. MANUALLY CHECK FOR JOBS:
+   ```
+   !checknow
+   ```
+
+📝 EXAMPLES
+===========
+
+Example 1: Subscribe to frontend jobs
+```
+!subscribe frontend
+```
+Response: "✅ Subscribed! You're now subscribed to frontend jobs"
+
+Example 2: Add location preference
+```
+!addlocation "San Francisco"
+```
+Response: "📍 Location Added! Added San Francisco to your location preferences"
+
+Example 3: Check current preferences
+```
+!preferences
+```
+Response: Shows an embed with all your current preferences
+
+Example 4: Get all current jobs
+```
+!dumpjobs
+```
+Response: Shows all current job listings from all companies
+
+🔄 HOW IT WORKS
+===============
+
+• The bot automatically checks for new jobs every 2 hours
+• When new jobs are found, they're posted to the channel
+• Jobs are filtered based on your preferences (if any)
+• Duplicate jobs are automatically filtered out
+• You can manually check for jobs anytime with !checknow
+
+⚙️ PREFERENCE LOGIC
+===================
+
+• CATEGORIES: Jobs must contain your subscribed categories in the title
+• LOCATIONS: Jobs must contain your location preferences in the location field
+• COMPANIES: Jobs must be from your preferred companies
+• If you have no preferences set, you'll see ALL jobs
+• All preferences are case-insensitive
+
+🔧 TROUBLESHOOTING
+==================
+
+Q: I'm not getting any job notifications
+A: Try !checknow to manually check, or !preferences to verify your settings
+
+Q: I'm getting too many notifications
+A: Use !subscribe to add more specific categories, or !addlocation to filter by location
+
+Q: I want to see all jobs regardless of preferences
+A: Use !clearpreferences to remove all filters
+
+Q: How do I see what categories are available?
+A: Use !subscribe without any arguments to see the full list
+
+📞 NEED HELP?
+=============
+
+If you're having issues:
+1. Try !help for a quick command reference
+2. Check your preferences with !preferences
+3. Use !checknow to test if the bot is working
+4. Ask a server admin if the bot appears offline
+
+🎯 PRO TIPS
+===========
+
+• Use specific categories like "frontend" instead of "engineer" for better filtering
+• Add "Remote" as a location if you're open to remote work
+• Subscribe to multiple categories to cast a wider net
+• Use !dumpjobs to see what's currently available before setting preferences
+• The bot automatically filters out duplicate jobs, so you won't see the same job twice
+
+---
+🤖 Job Hunt Buddy v1.0 - Built with ❤️ for job seekers 

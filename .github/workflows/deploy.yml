@@ -18,5 +18,5 @@ jobs:
           cd ~/Development/jobhuntbot
           git pull --no-rebase origin main
           source ./venv/bin/activate
-          pkill -f job_hunt_bot.py || true
+          pkill -f main.py || true
           sudo systemctl restart jobhuntbot
