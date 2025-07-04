@@ -169,9 +169,9 @@ if __name__ == "__main__":
     if passed == total:
         print("🎉 All tests passed! New features are ready to use.")
         print("\n📋 Usage Instructions:")
-        print("1. Use !postguide to post the guide in any channel")
-        print("2. Use !postguidetochannel 1390559452599685130 to post to specific channel")
-        print("3. New users will automatically receive welcome messages")
-        print("4. Users can use !welcome to get a welcome message anytime")
+        print("1. Use !postguide to post the guide in your guide channel")
+        print("2. New users will automatically receive welcome messages")
+        print("3. Users can use !welcome to get a welcome message anytime")
+        print("4. Users can use !bothelp to get a list of all commands")
     else:
         print("⚠️  Some tests failed. Please check the errors above.") 

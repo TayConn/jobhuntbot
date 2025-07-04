@@ -153,7 +153,7 @@ GUIDE_CHANNEL_ID=channel_for_bot_usage_instructions
 - `MAIN_CHANNEL_ID` - Channel where job notifications are posted and users join
 
 **Optional:**
-- `GUIDE_CHANNEL_ID` - Channel where the guide embed is posted (for `!postguidetoconfig`)
+- `GUIDE_CHANNEL_ID` - Channel where the guide embed is posted (for `!postguide`)
 
 ## 📋 Available Job Categories
 

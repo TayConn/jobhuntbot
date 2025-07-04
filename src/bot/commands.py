@@ -228,9 +228,7 @@ class JobBotCommands(commands.Cog):
         if ctx.guild is not None:
             if hasattr(ctx.author, "guild_permissions") and ctx.author.guild_permissions.manage_messages:
                 admin_commands = [
-                    ("!postguide", "Post guide embed to current channel"),
-                    ("!postguidetochannel [id]", "Post guide embed to specific channel"),
-                    ("!postguidetoconfig", "Post guide embed to configured guide channel")
+                    ("!postguide", "Post guide embed to configured guide channel")
                 ]
                 commands_info.extend(admin_commands)
         else:
@@ -257,16 +255,19 @@ class JobBotCommands(commands.Cog):
         )
 
         await ctx.send(embed=embed)
-    
-    @commands.command(name="postguide")
-    @commands.has_permissions(manage_messages=True)  # Only admins can post the guide
-    async def post_guide(self, ctx):
         """Post the comprehensive guide embed to the channel"""
         embed = discord.Embed(
             title="🤖 Job Hunt Buddy - Complete Guide",
             description="Welcome to Job Hunt Buddy! This bot automatically monitors job postings and sends personalized notifications.",
             color=0x0099ff,
             url="https://github.com/yourusername/jobhuntbuddy"  # Replace with your repo URL
+        )
+
+        # Privacy Tip
+        embed.add_field(
+            name="🔒 Privacy Tip",
+            value="For privacy, DM the bot directly to set your job preferences and use personal commands (like `!subscribe`, `!preferences`, etc.).",
+            inline=False
         )
         
         # Quick Start Section
@@ -318,98 +319,14 @@ class JobBotCommands(commands.Cog):
             value="• Use `!subscribe` to see all categories\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Check `!bothelp` for full command list",
             inline=False
         )
+
         
         embed.set_footer(text="Job Hunt Buddy v1.0 - Built with ❤️ for job seekers")
         embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1234567890.png")  # Optional: Add bot avatar
         
         await ctx.send(embed=embed)
-    
-    @commands.command(name="postguidetochannel")
-    @commands.has_permissions(manage_messages=True)  # Only admins can post the guide
-    async def post_guide_to_channel(self, ctx, channel_id: int = None):
-        """Post the comprehensive guide embed to a specific channel"""
-        if channel_id is None:
-            # Use the configured guide channel ID if available
-            if Config.GUIDE_CHANNEL_ID != 0:
-                channel_id = Config.GUIDE_CHANNEL_ID
-                await ctx.send(f"📝 Using configured guide channel: <#{channel_id}>")
-            else:
-                await ctx.send("❌ Please provide a channel ID. Usage: `!postguidetochannel 1390559452599685130`")
-                return
-        
-        try:
-            target_channel = self.bot.get_channel(channel_id)
-            if not target_channel:
-                await ctx.send(f"❌ Could not find channel with ID: {channel_id}")
-                return
-            
-            embed = discord.Embed(
-                title="🤖 Job Hunt Buddy - Complete Guide",
-                description="Welcome to Job Hunt Buddy! This bot automatically monitors job postings and sends personalized notifications.",
-                color=0x0099ff,
-                url="https://github.com/yourusername/jobhuntbuddy"  # Replace with your repo URL
-            )
-            
-            # Quick Start Section
-            embed.add_field(
-                name="🚀 Quick Start",
-                value="```\n!subscribe software engineer\n!addlocation \"San Francisco\"\n!checknow\n```",
-                inline=False
-            )
-            
-            # Core Commands
-            embed.add_field(
-                name="🔍 Core Commands",
-                value="• `!checknow` - Check for new jobs\n• `!dumpjobs` - Show all current jobs\n• `!preferences` - View your settings",
-                inline=True
-            )
-            
-            # Preference Commands
-            embed.add_field(
-                name="⚙️ Preference Commands",
-                value="• `!subscribe [category]` - Subscribe to job types\n• `!addlocation [location]` - Add location filter\n• `!addcompany [company]` - Add company filter",
-                inline=True
-            )
-            
-            # Available Categories
-            categories_text = "• " + "\n• ".join(Config.DEFAULT_CATEGORIES[:6])  # Show first 6
-            embed.add_field(
-                name="📋 Popular Categories",
-                value=categories_text,
-                inline=True
-            )
-            
-            # Supported Companies
-            embed.add_field(
-                name="🏢 Supported Companies",
-                value="• Discord\n• Reddit\n• Monarch Money",
-                inline=True
-            )
-            
-            # How it works
-            embed.add_field(
-                name="🔄 How It Works",
-                value="• Checks for new jobs every 2 hours\n• Filters based on your preferences\n• Sends notifications to this channel\n• No duplicates - each job posted once",
-                inline=False
-            )
-            
-            # Pro Tips
-            embed.add_field(
-                name="💡 Pro Tips",
-                value="• Use `!subscribe` to see all categories\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Check `!help` for full command list",
-                inline=False
-            )
-            
-            embed.set_footer(text="Job Hunt Buddy v1.0 - Built with ❤️ for job seekers")
-            embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1234567890.png")  # Optional: Add bot avatar
-            
-            await target_channel.send(embed=embed)
-            await ctx.send(f"✅ Guide posted to <#{channel_id}>")
-            
-        except Exception as e:
-            await ctx.send(f"❌ Error posting guide: {e}")
-    
-    @commands.command(name="postguidetoconfig")
+
+    @commands.command(name="postguide")
     @commands.has_permissions(manage_messages=True)  # Only admins can post the guide
     async def post_guide_to_config(self, ctx):
         """Post the comprehensive guide embed to the configured guide channel"""
@@ -477,6 +394,13 @@ class JobBotCommands(commands.Cog):
             embed.add_field(
                 name="💡 Pro Tips",
                 value="• Use `!subscribe` to see all categories\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Check `!bothelp` for full command list",
+                inline=False
+            )
+            
+            # Privacy Tip
+            embed.add_field(
+                name="🔒 Privacy Tip",
+                value="For privacy, DM the bot directly to set your job preferences and use personal commands (like `!subscribe`, `!preferences`, etc.).",
                 inline=False
             )
             

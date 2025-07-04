@@ -26,9 +26,7 @@ Welcome to Job Hunt Buddy! This bot automatically monitors job postings from Dis
 
 🛠️ ADMIN COMMANDS (Admin only)
 ------------------------------
-!postguide         - Post guide embed to current channel
-!postguidetochannel [id] - Post guide embed to specific channel
-!postguidetoconfig - Post guide embed to configured guide channel
+!postguide - Post guide embed to configured guide channel
 
 📋 AVAILABLE JOB CATEGORIES
 ===========================
