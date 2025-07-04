@@ -36,5 +36,5 @@ python job_hunt_bot.py
 ```DISCORD_BOT_TOKEN=your_token_here
 DISCORD_CHANNEL_ID=your_channel_id_here```
 
-## CI/CD
+## CI/CD pipeline
 If desired, set up a GitHub Actions CI/CD pipeline to run the jobs straight to your server running the bot. 
