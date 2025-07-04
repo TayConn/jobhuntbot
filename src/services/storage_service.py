@@ -48,10 +48,19 @@ class StorageService:
         try:
             with open(self.user_preferences_file, "r") as f:
                 data = json.load(f)
-                return {
-                    int(user_id): UserPreferences.from_dict(pref_data)
-                    for user_id, pref_data in data.items()
-                }
+                # Migrate any dicts to UserPreferences
+                migrated = False
+                result = {}
+                for user_id, pref_data in data.items():
+                    if isinstance(pref_data, dict):
+                        result[int(user_id)] = UserPreferences.from_dict(pref_data)
+                        migrated = True
+                    else:
+                        result[int(user_id)] = pref_data
+                if migrated:
+                    # Save back the migrated data
+                    self.save_user_preferences(result)
+                return result
         except FileNotFoundError:
             return {}
     

@@ -249,3 +249,13 @@ The bot now automatically checks and installs missing dependencies on startup. J
 - ✅ Automatic updates when requirements.txt changes
 - ✅ Works across different deployment environments
 - ✅ Graceful error handling and logging
+
+## Server Onboarding & Verification
+
+- How to configure GUIDE_CHANNEL_ID
+- How to set up the 'verified' role and permissions
+- How to restrict @everyone to only see the guide channel
+- How to run !postterms to post the onboarding message
+- How users get verified by reacting with ✅
+- What happens after verification (access to main channels, DM welcome)
+- Any troubleshooting tips for permissions/roles
