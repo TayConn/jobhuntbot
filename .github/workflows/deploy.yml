@@ -6,21 +6,17 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Deploy to Raspberry Pi
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: 192.168.1.224
-          username: taylor
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd ~/Development/jobhuntbot
-            git pull origin main
-            source venv/bin/activate
-            nohup python job_hunt_bot.py > output.log 2>&1 &
+        run: |
+          cd ~/Development/jobhuntbot
+          git pull origin main
+          source venv/bin/activate
+	  pkill -f job_hunt_bot.py || true
+          nohup python job_hunt_bot.py > output.log 2>&1 &
 
