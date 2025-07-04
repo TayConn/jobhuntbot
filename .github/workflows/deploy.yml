@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: self-hosted  
 
     steps:
       - name: Checkout code
@@ -14,9 +14,9 @@ jobs:
 
       - name: Deploy to Raspberry Pi
         run: |
+          set -e
           cd ~/Development/jobhuntbot
           git pull origin main
-          source venv/bin/activate
-	  pkill -f job_hunt_bot.py || true
+          source ./venv/bin/activate
+          pkill -f job_hunt_bot.py || true
           nohup python job_hunt_bot.py > output.log 2>&1 &
-
