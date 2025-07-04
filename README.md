@@ -45,7 +45,7 @@ python main.py
 - `!addlocation [location]` - Add location preference
 - `!addcompany [company]` - Add company preference
 - `!clearpreferences` - Clear all preferences
-- `!help` - Show all available commands
+- `!bothelp` - Show all available commands
 
 ## 🏗️ Project Structure
 

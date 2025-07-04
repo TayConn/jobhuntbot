@@ -202,7 +202,7 @@ class JobBotCommands(commands.Cog):
         )
         await ctx.send(embed=embed)
     
-    @commands.command(name="help")
+    @commands.command(name="bothelp")
     async def help_command(self, ctx):
         """Show help information"""
         embed = discord.Embed(
@@ -221,7 +221,7 @@ class JobBotCommands(commands.Cog):
             ("!addcompany [company]", "Add company preference"),
             ("!clearpreferences", "Clear all preferences"),
             ("!welcome", "Send yourself a welcome message"),
-            ("!help", "Show this help message")
+            ("!bothelp", "Show this help message")
         ]
         
         # Admin commands (only show if user has permissions)
@@ -239,6 +239,12 @@ class JobBotCommands(commands.Cog):
         embed.add_field(
             name="💡 Tip", 
             value="Use `!subscribe` without a category to see available options!",
+            inline=False
+        )
+        
+        embed.add_field(
+            name="ℹ️ Note", 
+            value="Use `!help` for Discord's built-in help, or `!bothelp` for bot-specific commands.",
             inline=False
         )
         
@@ -301,7 +307,7 @@ class JobBotCommands(commands.Cog):
         # Pro Tips
         embed.add_field(
             name="💡 Pro Tips",
-            value="• Use `!subscribe` to see all categories\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Check `!help` for full command list",
+            value="• Use `!subscribe` to see all categories\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Check `!bothelp` for full command list",
             inline=False
         )
         
@@ -462,7 +468,7 @@ class JobBotCommands(commands.Cog):
             # Pro Tips
             embed.add_field(
                 name="💡 Pro Tips",
-                value="• Use `!subscribe` to see all categories\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Check `!help` for full command list",
+                value="• Use `!subscribe` to see all categories\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Check `!bothelp` for full command list",
                 inline=False
             )
             
@@ -496,7 +502,7 @@ class JobBotCommands(commands.Cog):
         
         embed.add_field(
             name="📋 Popular Commands",
-            value="• `!subscribe` - See available job categories\n• `!preferences` - View your current settings\n• `!help` - Show all commands\n• `!dumpjobs` - See all current openings",
+            value="• `!subscribe` - See available job categories\n• `!preferences` - View your current settings\n• `!bothelp` - Show all commands\n• `!dumpjobs` - See all current openings",
             inline=False
         )
         
@@ -506,7 +512,7 @@ class JobBotCommands(commands.Cog):
             inline=False
         )
         
-        embed.set_footer(text="Need help? Ask an admin or use !help for more commands")
+        embed.set_footer(text="Need help? Ask an admin or use !bothelp for more commands")
         
         try:
             await user.send(embed=embed)

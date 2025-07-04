@@ -22,7 +22,7 @@ Welcome to Job Hunt Buddy! This bot automatically monitors job postings from Dis
 !addcompany [company] - Add a company preference (e.g., "discord")
 !clearpreferences  - Clear all your preferences
 !welcome           - Send yourself a welcome message
-!help              - Show this help message
+!bothelp           - Show this help message
 
 🛠️ ADMIN COMMANDS (Admin only)
 ------------------------------
@@ -148,7 +148,7 @@ A: Use !subscribe without any arguments to see the full list
 =============
 
 If you're having issues:
-1. Try !help for a quick command reference
+1. Try !bothelp for a quick command reference
 2. Check your preferences with !preferences
 3. Use !checknow to test if the bot is working
 4. Ask a server admin if the bot appears offline

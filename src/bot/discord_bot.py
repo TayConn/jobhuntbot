@@ -44,7 +44,7 @@ class JobHuntBot:
         async def on_command_error(ctx, error):
             """Handle command errors"""
             if isinstance(error, commands.CommandNotFound):
-                await ctx.send("❌ Command not found. Use `!help` to see available commands.")
+                await ctx.send("❌ Command not found. Use `!bothelp` to see available commands.")
             elif isinstance(error, commands.MissingRequiredArgument):
                 await ctx.send(f"❌ Missing required argument: {error.param}")
             else:

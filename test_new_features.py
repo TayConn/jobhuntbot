@@ -81,7 +81,7 @@ def test_welcome_message():
         
         embed.add_field(
             name="📋 Popular Commands",
-            value="• `!subscribe` - See available job categories\n• `!preferences` - View your current settings\n• `!help` - Show all commands\n• `!dumpjobs` - See all current openings",
+            value="• `!subscribe` - See available job categories\n• `!preferences` - View your current settings\n• `!bothelp` - Show all commands\n• `!dumpjobs` - See all current openings",
             inline=False
         )
         
