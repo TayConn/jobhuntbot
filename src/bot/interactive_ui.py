@@ -7,8 +7,8 @@ from ..services.storage_service import StorageService
 from ..utils.config import Config
 
 # --- EMOJI CONSTANTS ---
-NEXT_EMOJI = "→"  # U+2192
-PENCIL_EMOJI = "✏"  # U+270F
+NEXT_EMOJI = "✅"  # U+2705
+PENCIL_EMOJI = "📝"  # U+1F4DD
 CANCEL_EMOJI = "❌"  # U+274C
 
 class InteractiveUI:
@@ -155,7 +155,7 @@ class DumpJobsSession(UISession):
             else:
                 emoji = "🔟"
             embed.add_field(name=emoji, value=category, inline=False)
-        embed.set_footer(text="Step 1 of 3")
+        embed.set_footer(text="When done, click ✅. ❌ to exit prompt.")
         msg = await self.ctx.send(embed=embed)
         self.messages.append(msg)
         for i in range(len(categories)):
@@ -172,18 +172,16 @@ class DumpJobsSession(UISession):
     async def send_location_message(self):
         embed = discord.Embed(
             title="🌍 Step 2: Select Job Locations",
-            description=(
-                "React to select locations. You can select multiple.\n"
-                "To add a custom location, click ✏️ and type it in the chat (comma-separated for multiple).\n"
-                "Example: `Berlin, Paris, Tokyo`\nWhen done, click 🟢. ❌ to exit prompt."
-            ),
+            description="React to select locations. You can select multiple.\n"
+                        "To add a custom location, click 📝 and type it in the chat (comma-separated for multiple).\n"
+                        "Example: `Berlin, Paris, Tokyo`\nWhen done, click 🟢. ❌ to exit prompt.",
             color=0x0099ff
         )
         locations = ["Remote", "San Francisco", "New York", "Los Angeles", "Seattle", "Austin", "Boston", "Chicago"]
         for i, location in enumerate(locations):
             embed.add_field(name=f"{chr(65+i)}️⃣", value=location, inline=False)
-        embed.add_field(name="✏️", value="Custom Location", inline=False)
-        embed.set_footer(text="Step 2 of 3")
+        embed.add_field(name="📝", value="Custom Location", inline=False)
+        embed.set_footer(text="When done, click ✅. ❌ to exit prompt.")
         msg = await self.ctx.send(embed=embed)
         self.messages.append(msg)
         for i in range(len(locations)):
@@ -203,7 +201,7 @@ class DumpJobsSession(UISession):
         companies = ["Discord", "Reddit", "Monarch Money"]
         for i, company in enumerate(companies):
             embed.add_field(name=f"{chr(65+i)}️⃣", value=company, inline=False)
-        embed.set_footer(text="Step 3 of 3")
+        embed.set_footer(text="When done, click ✅. ❌ to exit prompt.")
         msg = await self.ctx.send(embed=embed)
         self.messages.append(msg)
         for i in range(len(companies)):
@@ -306,7 +304,7 @@ class DumpJobsSession(UISession):
     async def prompt_custom_location(self):
         """Prompt for custom location input"""
         prompt = await self.ctx.send(
-            "✏️ Please type your custom location(s) in the chat. Separate multiple locations with commas.\nExample: `Berlin, Paris, Tokyo`"
+            "📝 Please type your custom location(s) in the chat. Separate multiple locations with commas.\nExample: `Berlin, Paris, Tokyo`"
         )
         self.ui_system.waiting_for_custom_location[self.user_id] = self
         self.messages.append(prompt)
@@ -437,7 +435,7 @@ class SubscribeSession(UISession):
             else:
                 emoji = "🔟"
             embed.add_field(name=emoji, value=category, inline=False)
-        embed.set_footer(text="Step 1 of 1")
+        embed.set_footer(text="When done, click ✅. ❌ to exit prompt.")
         msg = await self.ctx.send(embed=embed)
         self.messages.append(msg)
         for i in range(len(categories)):
@@ -516,7 +514,7 @@ class UnsubscribeSession(UISession):
             else:
                 emoji = "🔟"
             embed.add_field(name=emoji, value=category, inline=False)
-        embed.set_footer(text="Step 1 of 1")
+        embed.set_footer(text="When done, click ✅. ❌ to exit prompt.")
         msg = await self.ctx.send(embed=embed)
         self.messages.append(msg)
         for i in range(len(categories)):
@@ -585,18 +583,16 @@ class AddLocationSession(UISession):
     async def send_location_message(self):
         embed = discord.Embed(
             title="🌍 Add Location: Select Locations",
-            description=(
-                "React to select locations to add. You can select multiple.\n"
-                "To add a custom location, click ✏️ and type it in the chat (comma-separated for multiple).\n"
-                "Example: `Berlin, Paris, Tokyo`\nWhen done, click ➡️. ❌ to exit prompt."
-            ),
+            description="React to select locations to add. You can select multiple.\n"
+                        "To add a custom location, click 📝 and type it in the chat (comma-separated for multiple).\n"
+                        "Example: `Berlin, Paris, Tokyo`\nWhen done, click ➡️. ❌ to exit prompt.",
             color=0x0099ff
         )
         locations = ["Remote", "San Francisco", "New York", "Los Angeles", "Seattle", "Austin", "Boston", "Chicago"]
         for i, location in enumerate(locations):
             embed.add_field(name=f"{chr(65+i)}️⃣", value=location, inline=False)
-        embed.add_field(name="✏️", value="Custom Location", inline=False)
-        embed.set_footer(text="Step 1 of 1")
+        embed.add_field(name="📝", value="Custom Location", inline=False)
+        embed.set_footer(text="When done, click ✅. ❌ to exit prompt.")
         msg = await self.ctx.send(embed=embed)
         self.messages.append(msg)
         for i in range(len(locations)):
@@ -630,7 +626,7 @@ class AddLocationSession(UISession):
 
     async def prompt_custom_location(self):
         prompt = await self.ctx.send(
-            "✏️ Please type your custom location(s) in the chat. Separate multiple locations with commas.\nExample: `Berlin, Paris, Tokyo`"
+            "📝 Please type your custom location(s) in the chat. Separate multiple locations with commas.\nExample: `Berlin, Paris, Tokyo`"
         )
         self.ui_system.waiting_for_custom_location[self.user_id] = self
         self.messages.append(prompt)
@@ -683,7 +679,7 @@ class AddCompanySession(UISession):
         companies = ["Discord", "Reddit", "Monarch Money"]
         for i, company in enumerate(companies):
             embed.add_field(name=f"{chr(65+i)}️⃣", value=company, inline=False)
-        embed.set_footer(text="Step 1 of 1")
+        embed.set_footer(text="When done, click ✅. ❌ to exit prompt.")
         msg = await self.ctx.send(embed=embed)
         self.messages.append(msg)
         for i in range(len(companies)):
