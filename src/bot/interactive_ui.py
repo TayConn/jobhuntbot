@@ -118,12 +118,20 @@ class DumpJobsSession(UISession):
         )
         categories = Config.DEFAULT_CATEGORIES[:10]
         for i, category in enumerate(categories):
-            embed.add_field(name=f"{i+1}️⃣", value=category, inline=False)
+            if i < 9:
+                emoji = f"{i+1}️⃣"
+            else:
+                emoji = "🔟"
+            embed.add_field(name=emoji, value=category, inline=False)
         embed.set_footer(text="Step 1 of 3")
         msg = await self.ctx.send(embed=embed)
         self.messages.append(msg)
         for i in range(len(categories)):
-            await msg.add_reaction(f"{i+1}️⃣")
+            if i < 9:
+                emoji = f"{i+1}️⃣"
+            else:
+                emoji = "🔟"
+            await msg.add_reaction(emoji)
         await msg.add_reaction("🟢")
         await msg.add_reaction("❌")
         self.step = 0
@@ -364,12 +372,20 @@ class SubscribeSession(UISession):
         )
         categories = Config.DEFAULT_CATEGORIES[:10]
         for i, category in enumerate(categories):
-            embed.add_field(name=f"{i+1}️⃣", value=category, inline=False)
+            if i < 9:
+                emoji = f"{i+1}️⃣"
+            else:
+                emoji = "🔟"
+            embed.add_field(name=emoji, value=category, inline=False)
         embed.set_footer(text="Step 1 of 1")
         msg = await self.ctx.send(embed=embed)
         self.messages.append(msg)
         for i in range(len(categories)):
-            await msg.add_reaction(f"{i+1}️⃣")
+            if i < 9:
+                emoji = f"{i+1}️⃣"
+            else:
+                emoji = "🔟"
+            await msg.add_reaction(emoji)
         await msg.add_reaction("🟢")
         await msg.add_reaction("❌")
         self.category_msg = msg
@@ -435,12 +451,20 @@ class UnsubscribeSession(UISession):
             color=0x0099ff
         )
         for i, category in enumerate(categories):
-            embed.add_field(name=f"{i+1}️⃣", value=category, inline=False)
+            if i < 9:
+                emoji = f"{i+1}️⃣"
+            else:
+                emoji = "🔟"
+            embed.add_field(name=emoji, value=category, inline=False)
         embed.set_footer(text="Step 1 of 1")
         msg = await self.ctx.send(embed=embed)
         self.messages.append(msg)
         for i in range(len(categories)):
-            await msg.add_reaction(f"{i+1}️⃣")
+            if i < 9:
+                emoji = f"{i+1}️⃣"
+            else:
+                emoji = "🔟"
+            await msg.add_reaction(emoji)
         await msg.add_reaction("🟢")
         await msg.add_reaction("❌")
         self.category_msg = msg
