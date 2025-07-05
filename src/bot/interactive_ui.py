@@ -55,14 +55,11 @@ class InteractiveUI:
             return
         
         session = self.active_sessions[user_id]
-        if session.message_id != payload.message_id:
-            return
         
         # Check if session has expired (30 minutes)
         if datetime.now() - session.created_at > timedelta(minutes=30):
             del self.active_sessions[user_id]
             return
-        
         await session.handle_reaction(payload)
     
     async def handle_message(self, message):
@@ -113,7 +110,7 @@ class DumpJobsSession(UISession):
     async def send_category_message(self):
         embed = discord.Embed(
             title="📋 Step 1: Select Job Categories",
-            description="React to select categories. You can select multiple. When done, click 🟢.",
+            description="React to select categories. You can select multiple. When done, click 🟢. ❌ to exit prompt.",
             color=0x0099ff
         )
         categories = Config.DEFAULT_CATEGORIES[:10]
@@ -143,7 +140,7 @@ class DumpJobsSession(UISession):
             description=(
                 "React to select locations. You can select multiple.\n"
                 "To add a custom location, click ✏️ and type it in the chat (comma-separated for multiple).\n"
-                "Example: `Berlin, Paris, Tokyo`\nWhen done, click 🟢."
+                "Example: `Berlin, Paris, Tokyo`\nWhen done, click 🟢. ❌ to exit prompt."
             ),
             color=0x0099ff
         )
@@ -165,7 +162,7 @@ class DumpJobsSession(UISession):
     async def send_company_message(self):
         embed = discord.Embed(
             title="🏢 Step 3: Select Companies",
-            description="React to select companies. You can select multiple. When done, click 🟢.",
+            description="React to select companies. You can select multiple. When done, click 🟢. ❌ to exit prompt.",
             color=0x0099ff
         )
         companies = ["Discord", "Reddit", "Monarch Money"]
@@ -367,7 +364,7 @@ class SubscribeSession(UISession):
     async def send_category_message(self):
         embed = discord.Embed(
             title="📋 Subscribe: Select Job Categories",
-            description="React to select categories to subscribe. You can select multiple. When done, click 🟢.",
+            description="React to select categories to subscribe. You can select multiple. When done, click 🟢. ❌ to exit prompt.",
             color=0x0099ff
         )
         categories = Config.DEFAULT_CATEGORIES[:10]
@@ -447,7 +444,7 @@ class UnsubscribeSession(UISession):
         categories = user_prefs.categories[:10]
         embed = discord.Embed(
             title="📋 Unsubscribe: Select Categories",
-            description="React to select categories to unsubscribe. You can select multiple. When done, click 🟢.",
+            description="React to select categories to unsubscribe. You can select multiple. When done, click 🟢. ❌ to exit prompt.",
             color=0x0099ff
         )
         for i, category in enumerate(categories):
@@ -528,7 +525,7 @@ class AddLocationSession(UISession):
             description=(
                 "React to select locations to add. You can select multiple.\n"
                 "To add a custom location, click ✏️ and type it in the chat (comma-separated for multiple).\n"
-                "Example: `Berlin, Paris, Tokyo`\nWhen done, click 🟢."
+                "Example: `Berlin, Paris, Tokyo`\nWhen done, click 🟢. ❌ to exit prompt."
             ),
             color=0x0099ff
         )
@@ -617,7 +614,7 @@ class AddCompanySession(UISession):
     async def send_company_message(self):
         embed = discord.Embed(
             title="🏢 Add Company: Select Companies",
-            description="React to select companies to add. You can select multiple. When done, click 🟢.",
+            description="React to select companies to add. You can select multiple. When done, click 🟢. ❌ to exit prompt.",
             color=0x0099ff
         )
         companies = ["Discord", "Reddit", "Monarch Money"]
