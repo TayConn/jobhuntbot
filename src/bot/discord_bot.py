@@ -148,6 +148,15 @@ class JobHuntBot:
             if commands_cog and hasattr(commands_cog, 'interactive_ui'):
                 await commands_cog.interactive_ui.handle_reaction(payload)
 
+        @self.bot.event
+        async def on_message(message):
+            # Let the interactive UI handle custom location input
+            commands_cog = self.bot.get_cog('JobBotCommands')
+            if commands_cog and hasattr(commands_cog, 'interactive_ui'):
+                await commands_cog.interactive_ui.handle_message(message)
+            # Continue processing commands as normal
+            await self.bot.process_commands(message)
+
         # Note: on_member_join event removed due to privileged intent requirement
         # Users can still get welcome messages using the !welcome command
     
