@@ -101,7 +101,7 @@ Response: Bot sends interactive menu with emoji reactions for:
 - 🗂 Categories (backend, frontend, etc.)
 - 🌍 Locations (Remote, San Francisco, etc.)  
 - 🏢 Companies (Discord, Reddit, etc.)
-- 🟢 Done (run search)
+- ➡️ Done (run search)
 - ❌ Cancel
 
 Example 2: Interactive category subscription
@@ -109,14 +109,14 @@ Example 2: Interactive category subscription
 !subscribe
 ```
 Response: Bot sends list of categories with number emojis (1️⃣, 2️⃣, etc.)
-User reacts to select categories, then clicks 🟢 to subscribe.
+User reacts to select categories, then clicks ➡️ to subscribe.
 
 Example 3: Interactive location addition
 ```
 !addlocation
 ```
 Response: Bot sends list of common locations with letter emojis (A️⃣, B️⃣, etc.)
-User reacts to select locations, then clicks 🟢 to add them.
+User reacts to select locations, then clicks ➡️ to add them.
 
 🔄 HOW IT WORKS
 ===============
@@ -176,7 +176,7 @@ If you're having issues:
 • Use the interactive UI for easier preference management
 • Interactive sessions expire after 30 minutes - complete them quickly
 • You can only have one active session at a time - use !cancel if you get stuck
-• The 🟢 (green circle) advances to the next step, 🔄 restarts the flow, ❌ cancels
+• The ➡️ (arrow right) advances to the next step, 🔄 restarts the flow, ❌ cancels
 • Previous step messages are automatically cleaned up to reduce clutter
 • You can still use command arguments for quick actions (e.g., !subscribe backend)
 • Large job search results are automatically sent as files

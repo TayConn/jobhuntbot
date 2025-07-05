@@ -6,6 +6,11 @@ from ..models.user_preferences import UserPreferences
 from ..services.storage_service import StorageService
 from ..utils.config import Config
 
+# --- EMOJI CONSTANTS ---
+NEXT_EMOJI = "→"  # U+2192
+PENCIL_EMOJI = "✏"  # U+270F
+CANCEL_EMOJI = "❌"  # U+274C
+
 class InteractiveUI:
     """Interactive UI system for emoji-based command interactions"""
     
@@ -159,8 +164,8 @@ class DumpJobsSession(UISession):
             else:
                 emoji = "🔟"
             await msg.add_reaction(emoji)
-        await msg.add_reaction("🟢")
-        await msg.add_reaction("❌")
+        await msg.add_reaction(NEXT_EMOJI)
+        await msg.add_reaction(CANCEL_EMOJI)
         self.step = 0
         self.category_msg = msg
     
@@ -183,9 +188,9 @@ class DumpJobsSession(UISession):
         self.messages.append(msg)
         for i in range(len(locations)):
             await msg.add_reaction(f"{chr(65+i)}️⃣")
-        await msg.add_reaction("✏️")
-        await msg.add_reaction("🟢")
-        await msg.add_reaction("❌")
+        await msg.add_reaction(PENCIL_EMOJI)
+        await msg.add_reaction(NEXT_EMOJI)
+        await msg.add_reaction(CANCEL_EMOJI)
         self.step = 1
         self.location_msg = msg
     
@@ -203,8 +208,8 @@ class DumpJobsSession(UISession):
         self.messages.append(msg)
         for i in range(len(companies)):
             await msg.add_reaction(f"{chr(65+i)}️⃣")
-        await msg.add_reaction("🟢")
-        await msg.add_reaction("❌")
+        await msg.add_reaction(NEXT_EMOJI)
+        await msg.add_reaction(CANCEL_EMOJI)
         self.step = 2
         self.company_msg = msg
     
@@ -220,12 +225,12 @@ class DumpJobsSession(UISession):
             embed.add_field(name="Locations", value=", ".join(all_locs), inline=False)
         if self.selected_companies:
             embed.add_field(name="Companies", value=", ".join(self.selected_companies), inline=False)
-        embed.set_footer(text="Click 🟢 to run search, 🔄 to start over, ❌ to cancel.")
+        embed.set_footer(text="Click ➡️ to run search, 🔄 to start over, ❌ to cancel.")
         msg = await self.ctx.send(embed=embed)
         self.messages.append(msg)
-        await msg.add_reaction("🟢")
+        await msg.add_reaction(NEXT_EMOJI)
         await msg.add_reaction("🔄")
-        await msg.add_reaction("❌")
+        await msg.add_reaction(CANCEL_EMOJI)
         self.step = 3
         self.summary_msg = msg
     
@@ -233,12 +238,12 @@ class DumpJobsSession(UISession):
         """Handle reaction events"""
         emoji = str(payload.emoji)
         
-        if emoji == "❌":
+        if emoji == CANCEL_EMOJI:
             await self.cancel_session()
             return
         
-        # Handle green circle reactions more carefully - only process on current step's message
-        if emoji == "🟢":
+        # Handle arrow right reactions more carefully - only process on current step's message
+        if emoji == NEXT_EMOJI:
             if self.step == 0 and payload.message_id == self.category_msg.id:
                 await self.send_location_message()
             elif self.step == 1 and payload.message_id == self.location_msg.id:
@@ -283,7 +288,7 @@ class DumpJobsSession(UISession):
                 self.selected_locations.remove(loc)
             else:
                 self.selected_locations.add(loc)
-        elif emoji == "✏️":
+        elif emoji == PENCIL_EMOJI:
             await self.prompt_custom_location()
     
     async def handle_company_reaction(self, emoji):
@@ -319,7 +324,7 @@ class DumpJobsSession(UISession):
             await self.run_search()
         elif emoji == "🔄":
             await self.restart()
-        elif emoji == "❌":
+        elif emoji == CANCEL_EMOJI:
             await self.cancel_session()
     
     async def run_search(self):
@@ -422,7 +427,7 @@ class SubscribeSession(UISession):
     async def send_category_message(self):
         embed = discord.Embed(
             title="📋 Subscribe: Select Job Categories",
-            description="React to select categories to subscribe. You can select multiple. When done, click 🟢. ❌ to exit prompt.",
+            description="React to select categories to subscribe. You can select multiple. When done, click ➡️. ❌ to exit prompt.",
             color=0x0099ff
         )
         categories = Config.DEFAULT_CATEGORIES[:10]
@@ -441,8 +446,8 @@ class SubscribeSession(UISession):
             else:
                 emoji = "🔟"
             await msg.add_reaction(emoji)
-        await msg.add_reaction("🟢")
-        await msg.add_reaction("❌")
+        await msg.add_reaction(NEXT_EMOJI)
+        await msg.add_reaction(CANCEL_EMOJI)
         self.category_msg = msg
 
     async def handle_reaction(self, payload):
@@ -460,9 +465,9 @@ class SubscribeSession(UISession):
                 self.selected_categories.remove(cat)
             else:
                 self.selected_categories.add(cat)
-        elif emoji == "🟢":
+        elif emoji == NEXT_EMOJI:
             await self.subscribe_categories()
-        elif emoji == "❌":
+        elif emoji == CANCEL_EMOJI:
             await self.cancel_session()
 
     async def subscribe_categories(self):
@@ -502,7 +507,7 @@ class UnsubscribeSession(UISession):
         categories = user_prefs.categories[:10]
         embed = discord.Embed(
             title="📋 Unsubscribe: Select Categories",
-            description="React to select categories to unsubscribe. You can select multiple. When done, click 🟢. ❌ to exit prompt.",
+            description="React to select categories to unsubscribe. You can select multiple. When done, click ➡️. ❌ to exit prompt.",
             color=0x0099ff
         )
         for i, category in enumerate(categories):
@@ -520,8 +525,8 @@ class UnsubscribeSession(UISession):
             else:
                 emoji = "🔟"
             await msg.add_reaction(emoji)
-        await msg.add_reaction("🟢")
-        await msg.add_reaction("❌")
+        await msg.add_reaction(NEXT_EMOJI)
+        await msg.add_reaction(CANCEL_EMOJI)
         self.category_msg = msg
         self.categories = categories
 
@@ -539,9 +544,9 @@ class UnsubscribeSession(UISession):
                 self.selected_categories.remove(cat)
             else:
                 self.selected_categories.add(cat)
-        elif emoji == "🟢":
+        elif emoji == NEXT_EMOJI:
             await self.unsubscribe_categories()
-        elif emoji == "❌":
+        elif emoji == CANCEL_EMOJI:
             await self.cancel_session()
 
     async def unsubscribe_categories(self):
@@ -583,7 +588,7 @@ class AddLocationSession(UISession):
             description=(
                 "React to select locations to add. You can select multiple.\n"
                 "To add a custom location, click ✏️ and type it in the chat (comma-separated for multiple).\n"
-                "Example: `Berlin, Paris, Tokyo`\nWhen done, click 🟢. ❌ to exit prompt."
+                "Example: `Berlin, Paris, Tokyo`\nWhen done, click ➡️. ❌ to exit prompt."
             ),
             color=0x0099ff
         )
@@ -596,9 +601,9 @@ class AddLocationSession(UISession):
         self.messages.append(msg)
         for i in range(len(locations)):
             await msg.add_reaction(f"{chr(65+i)}️⃣")
-        await msg.add_reaction("✏️")
-        await msg.add_reaction("🟢")
-        await msg.add_reaction("❌")
+        await msg.add_reaction(PENCIL_EMOJI)
+        await msg.add_reaction(NEXT_EMOJI)
+        await msg.add_reaction(CANCEL_EMOJI)
         self.location_msg = msg
 
     async def handle_reaction(self, payload):
@@ -616,11 +621,11 @@ class AddLocationSession(UISession):
                 self.selected_locations.remove(loc)
             else:
                 self.selected_locations.add(loc)
-        elif emoji == "✏️":
+        elif emoji == PENCIL_EMOJI:
             await self.prompt_custom_location()
-        elif emoji == "🟢":
+        elif emoji == NEXT_EMOJI:
             await self.add_locations()
-        elif emoji == "❌":
+        elif emoji == CANCEL_EMOJI:
             await self.cancel_session()
 
     async def prompt_custom_location(self):
@@ -672,7 +677,7 @@ class AddCompanySession(UISession):
     async def send_company_message(self):
         embed = discord.Embed(
             title="🏢 Add Company: Select Companies",
-            description="React to select companies to add. You can select multiple. When done, click 🟢. ❌ to exit prompt.",
+            description="React to select companies to add. You can select multiple. When done, click ➡️. ❌ to exit prompt.",
             color=0x0099ff
         )
         companies = ["Discord", "Reddit", "Monarch Money"]
@@ -683,8 +688,8 @@ class AddCompanySession(UISession):
         self.messages.append(msg)
         for i in range(len(companies)):
             await msg.add_reaction(f"{chr(65+i)}️⃣")
-        await msg.add_reaction("🟢")
-        await msg.add_reaction("❌")
+        await msg.add_reaction(NEXT_EMOJI)
+        await msg.add_reaction(CANCEL_EMOJI)
         self.company_msg = msg
 
     async def handle_reaction(self, payload):
@@ -702,9 +707,9 @@ class AddCompanySession(UISession):
                 self.selected_companies.remove(comp)
             else:
                 self.selected_companies.add(comp)
-        elif emoji == "🟢":
+        elif emoji == NEXT_EMOJI:
             await self.add_companies()
-        elif emoji == "❌":
+        elif emoji == CANCEL_EMOJI:
             await self.cancel_session()
 
     async def add_companies(self):
