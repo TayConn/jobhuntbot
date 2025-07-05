@@ -281,6 +281,7 @@ class JobBotCommands(commands.Cog):
             ("!addlocation", "Interactive location addition"),
             ("!addcompany", "Interactive company addition"),
             ("!clearpreferences", "Clear all preferences"),
+            ("!cancel", "Cancel your active interactive session"),
             ("!welcome", "Send yourself a welcome message"),
             ("!bothelp", "Show this help message")
         ]
@@ -518,4 +519,14 @@ class JobBotCommands(commands.Cog):
             return True
         except discord.Forbidden:
             # User has DMs disabled, can't send welcome message
-            return False 
+            return False
+    
+    @commands.command(name="cancel")
+    async def cancel_session(self, ctx):
+        """Cancel your active interactive session"""
+        if ctx.author.id in self.interactive_ui.active_sessions:
+            session = self.interactive_ui.active_sessions[ctx.author.id]
+            await session.cancel_session()
+            await ctx.send("✅ Your active session has been cancelled.")
+        else:
+            await ctx.send("ℹ️ You don't have any active sessions to cancel.") 

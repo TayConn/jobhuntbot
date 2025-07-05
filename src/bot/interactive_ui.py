@@ -17,30 +17,60 @@ class InteractiveUI:
         
     async def start_dumpjobs_session(self, ctx):
         """Start interactive dumpjobs filter selection"""
+        # Check if user already has an active session
+        if ctx.author.id in self.active_sessions:
+            existing_session = self.active_sessions[ctx.author.id]
+            await ctx.send("⚠️ You already have an active session. Please complete or cancel it first.")
+            return
+        
         session = DumpJobsSession(ctx, self)
         self.active_sessions[ctx.author.id] = session
         await session.start()
     
     async def start_subscribe_session(self, ctx):
         """Start interactive category subscription"""
+        # Check if user already has an active session
+        if ctx.author.id in self.active_sessions:
+            existing_session = self.active_sessions[ctx.author.id]
+            await ctx.send("⚠️ You already have an active session. Please complete or cancel it first.")
+            return
+        
         session = SubscribeSession(ctx, self)
         self.active_sessions[ctx.author.id] = session
         await session.start()
     
     async def start_unsubscribe_session(self, ctx):
         """Start interactive category unsubscription"""
+        # Check if user already has an active session
+        if ctx.author.id in self.active_sessions:
+            existing_session = self.active_sessions[ctx.author.id]
+            await ctx.send("⚠️ You already have an active session. Please complete or cancel it first.")
+            return
+        
         session = UnsubscribeSession(ctx, self)
         self.active_sessions[ctx.author.id] = session
         await session.start()
     
     async def start_addlocation_session(self, ctx):
         """Start interactive location addition"""
+        # Check if user already has an active session
+        if ctx.author.id in self.active_sessions:
+            existing_session = self.active_sessions[ctx.author.id]
+            await ctx.send("⚠️ You already have an active session. Please complete or cancel it first.")
+            return
+        
         session = AddLocationSession(ctx, self)
         self.active_sessions[ctx.author.id] = session
         await session.start()
     
     async def start_addcompany_session(self, ctx):
         """Start interactive company addition"""
+        # Check if user already has an active session
+        if ctx.author.id in self.active_sessions:
+            existing_session = self.active_sessions[ctx.author.id]
+            await ctx.send("⚠️ You already have an active session. Please complete or cancel it first.")
+            return
+        
         session = AddCompanySession(ctx, self)
         self.active_sessions[ctx.author.id] = session
         await session.start()
@@ -207,10 +237,20 @@ class DumpJobsSession(UISession):
             await self.cancel_session()
             return
         
+        # Handle green circle reactions more carefully - only process on current step's message
         if emoji == "🟢":
-            await self.handle_summary_reaction(emoji)
+            if self.step == 0 and payload.message_id == self.category_msg.id:
+                await self.send_location_message()
+            elif self.step == 1 and payload.message_id == self.location_msg.id:
+                await self.send_company_message()
+            elif self.step == 2 and payload.message_id == self.company_msg.id:
+                await self.send_summary_message()
+            elif self.step == 3 and payload.message_id == self.summary_msg.id:
+                await self.handle_summary_reaction(emoji)
+            # Ignore green circle reactions on messages from previous steps
             return
         
+        # Handle other reactions based on current step and message
         if self.step == 0 and payload.message_id == self.category_msg.id:
             await self.handle_category_reaction(emoji)
         elif self.step == 1 and payload.message_id == self.location_msg.id:
@@ -231,8 +271,6 @@ class DumpJobsSession(UISession):
                 self.selected_categories.remove(cat)
             else:
                 self.selected_categories.add(cat)
-        elif emoji == "🟢":
-            await self.send_location_message()
     
     async def handle_location_reaction(self, emoji):
         """Handle location selection"""
@@ -247,8 +285,18 @@ class DumpJobsSession(UISession):
                 self.selected_locations.add(loc)
         elif emoji == "✏️":
             await self.prompt_custom_location()
-        elif emoji == "🟢":
-            await self.send_company_message()
+    
+    async def handle_company_reaction(self, emoji):
+        """Handle company selection"""
+        companies = ["Discord", "Reddit", "Monarch Money"]
+        emoji_to_index = {f"{chr(65+i)}️⃣": i for i in range(len(companies))}
+        if emoji in emoji_to_index:
+            idx = emoji_to_index[emoji]
+            comp = companies[idx]
+            if comp in self.selected_companies:
+                self.selected_companies.remove(comp)
+            else:
+                self.selected_companies.add(comp)
     
     async def prompt_custom_location(self):
         """Prompt for custom location input"""
@@ -265,20 +313,6 @@ class DumpJobsSession(UISession):
         self.custom_locations.update(locs)
         await self.ctx.send(f"✅ Added custom location(s): {', '.join(locs)}")
     
-    async def handle_company_reaction(self, emoji):
-        """Handle company selection"""
-        companies = ["Discord", "Reddit", "Monarch Money"]
-        emoji_to_index = {f"{chr(65+i)}️⃣": i for i in range(len(companies))}
-        if emoji in emoji_to_index:
-            idx = emoji_to_index[emoji]
-            comp = companies[idx]
-            if comp in self.selected_companies:
-                self.selected_companies.remove(comp)
-            else:
-                self.selected_companies.add(comp)
-        elif emoji == "🟢":
-            await self.send_summary_message()
-    
     async def handle_summary_reaction(self, emoji):
         """Handle summary reaction"""
         if emoji == "🟢":
@@ -290,6 +324,13 @@ class DumpJobsSession(UISession):
     
     async def run_search(self):
         """Run the job search with selected filters"""
+        # Clean up session messages to reduce clutter
+        for msg in self.messages:
+            try:
+                await msg.delete()
+            except:
+                pass  # Ignore errors if messages are already deleted
+        
         # Create filter preferences
         filter_prefs = UserPreferences(user_id=0)
         filter_prefs.categories = list(self.selected_categories)
@@ -336,15 +377,32 @@ class DumpJobsSession(UISession):
     
     async def restart(self):
         """Restart the job search flow"""
-        await self.ctx.send("🔄 Restarting job search flow...")
+        # Clean up old messages to reduce clutter
+        for msg in self.messages:
+            try:
+                await msg.delete()
+            except:
+                pass  # Ignore errors if messages are already deleted
+        
+        # Clear selections and messages list
         self.selected_categories.clear()
         self.selected_locations.clear()
         self.custom_locations.clear()
         self.selected_companies.clear()
+        self.messages.clear()
+        
+        await self.ctx.send("🔄 Restarting job search flow...")
         await self.send_category_message()
     
     async def cancel_session(self):
         """Cancel the session"""
+        # Clean up messages to reduce clutter
+        for msg in self.messages:
+            try:
+                await msg.delete()
+            except:
+                pass  # Ignore errors if messages are already deleted
+        
         await self.ctx.send("❌ Job search session cancelled.")
         self.ui_system.cleanup_session(self.user_id)
 
