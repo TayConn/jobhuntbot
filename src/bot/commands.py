@@ -370,7 +370,7 @@ class JobBotCommands(commands.Cog):
         # Supported Companies
         embed.add_field(
             name="🏢 Supported Companies",
-            value="• Discord\n• Reddit\n• Monarch Money",
+            value="• Discord\n• Reddit\n• Monarch Money\n• Cribl",
             inline=True
         )
         
@@ -454,7 +454,7 @@ class JobBotCommands(commands.Cog):
             # Supported Companies
             embed.add_field(
                 name="🏢 Supported Companies",
-                value="• Discord\n• Reddit\n• Monarch Money",
+                value="• Discord\n• Reddit\n• Monarch Money\n• Cribl",
                 inline=True
             )
             

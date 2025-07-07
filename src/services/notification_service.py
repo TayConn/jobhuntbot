@@ -76,6 +76,9 @@ class NotificationService:
         
         # Count total jobs
         total_jobs = sum(len(jobs) for jobs in jobs_by_company.values())
+        if total_jobs == 0:
+            await channel.send("Sorry, no jobs matched your search. Try broadening your search query or try again once we gather more roles.")
+            return
         
         # If we have a lot of jobs, generate a text file
         if total_jobs > 20:  # Threshold for when to use file instead of embed
@@ -157,7 +160,7 @@ class NotificationService:
                 )
                 embed.add_field(
                     name="💡 Tip",
-                    value="Use `!dumpjobs category=\"backend\" location=\"Remote\"` to filter results",
+                    value="Type ex:`!dumpjobs category=\"backend\" location=\"Remote\"` to further filter results on your own.",
                     inline=False
                 )
                 

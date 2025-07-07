@@ -159,7 +159,14 @@ class JobHuntBot:
 
         # Note: on_member_join event removed due to privileged intent requirement
         # Users can still get welcome messages using the !welcome command
-    
+
+        @self.bot.event
+        async def on_raw_reaction_remove(payload):
+            # Handle interactive UI reaction removals
+            commands_cog = self.bot.get_cog('JobBotCommands')
+            if commands_cog and hasattr(commands_cog, 'interactive_ui'):
+                await commands_cog.interactive_ui.handle_reaction_remove(payload)
+        
     async def setup_commands(self):
         """Setup Discord bot commands"""
         # Add the commands cog

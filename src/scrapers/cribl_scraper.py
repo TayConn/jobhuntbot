@@ -3,15 +3,15 @@ from playwright.async_api import Page
 from .base_scraper import BaseScraper
 from ..models.job import Job
 
-class RedditScraper(BaseScraper):
-    """Scraper for Reddit jobs"""
+class CriblScraper(BaseScraper):
+    """Scraper for Cribl jobs"""
     
     def __init__(self):
-        super().__init__("reddit")
-        self.base_url = "https://boards.greenhouse.io/reddit"
+        super().__init__("cribl")
+        self.base_url = "https://job-boards.greenhouse.io/cribl"
     
     async def scrape_jobs(self, filter_us_only: bool = True) -> List[Job]:
-        """Scrape jobs from Reddit careers page"""
+        """Scrape jobs from Cribl careers page"""
         jobs = []
         browser, page = await self._get_browser_page()
         
@@ -24,7 +24,7 @@ class RedditScraper(BaseScraper):
                 
                 for row in job_rows:
                     try:
-                        a_tag = await row.query_selector("a[href*='/reddit/jobs/']")
+                        a_tag = await row.query_selector("a[href*='/cribl/jobs/']")
                         title_p = await row.query_selector("p.body--medium")
                         location_p = await row.query_selector("p.body--metadata")
                         
@@ -39,7 +39,7 @@ class RedditScraper(BaseScraper):
                             jobs.append(job)
                             
                     except Exception as e:
-                        print(f"[DEBUG] Error parsing Reddit job: {e}")
+                        print(f"[DEBUG] Error parsing Cribl job: {e}")
                 
                 # Handle pagination
                 next_button = await page.query_selector("a.next_page")
@@ -51,7 +51,7 @@ class RedditScraper(BaseScraper):
                 await page.wait_for_load_state("networkidle")
                 
         except Exception as e:
-            print(f"[ERROR] Reddit scraper failed: {e}")
+            print(f"[ERROR] Cribl scraper failed: {e}")
         finally:
             await self._close_browser(browser)
             

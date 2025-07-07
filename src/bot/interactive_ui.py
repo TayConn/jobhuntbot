@@ -108,6 +108,15 @@ class InteractiveUI:
         if user_id in self.active_sessions:
             del self.active_sessions[user_id]
 
+    async def handle_reaction_remove(self, payload):
+        if payload.user_id == self.bot.user.id:
+            return  # Ignore bot's own reactions
+        user_id = payload.user_id
+        if user_id not in self.active_sessions:
+            return
+        session = self.active_sessions[user_id]
+        await session.handle_reaction_remove(payload)
+
 class UISession:
     """Base class for interactive UI sessions"""
     
@@ -123,6 +132,10 @@ class UISession:
     
     async def handle_reaction(self, payload):
         """Handle reaction events - to be implemented by subclasses"""
+        pass
+
+    async def handle_reaction_remove(self, payload):
+        """Handle reaction removal events - to be implemented by subclasses"""
         pass
 
 class DumpJobsSession(UISession):
@@ -144,8 +157,8 @@ class DumpJobsSession(UISession):
     
     async def send_category_message(self):
         embed = discord.Embed(
-            title="📋 Step 1: Select Job Categories",
-            description="React to select categories. You can select multiple. When done, click 🟢. ❌ to exit prompt.",
+            title="📋 Step 1 of 3: Select Job Categories",
+            description="React to select categories. You can select multiple.",
             color=0x0099ff
         )
         categories = Config.DEFAULT_CATEGORIES[:10]
@@ -174,18 +187,20 @@ class DumpJobsSession(UISession):
             title="🌍 Step 2: Select Job Locations",
             description="React to select locations. You can select multiple.\n"
                         "To add a custom location, click 📝 and type it in the chat (comma-separated for multiple).\n"
-                        "Example: `Berlin, Paris, Tokyo`\nWhen done, click 🟢. ❌ to exit prompt.",
+                        "Example: `Berlin, Paris, Tokyo`\n",
             color=0x0099ff
         )
         locations = ["Remote", "San Francisco", "New York", "Los Angeles", "Seattle", "Austin", "Boston", "Chicago"]
         for i, location in enumerate(locations):
-            embed.add_field(name=f"{chr(65+i)}️⃣", value=location, inline=False)
+            regional_emoji = chr(0x1F1E6 + i)  # 🇦, 🇧, ...
+            embed.add_field(name=regional_emoji, value=location, inline=False)
         embed.add_field(name="📝", value="Custom Location", inline=False)
         embed.set_footer(text="When done, click ✅. ❌ to exit prompt.")
         msg = await self.ctx.send(embed=embed)
         self.messages.append(msg)
         for i in range(len(locations)):
-            await msg.add_reaction(f"{chr(65+i)}️⃣")
+            regional_emoji = chr(0x1F1E6 + i)
+            await msg.add_reaction(regional_emoji)
         await msg.add_reaction(PENCIL_EMOJI)
         await msg.add_reaction(NEXT_EMOJI)
         await msg.add_reaction(CANCEL_EMOJI)
@@ -195,17 +210,19 @@ class DumpJobsSession(UISession):
     async def send_company_message(self):
         embed = discord.Embed(
             title="🏢 Step 3: Select Companies",
-            description="React to select companies. You can select multiple. When done, click 🟢. ❌ to exit prompt.",
+            description="React to select companies. You can select multiple.",
             color=0x0099ff
         )
-        companies = ["Discord", "Reddit", "Monarch Money"]
+        companies = ["Discord", "Reddit", "Monarch Money", "Cribl"]
         for i, company in enumerate(companies):
-            embed.add_field(name=f"{chr(65+i)}️⃣", value=company, inline=False)
+            regional_emoji = chr(0x1F1E6 + i)  # 🇦, 🇧, ...
+            embed.add_field(name=regional_emoji, value=company, inline=False)
         embed.set_footer(text="When done, click ✅. ❌ to exit prompt.")
         msg = await self.ctx.send(embed=embed)
         self.messages.append(msg)
         for i in range(len(companies)):
-            await msg.add_reaction(f"{chr(65+i)}️⃣")
+            regional_emoji = chr(0x1F1E6 + i)
+            await msg.add_reaction(regional_emoji)
         await msg.add_reaction(NEXT_EMOJI)
         await msg.add_reaction(CANCEL_EMOJI)
         self.step = 2
@@ -223,10 +240,10 @@ class DumpJobsSession(UISession):
             embed.add_field(name="Locations", value=", ".join(all_locs), inline=False)
         if self.selected_companies:
             embed.add_field(name="Companies", value=", ".join(self.selected_companies), inline=False)
-        embed.set_footer(text="Click ➡️ to run search, 🔄 to start over, ❌ to cancel.")
+        embed.set_footer(text="Click 🔍 to run search, 🔄 to start over, ❌ to cancel.")
         msg = await self.ctx.send(embed=embed)
         self.messages.append(msg)
-        await msg.add_reaction(NEXT_EMOJI)
+        await msg.add_reaction("🔍")
         await msg.add_reaction("🔄")
         await msg.add_reaction(CANCEL_EMOJI)
         self.step = 3
@@ -250,7 +267,6 @@ class DumpJobsSession(UISession):
                 await self.send_summary_message()
             elif self.step == 3 and payload.message_id == self.summary_msg.id:
                 await self.handle_summary_reaction(emoji)
-            # Ignore green circle reactions on messages from previous steps
             return
         
         # Handle other reactions based on current step and message
@@ -278,7 +294,7 @@ class DumpJobsSession(UISession):
     async def handle_location_reaction(self, emoji):
         """Handle location selection"""
         locations = ["Remote", "San Francisco", "New York", "Los Angeles", "Seattle", "Austin", "Boston", "Chicago"]
-        emoji_to_index = {f"{chr(65+i)}️⃣": i for i in range(len(locations))}
+        emoji_to_index = {chr(0x1F1E6 + i): i for i in range(len(locations))}
         if emoji in emoji_to_index:
             idx = emoji_to_index[emoji]
             loc = locations[idx]
@@ -291,8 +307,8 @@ class DumpJobsSession(UISession):
     
     async def handle_company_reaction(self, emoji):
         """Handle company selection"""
-        companies = ["Discord", "Reddit", "Monarch Money"]
-        emoji_to_index = {f"{chr(65+i)}️⃣": i for i in range(len(companies))}
+        companies = ["Discord", "Reddit", "Monarch Money", "Cribl"]
+        emoji_to_index = {chr(0x1F1E6 + i): i for i in range(len(companies))}
         if emoji in emoji_to_index:
             idx = emoji_to_index[emoji]
             comp = companies[idx]
@@ -318,7 +334,7 @@ class DumpJobsSession(UISession):
     
     async def handle_summary_reaction(self, emoji):
         """Handle summary reaction"""
-        if emoji == "🟢":
+        if emoji == "🔍":
             await self.run_search()
         elif emoji == "🔄":
             await self.restart()
@@ -409,6 +425,39 @@ class DumpJobsSession(UISession):
         await self.ctx.send("❌ Job search session cancelled.")
         self.ui_system.cleanup_session(self.user_id)
 
+    async def handle_reaction_remove(self, payload):
+        emoji = str(payload.emoji)
+        if self.step == 0 and payload.message_id == self.category_msg.id:
+            await self.handle_category_remove(emoji)
+        elif self.step == 1 and payload.message_id == self.location_msg.id:
+            await self.handle_location_remove(emoji)
+        elif self.step == 2 and payload.message_id == self.company_msg.id:
+            await self.handle_company_remove(emoji)
+
+    async def handle_category_remove(self, emoji):
+        categories = Config.DEFAULT_CATEGORIES[:10]
+        emoji_to_index = {f"{i+1}️⃣": i for i in range(10)}
+        if emoji in emoji_to_index:
+            idx = emoji_to_index[emoji]
+            cat = categories[idx]
+            self.selected_categories.discard(cat)
+
+    async def handle_location_remove(self, emoji):
+        locations = ["Remote", "San Francisco", "New York", "Los Angeles", "Seattle", "Austin", "Boston", "Chicago"]
+        emoji_to_index = {chr(0x1F1E6 + i): i for i in range(len(locations))}
+        if emoji in emoji_to_index:
+            idx = emoji_to_index[emoji]
+            loc = locations[idx]
+            self.selected_locations.discard(loc)
+
+    async def handle_company_remove(self, emoji):
+        companies = ["Discord", "Reddit", "Monarch Money", "Cribl"]
+        emoji_to_index = {chr(0x1F1E6 + i): i for i in range(len(companies))}
+        if emoji in emoji_to_index:
+            idx = emoji_to_index[emoji]
+            comp = companies[idx]
+            self.selected_companies.discard(comp)
+
 class SubscribeSession(UISession):
     """Interactive session for subscribing to categories"""
     
@@ -425,7 +474,7 @@ class SubscribeSession(UISession):
     async def send_category_message(self):
         embed = discord.Embed(
             title="📋 Subscribe: Select Job Categories",
-            description="React to select categories to subscribe. You can select multiple. When done, click ➡️. ❌ to exit prompt.",
+            description="React to select categories to subscribe. You can select multiple.",
             color=0x0099ff
         )
         categories = Config.DEFAULT_CATEGORIES[:10]
@@ -505,7 +554,7 @@ class UnsubscribeSession(UISession):
         categories = user_prefs.categories[:10]
         embed = discord.Embed(
             title="📋 Unsubscribe: Select Categories",
-            description="React to select categories to unsubscribe. You can select multiple. When done, click ➡️. ❌ to exit prompt.",
+            description="React to select categories to unsubscribe. You can select multiple.",
             color=0x0099ff
         )
         for i, category in enumerate(categories):
@@ -585,18 +634,20 @@ class AddLocationSession(UISession):
             title="🌍 Add Location: Select Locations",
             description="React to select locations to add. You can select multiple.\n"
                         "To add a custom location, click 📝 and type it in the chat (comma-separated for multiple).\n"
-                        "Example: `Berlin, Paris, Tokyo`\nWhen done, click ➡️. ❌ to exit prompt.",
+                        "Example: `Berlin, Paris, Tokyo`\n",
             color=0x0099ff
         )
         locations = ["Remote", "San Francisco", "New York", "Los Angeles", "Seattle", "Austin", "Boston", "Chicago"]
         for i, location in enumerate(locations):
-            embed.add_field(name=f"{chr(65+i)}️⃣", value=location, inline=False)
+            regional_emoji = chr(0x1F1E6 + i)  # 🇦, 🇧, ...
+            embed.add_field(name=regional_emoji, value=location, inline=False)
         embed.add_field(name="📝", value="Custom Location", inline=False)
         embed.set_footer(text="When done, click ✅. ❌ to exit prompt.")
         msg = await self.ctx.send(embed=embed)
         self.messages.append(msg)
         for i in range(len(locations)):
-            await msg.add_reaction(f"{chr(65+i)}️⃣")
+            regional_emoji = chr(0x1F1E6 + i)
+            await msg.add_reaction(regional_emoji)
         await msg.add_reaction(PENCIL_EMOJI)
         await msg.add_reaction(NEXT_EMOJI)
         await msg.add_reaction(CANCEL_EMOJI)
@@ -609,7 +660,7 @@ class AddLocationSession(UISession):
 
     async def handle_location_reaction(self, emoji):
         locations = ["Remote", "San Francisco", "New York", "Los Angeles", "Seattle", "Austin", "Boston", "Chicago"]
-        emoji_to_index = {f"{chr(65+i)}️⃣": i for i in range(len(locations))}
+        emoji_to_index = {chr(0x1F1E6 + i): i for i in range(len(locations))}
         if emoji in emoji_to_index:
             idx = emoji_to_index[emoji]
             loc = locations[idx]
@@ -652,6 +703,7 @@ class AddLocationSession(UISession):
             color=0x00ff00
         )
         await self.ctx.send(embed=embed)
+        await self.ui_system.start_addcompany_session(self.ctx)
         self.ui_system.cleanup_session(self.user_id)
 
     async def cancel_session(self):
@@ -673,17 +725,19 @@ class AddCompanySession(UISession):
     async def send_company_message(self):
         embed = discord.Embed(
             title="🏢 Add Company: Select Companies",
-            description="React to select companies to add. You can select multiple. When done, click ➡️. ❌ to exit prompt.",
+            description="React to select companies to add. You can select multiple.",
             color=0x0099ff
         )
-        companies = ["Discord", "Reddit", "Monarch Money"]
+        companies = ["Discord", "Reddit", "Monarch Money", "Cribl"]
         for i, company in enumerate(companies):
-            embed.add_field(name=f"{chr(65+i)}️⃣", value=company, inline=False)
+            regional_emoji = chr(0x1F1E6 + i)  # 🇦, 🇧, ...
+            embed.add_field(name=regional_emoji, value=company, inline=False)
         embed.set_footer(text="When done, click ✅. ❌ to exit prompt.")
         msg = await self.ctx.send(embed=embed)
         self.messages.append(msg)
         for i in range(len(companies)):
-            await msg.add_reaction(f"{chr(65+i)}️⃣")
+            regional_emoji = chr(0x1F1E6 + i)
+            await msg.add_reaction(regional_emoji)
         await msg.add_reaction(NEXT_EMOJI)
         await msg.add_reaction(CANCEL_EMOJI)
         self.company_msg = msg
@@ -694,8 +748,8 @@ class AddCompanySession(UISession):
             await self.handle_company_reaction(emoji)
 
     async def handle_company_reaction(self, emoji):
-        companies = ["Discord", "Reddit", "Monarch Money"]
-        emoji_to_index = {f"{chr(65+i)}️⃣": i for i in range(len(companies))}
+        companies = ["Discord", "Reddit", "Monarch Money", "Cribl"]
+        emoji_to_index = {chr(0x1F1E6 + i): i for i in range(len(companies))}
         if emoji in emoji_to_index:
             idx = emoji_to_index[emoji]
             comp = companies[idx]

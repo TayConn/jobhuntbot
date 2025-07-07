@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from typing import List, Optional
 from datetime import datetime
+import re
 
 @dataclass
 class Job:
@@ -23,22 +24,47 @@ class Job:
         if not user_preferences:
             return True
             
-        # Check categories
+        # Check categories (whole word match)
         if user_preferences.categories:
             job_title_lower = self.title.lower()
-            if not any(cat.lower() in job_title_lower for cat in user_preferences.categories):
+            found = False
+            for cat in user_preferences.categories:
+                # Use regex word boundary for whole word match
+                pattern = r'\b' + re.escape(cat.lower()) + r'\b'
+                if re.search(pattern, job_title_lower):
+                    found = True
+                    break
+            if not found:
                 return False
         
-        # Check locations
+        # Check locations (case-insensitive substring match)
         if user_preferences.locations:
             job_location_lower = self.location.lower()
-            if not any(loc.lower() in job_location_lower for loc in user_preferences.locations):
+            location_matched = False
+            for loc in user_preferences.locations:
+                loc_lower = loc.lower()
+                # Handle "Remote" specially - match common remote variations
+                if loc_lower == "remote":
+                    if any(remote_term in job_location_lower for remote_term in ["remote", "work from home", "wfh", "virtual"]):
+                        location_matched = True
+                        break
+                elif loc_lower in job_location_lower:
+                    location_matched = True
+                    break
+            if not location_matched:
                 return False
         
-        # Check companies
+        # Check companies (case-insensitive exact or substring match)
         if user_preferences.companies:
             company_lower = self.company.lower()
-            if not any(comp.lower() in company_lower for comp in user_preferences.companies):
+            company_matched = False
+            for comp in user_preferences.companies:
+                comp_lower = comp.lower()
+                # Try exact match first, then substring
+                if comp_lower == company_lower or comp_lower in company_lower:
+                    company_matched = True
+                    break
+            if not company_matched:
                 return False
         
         return True

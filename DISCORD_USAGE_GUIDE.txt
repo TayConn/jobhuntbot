@@ -1,7 +1,7 @@
 🤖 JOB HUNT BUDDY - DISCORD USAGE GUIDE
 =====================================
 
-Welcome to Job Hunt Buddy! This bot automatically monitors job postings from Discord, Reddit, and Monarch Money, and sends you personalized notifications based on your preferences.
+Welcome to Job Hunt Buddy! This bot automatically monitors job postings from Discord, Reddit, Cribl, and Monarch Money, and sends you personalized notifications based on your preferences.
 
 🎯 NEW: INTERACTIVE UI SYSTEM
 ============================
@@ -56,6 +56,7 @@ Most commands now support an interactive, emoji-based interface! Simply type the
 ======================
 • Discord
 • Reddit
+• Cribl
 • Monarch Money
 
 💡 QUICK START GUIDE
@@ -100,7 +101,7 @@ Example 1: Interactive job search
 Response: Bot sends interactive menu with emoji reactions for:
 - 🗂 Categories (backend, frontend, etc.)
 - 🌍 Locations (Remote, San Francisco, etc.)  
-- 🏢 Companies (Discord, Reddit, etc.)
+- 🏢 Companies (Discord, Reddit, Cribl, etc.)
 - ➡️ Done (run search)
 - ❌ Cancel
 
