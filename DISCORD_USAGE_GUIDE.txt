@@ -57,6 +57,7 @@ Most commands now support an interactive, emoji-based interface! Simply type the
 • Discord
 • Reddit
 • Cribl
+• Gitlab
 • Monarch Money
 
 💡 QUICK START GUIDE

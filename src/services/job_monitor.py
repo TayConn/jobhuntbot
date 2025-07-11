@@ -5,6 +5,7 @@ from ..scrapers.discord_scraper import DiscordScraper
 from ..scrapers.reddit_scraper import RedditScraper
 from ..scrapers.monarch_scraper import MonarchScraper
 from ..scrapers.cribl_scraper import CriblScraper
+from ..scrapers.gitlab_scraper import GitlabScraper
 from ..models.job import Job
 from ..models.user_preferences import UserPreferences
 from .storage_service import StorageService
@@ -21,7 +22,8 @@ class JobMonitor:
             "discord": DiscordScraper(),
             "reddit": RedditScraper(),
             "monarch": MonarchScraper(),
-            "cribl": CriblScraper()
+            "cribl": CriblScraper(),
+            "gitlab": GitlabScraper()
         }
     
     async def run_job_check(self, user_preferences: UserPreferences = None) -> List[Job]:
