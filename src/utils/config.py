@@ -22,29 +22,157 @@ class Config:
     SCRAPER_TIMEOUT = 60000  # 60 seconds
     JOB_CHECK_INTERVAL = 7200  # 2 hours in seconds
     
-    # Default Job Categories
+    # Enhanced Job Categories
     DEFAULT_CATEGORIES = [
+        # Core Engineering Roles
         "software engineer",
         "frontend",
         "front end", 
         "backend",
         "full stack",
-        "product manager",
-        "marketing",
-        "design",
+        "fullstack",
+        "senior software engineer",
+        "junior software engineer",
+        "software developer",
+        "web developer",
+        "mobile developer",
+        "ios developer",
+        "android developer",
+        
+        # Specialized Engineering
+        "data engineer",
         "data scientist",
-        "devops",
-        "qa",
-        "test engineer",
-        "security",
+        "machine learning engineer",
+        "ml engineer",
+        "ai engineer",
+        "artificial intelligence engineer",
+        "devops engineer",
+        "site reliability engineer",
         "sre",
-        "devsecops",
-        "devops engineer",
-        "devops engineer",
+        "security engineer",
+        "cybersecurity engineer",
+        "cloud engineer",
+        "infrastructure engineer",
+        "platform engineer",
+        "reliability engineer",
+        "performance engineer",
+        "quality assurance engineer",
+        "qa engineer",
+        "test engineer",
+        "automation engineer",
+        "embedded engineer",
+        "systems engineer",
+        "network engineer",
+        
+        # Product & Design
+        "product manager",
+        "product owner",
+        "technical product manager",
+        "ux designer",
+        "ui designer",
+        "product designer",
+        "user experience designer",
+        "user interface designer",
+        "visual designer",
+        "graphic designer",
+        "interaction designer",
+        
+        # Management & Leadership
+        "engineering manager",
+        "tech lead",
+        "technical lead",
+        "team lead",
+        "project manager",
+        "program manager",
+        "scrum master",
+        "agile coach",
+        
+        # Business & Marketing
+        "marketing manager",
+        "digital marketing",
+        "growth marketing",
+        "content marketing",
+        "product marketing",
+        "sales engineer",
+        "customer success",
+        "business analyst",
+        "data analyst",
+        "analytics engineer",
+        
+        # Operations & Support
+        "customer support",
+        "technical support",
+        "operations manager",
+        "process engineer",
+        "business operations",
+        
+        # Research & Academia
+        "research engineer",
+        "research scientist",
+        "applied scientist",
+        "research scientist",
     ]
     
-    # Supported Companies
-    SUPPORTED_COMPANIES = ["discord", "reddit", "monarch"]
+    # Experience Levels
+    EXPERIENCE_LEVELS = [
+        "entry level",
+        "junior",
+        "mid level",
+        "senior",
+        "lead",
+        "principal",
+        "staff",
+        "director",
+        "vp",
+        "cto",
+        "executive"
+    ]
+    
+    # Work Arrangement Types
+    WORK_ARRANGEMENTS = [
+        "remote",
+        "hybrid",
+        "onsite",
+        "in office",
+        "work from home",
+        "wfh"
+    ]
+    
+    # Salary Ranges (in thousands USD)
+    SALARY_RANGES = [
+        "0-50k",
+        "50k-75k", 
+        "75k-100k",
+        "100k-125k",
+        "125k-150k",
+        "150k-175k",
+        "175k-200k",
+        "200k-250k",
+        "250k-300k",
+        "300k+"
+    ]
+    
+    # Notification Frequencies
+    NOTIFICATION_FREQUENCIES = [
+        "immediate",
+        "hourly",
+        "daily",
+        "weekly",
+        "digest"
+    ]
+    
+    # Supported Companies (updated)
+    SUPPORTED_COMPANIES = ["discord", "reddit", "monarch", "cribl", "gitlab"]
+    
+    # Notification Types
+    NOTIFICATION_TYPES = [
+        "new_jobs",
+        "priority_jobs", 
+        "salary_alerts",
+        "company_alerts",
+        "category_alerts",
+        "digest_summary"
+    ]
     
     @classmethod
     def validate(cls):

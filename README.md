@@ -25,25 +25,37 @@ python main.py
 ## ✨ Features
 
 ### 🔍 Job Monitoring
-- **Multi-company scraping**: Discord, Reddit, Monarch Money
-- **Smart filtering**: Location-based (US-only for Reddit), category-based
+- **Multi-company scraping**: Discord, Reddit, Monarch Money, Cribl, GitLab
+- **Smart filtering**: Location-based (US-only for Reddit), category-based, experience-based, salary-based
 - **Duplicate prevention**: Tracks seen jobs to avoid spam
 - **Real-time notifications**: Posts new jobs immediately to Discord
 
 ### 👤 User Preferences System
-- **Category subscriptions**: Subscribe to specific job types (e.g., "software engineer", "frontend")
+- **Category subscriptions**: Subscribe to specific job types (e.g., "software engineer", "frontend", "data scientist")
 - **Location preferences**: Filter by specific cities or regions
 - **Company preferences**: Focus on specific companies
+- **Experience level filtering**: Filter by entry, junior, mid, senior, lead levels
+- **Salary range filtering**: Filter by salary ranges from 0-50k to 300k+
+- **Work arrangement filtering**: Filter by remote, hybrid, or onsite positions
+- **Priority alerts**: Get immediate notifications for dream companies and roles
 - **Personalized notifications**: Get only jobs that match your criteria
 
 ### 🤖 Discord Commands
 - `!checknow` - Manually check for new jobs
-- `!dumpjobs` - Show all current job listings
-- `!subscribe [category]` - Subscribe to job categories
-- `!unsubscribe [category]` - Unsubscribe from categories
+- `!dumpjobs` - Show all current job listings with advanced filtering
+- `!subscribe` - Subscribe to job categories
+- `!unsubscribe` - Unsubscribe from categories
 - `!preferences` - View your current preferences
-- `!addlocation [location]` - Add location preference
-- `!addcompany [company]` - Add company preference
+- `!addlocation` - Add location preference
+- `!addcompany` - Add company preference
+- `!addexperience` - Add experience level preference
+- `!addsalary` - Add salary range preference
+- `!addwork` - Add work arrangement preference
+- `!addprioritycompany` - Add priority company for immediate alerts
+- `!addprioritycategory` - Add priority category for immediate alerts
+- `!setminsalary` - Set minimum salary requirement
+- `!setnotifications` - Set notification frequency
+- `!setnotificationtime` - Set daily notification time
 - `!clearpreferences` - Clear all preferences
 - `!bothelp` - Show all available commands
 
@@ -159,16 +171,33 @@ GUIDE_CHANNEL_ID=channel_for_bot_usage_instructions
 ## 📋 Available Job Categories
 
 Users can subscribe to these job categories:
-- Software Engineer
-- Frontend
-- Backend
-- Full Stack
-- Product Manager
-- Marketing
-- Design
-- Data Scientist
-- DevOps
-- QA/Test Engineer
+
+### Core Engineering
+- Software Engineer, Frontend, Backend, Full Stack, Web Developer, Mobile Developer
+
+### Specialized Engineering  
+- Data Engineer, Data Scientist, Machine Learning Engineer, AI Engineer, DevOps Engineer, Security Engineer, Cloud Engineer, Platform Engineer, QA Engineer, Test Engineer
+
+### Product & Design
+- Product Manager, UX Designer, UI Designer, Product Designer, Visual Designer
+
+### Management & Leadership
+- Engineering Manager, Tech Lead, Project Manager, Program Manager, Scrum Master
+
+### Business & Marketing
+- Marketing Manager, Digital Marketing, Growth Marketing, Sales Engineer, Customer Success, Business Analyst
+
+### Operations & Support
+- Customer Support, Technical Support, Operations Manager, Business Operations
+
+## 🎯 Experience Levels
+- Entry Level, Junior, Mid Level, Senior, Lead, Principal, Staff, Director, VP, CTO, Executive
+
+## 💰 Salary Ranges
+- 0-50k, 50k-75k, 75k-100k, 100k-125k, 125k-150k, 150k-175k, 175k-200k, 200k-250k, 250k-300k, 300k+
+
+## 🏠 Work Arrangements
+- Remote, Hybrid, Onsite, In Office, Work From Home
 
 ## 🔧 Configuration
 
@@ -253,11 +282,5 @@ The bot now automatically checks and installs missing dependencies on startup. J
 
 ## Server Onboarding & Verification
 
-- 1. Create a “guide” channel for onboarding. This channel will be used for the bot’s terms message and user verification.
+- 1. Create a "guide" channel for onboarding. This channel will be used for the bot's terms message and user verification.
 - 2. Set up the verified role in your server.
-- 3. Only users with the verified role should be able to see and participate in main channels.
-- 4. The @everyone role should only have access to the guide channel.
-- 5. Set GUIDE_CHANNEL_ID in your .env file to the guide channel’s ID.
-- 6. Run !postterms in the server to post the onboarding message with rules and the ✅ reaction.
-- 7. Users must react with ✅ to the onboarding message to get the verified role and access the main channels.
-- 8. Admins can use !postguide to post the guide embed to the guide channel at any time.

@@ -1,10 +1,10 @@
 🤖 JOB HUNT BUDDY - DISCORD USAGE GUIDE
 =====================================
 
-Welcome to Job Hunt Buddy! This bot automatically monitors job postings from Discord, Reddit, Cribl, and Monarch Money, and sends you personalized notifications based on your preferences.
+Welcome to Job Hunt Buddy! This bot automatically monitors job postings from Discord, Reddit, Cribl, GitLab, and Monarch Money, and sends you personalized notifications based on your preferences.
 
-🎯 NEW: INTERACTIVE UI SYSTEM
-============================
+🎯 INTERACTIVE UI SYSTEM
+========================
 
 Most commands now support an interactive, emoji-based interface! Simply type the command without arguments to use the interactive UI:
 
@@ -13,6 +13,9 @@ Most commands now support an interactive, emoji-based interface! Simply type the
 • `!unsubscribe` - Interactive category unsubscription
 • `!addlocation` - Interactive location addition
 • `!addcompany` - Interactive company addition
+• `!addexperience` - Interactive experience level addition
+• `!addsalary` - Interactive salary range addition
+• `!addwork` - Interactive work arrangement addition
 
 📋 AVAILABLE COMMANDS
 ====================
@@ -29,10 +32,24 @@ Most commands now support an interactive, emoji-based interface! Simply type the
 !preferences       - View all your current preferences
 !addlocation       - Interactive location addition
 !addcompany        - Interactive company addition
+!addexperience     - Interactive experience level addition
+!addsalary         - Interactive salary range addition
+!addwork           - Interactive work arrangement addition
 !clearpreferences  - Clear all your preferences
 !cancel            - Cancel your active interactive session
 !welcome           - Send yourself a welcome message (manual)
 !bothelp           - Show this help message
+
+🔥 PRIORITY ALERTS
+------------------
+!addprioritycompany - Add priority company for immediate alerts
+!addprioritycategory - Add priority category for immediate alerts
+!setminsalary       - Set minimum salary requirement (e.g., !setminsalary 100 for $100k)
+
+🔔 NOTIFICATION SETTINGS
+-----------------------
+!setnotifications   - Set notification frequency (immediate, hourly, daily, weekly, digest)
+!setnotificationtime - Set daily notification time (e.g., !setnotificationtime 9 0 for 9 AM)
 
 🛠️ ADMIN COMMANDS (Admin only)
 ------------------------------
@@ -40,149 +57,173 @@ Most commands now support an interactive, emoji-based interface! Simply type the
 
 📋 AVAILABLE JOB CATEGORIES
 ===========================
-• software engineer
-• frontend
-• backend
-• full stack
-• product manager
-• marketing
-• design
-• data scientist
-• devops
-• qa
-• test engineer
+
+Core Engineering:
+• software engineer, frontend, backend, full stack, web developer, mobile developer
+
+Specialized Engineering:
+• data engineer, data scientist, machine learning engineer, ai engineer, devops engineer, security engineer, cloud engineer, platform engineer, qa engineer, test engineer
+
+Product & Design:
+• product manager, ux designer, ui designer, product designer, visual designer
+
+Management & Leadership:
+• engineering manager, tech lead, project manager, program manager, scrum master
+
+Business & Marketing:
+• marketing manager, digital marketing, growth marketing, sales engineer, customer success, business analyst
+
+Operations & Support:
+• customer support, technical support, operations manager, business operations
+
+🎯 EXPERIENCE LEVELS
+====================
+• entry level, junior, mid level, senior, lead, principal, staff, director, vp, cto, executive
+
+💰 SALARY RANGES
+================
+• 0-50k, 50k-75k, 75k-100k, 100k-125k, 125k-150k, 150k-175k, 175k-200k, 200k-250k, 250k-300k, 300k+
+
+🏠 WORK ARRANGEMENTS
+====================
+• remote, hybrid, onsite, in office, work from home
 
 🏢 SUPPORTED COMPANIES
 ======================
 • Discord
 • Reddit
 • Cribl
-• Gitlab
+• GitLab
 • Monarch Money
 
 💡 QUICK START GUIDE
 ====================
 
-1. SUBSCRIBE TO JOB CATEGORIES (Interactive):
+1. **Subscribe to job categories** (interactive):
    ```
    !subscribe
    ```
-   Then react with emojis to select categories!
 
-2. ADD LOCATION PREFERENCES (Interactive):
+2. **Add location preferences** (interactive):
    ```
    !addlocation
    ```
-   Then react with emojis to select locations!
 
-3. ADD COMPANY PREFERENCES (Interactive):
+3. **Add experience level preferences** (interactive):
    ```
-   !addcompany
-   ```
-   Then react with emojis to select companies!
-
-4. CHECK YOUR PREFERENCES:
-   ```
-   !preferences
+   !addexperience
    ```
 
-5. SEARCH FOR JOBS (Interactive):
+4. **Add salary range preferences** (interactive):
    ```
-   !dumpjobs
+   !addsalary
    ```
-   Then react with emojis to set filters and search!
 
-📝 INTERACTIVE UI EXAMPLES
-==========================
+5. **Add work arrangement preferences** (interactive):
+   ```
+   !addwork
+   ```
 
-Example 1: Interactive job search
+6. **Set priority companies for immediate alerts**:
+   ```
+   !addprioritycompany discord
+   !addprioritycompany reddit
+   ```
+
+7. **Set priority categories for immediate alerts**:
+   ```
+   !addprioritycategory software engineer
+   !addprioritycategory data scientist
+   ```
+
+8. **Set minimum salary requirement**:
+   ```
+   !setminsalary 100
+   ```
+
+9. **Customize notification frequency**:
+   ```
+   !setnotifications daily
+   !setnotificationtime 9 0
+   ```
+
+10. **Search for jobs with filters**:
+    ```
+    !dumpjobs category="backend" location="Remote" experience="senior"
+    !dumpjobs salary="100k-150k" work="remote"
+    ```
+
+🎯 ADVANCED FILTERING EXAMPLES
+==============================
+
+Filter by multiple criteria:
 ```
-!dumpjobs
+!dumpjobs category="software engineer, data scientist" location="Remote" experience="senior" salary="100k-150k" work="remote"
 ```
-Response: Bot sends interactive menu with emoji reactions for:
-- 🗂 Categories (backend, frontend, etc.)
-- 🌍 Locations (Remote, San Francisco, etc.)  
-- 🏢 Companies (Discord, Reddit, Cribl, etc.)
-- ✅ Done (run search)
-- ❌ Cancel
 
-Example 2: Interactive category subscription
+Filter by specific company and experience:
 ```
-!subscribe
+!dumpjobs company="discord" experience="senior, lead"
 ```
-Response: Bot sends list of categories with number emojis (1️⃣, 2️⃣, etc.)
-User reacts to select categories, then clicks ➡️ to subscribe.
 
-Example 3: Interactive location addition
+Filter by salary range and work arrangement:
 ```
-!addlocation
+!dumpjobs salary="150k-200k" work="remote, hybrid"
 ```
-Response: Bot sends list of common locations with letter emojis (A️⃣, B️⃣, etc.)
-User reacts to select locations, then clicks ➡️ to add them.
 
-🔄 HOW IT WORKS
-===============
+🔥 PRIORITY FEATURES
+====================
 
-• The bot automatically checks for new jobs every 2 hours
-• When new jobs are found, they're posted to the channel
-• Jobs are filtered based on your preferences (if any)
-• Duplicate jobs are automatically filtered out
-• You can manually check for jobs anytime with !checknow
-• NEW: Interactive UI makes it easy to set preferences and search!
+Priority companies and categories get you immediate alerts when matching jobs are found:
 
-⚙️ PREFERENCE LOGIC
-===================
+• **Priority Companies**: Jobs at these companies trigger immediate notifications
+• **Priority Categories**: Jobs in these categories trigger immediate notifications  
+• **Minimum Salary**: Jobs at or above this salary get priority scoring
+• **Priority Scoring**: Jobs are ranked by relevance to your preferences
 
-• CATEGORIES: Jobs must contain your subscribed categories in the title
-• LOCATIONS: Jobs must contain your location preferences in the location field
-• COMPANIES: Jobs must be from your preferred companies
-• If you have no preferences set, you'll see ALL jobs
-• All preferences are case-insensitive
+🔔 NOTIFICATION TYPES
+====================
+
+• **Immediate**: Get notified as soon as new jobs are found
+• **Hourly**: Get notifications every hour
+• **Daily**: Get a daily digest of all new jobs
+• **Weekly**: Get a weekly summary with statistics
+• **Digest**: Get a summary when multiple jobs are found
+
+💡 PRO TIPS
+===========
+
+• Use interactive commands (without arguments) for the best experience
+• Set priority companies for your dream companies
+• Set priority categories for your dream roles
+• Use "Remote" as a location to find remote jobs
+• Combine multiple filters for precise job matching
+• Set minimum salary to focus on higher-paying roles
+• Use daily/weekly digests to avoid notification spam
+• Check `!preferences` to see all your current settings
+• Use `!clearpreferences` to see all jobs without filters
 
 🔧 TROUBLESHOOTING
 ==================
 
-Q: I'm not getting any job notifications
-A: Try !checknow to manually check, or !preferences to verify your settings
+**No jobs found?**
+• Try broadening your filters
+• Check if your preferences are too restrictive
+• Use `!clearpreferences` to see all jobs
 
-Q: I'm getting too many notifications
-A: Use !subscribe to add more specific categories, or !addlocation to filter by location
+**Too many notifications?**
+• Set notification frequency to daily or weekly
+• Be more specific with your filters
+• Remove some categories or locations
 
-Q: I want to see all jobs regardless of preferences
-A: Use !clearpreferences to remove all filters
+**Missing priority alerts?**
+• Make sure you've set priority companies/categories
+• Check that jobs match your priority criteria
+• Verify your notification settings
 
-Q: How do I use the interactive UI?
-A: Just type the command without arguments (e.g., !dumpjobs) and follow the emoji prompts!
+**Interactive UI not working?**
+• Make sure you're using the command without arguments
+• Check if you have an active session (use `!cancel` to clear)
+• Try the command again
 
-Q: The interactive UI isn't responding
-A: Make sure you're reacting to the bot's message, not typing commands. Sessions expire after 30 minutes.
-
-Q: I'm stuck in an interactive session
-A: Use !cancel to cancel your active session, or wait 30 minutes for it to expire automatically.
-
-Q: I can't start a new interactive session
-A: You can only have one active session at a time. Use !cancel to end your current session first.
-
-📞 NEED HELP?
-=============
-
-If you're having issues:
-1. Try !bothelp for a quick command reference
-2. Check your preferences with !preferences
-3. Use !checknow to test if the bot is working
-4. Ask a server admin if the bot appears offline
-
-🎯 PRO TIPS
-===========
-
-• Use the interactive UI for easier preference management
-• Interactive sessions expire after 30 minutes - complete them quickly
-• You can only have one active session at a time - use !cancel if you get stuck
-• The ✅ (arrow right) advances to the next step, 🔄 restarts the flow, ❌ cancels
-• Previous step messages are automatically cleaned up to reduce clutter
-• You can still use command arguments for quick actions (e.g., !subscribe backend)
-• Large job search results are automatically sent as files
-• The bot automatically filters out duplicate jobs, so you won't see the same job twice
-
----
-🤖 Job Hunt Buddy v1.0 - Built with ❤️ for job seekers 
+For more help, use `!bothelp` or ask a server admin! 

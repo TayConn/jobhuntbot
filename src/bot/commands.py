@@ -47,8 +47,10 @@ class JobBotCommands(commands.Cog):
         !dumpjobs category="backend"                 - Filter by category
         !dumpjobs location="Remote"                  - Filter by location  
         !dumpjobs company="discord"                  - Filter by company
-        !dumpjobs category="backend, frontend"       - Multiple categories
-        !dumpjobs category="backend" location="Remote" - Multiple filters
+        !dumpjobs experience="senior"                - Filter by experience level
+        !dumpjobs salary="100k-150k"                 - Filter by salary range
+        !dumpjobs work="remote"                      - Filter by work arrangement
+        !dumpjobs category="backend" location="Remote" experience="senior" - Multiple filters
         """
         if not filters:
             # Start interactive session
@@ -70,6 +72,12 @@ class JobBotCommands(commands.Cog):
                         filter_text.append(f"Locations: {', '.join(filter_prefs.locations)}")
                     if filter_prefs.companies:
                         filter_text.append(f"Companies: {', '.join(filter_prefs.companies)}")
+                    if filter_prefs.experience_levels:
+                        filter_text.append(f"Experience: {', '.join(filter_prefs.experience_levels)}")
+                    if filter_prefs.salary_ranges:
+                        filter_text.append(f"Salary: {', '.join(filter_prefs.salary_ranges)}")
+                    if filter_prefs.work_arrangements:
+                        filter_text.append(f"Work Type: {', '.join(filter_prefs.work_arrangements)}")
                     
                     await ctx.send(f"🔍 Applying filters: {', '.join(filter_text)}")
             
@@ -96,7 +104,7 @@ class JobBotCommands(commands.Cog):
     def _parse_dump_filters(self, filters_str: str) -> UserPreferences:
         """Parse filter string into UserPreferences object
         
-        Expected format: category="backend, frontend" location="Remote" company="discord"
+        Expected format: category="backend, frontend" location="Remote" experience="senior" salary="100k-150k"
         """
         try:
             # Create a temporary UserPreferences object for filtering
@@ -118,8 +126,17 @@ class JobBotCommands(commands.Cog):
                 elif key.lower() == "company":
                     companies = [comp.strip() for comp in value.split(",")]
                     filter_prefs.companies.extend(companies)
+                elif key.lower() == "experience":
+                    experience_levels = [exp.strip() for exp in value.split(",")]
+                    filter_prefs.experience_levels.extend(experience_levels)
+                elif key.lower() == "salary":
+                    salary_ranges = [sal.strip() for sal in value.split(",")]
+                    filter_prefs.salary_ranges.extend(salary_ranges)
+                elif key.lower() == "work":
+                    work_arrangements = [work.strip() for work in value.split(",")]
+                    filter_prefs.work_arrangements.extend(work_arrangements)
             
-            return filter_prefs if (filter_prefs.categories or filter_prefs.locations or filter_prefs.companies) else None
+            return filter_prefs if filter_prefs.has_any_preferences() else None
             
         except Exception as e:
             print(f"[ERROR] Failed to parse dump filters: {e}")
@@ -195,8 +212,33 @@ class JobBotCommands(commands.Cog):
             inline=False
         )
         embed.add_field(
+            name="Experience Levels", 
+            value=", ".join(user_prefs.experience_levels) if user_prefs.experience_levels else "None",
+            inline=False
+        )
+        embed.add_field(
+            name="Salary Ranges", 
+            value=", ".join(user_prefs.salary_ranges) if user_prefs.salary_ranges else "None",
+            inline=False
+        )
+        embed.add_field(
+            name="Work Arrangements", 
+            value=", ".join(user_prefs.work_arrangements) if user_prefs.work_arrangements else "None",
+            inline=False
+        )
+        embed.add_field(
             name="Notification Frequency", 
             value=user_prefs.notification_frequency,
+            inline=False
+        )
+        embed.add_field(
+            name="Priority Companies", 
+            value=", ".join(user_prefs.priority_companies) if user_prefs.priority_companies else "None",
+            inline=False
+        )
+        embed.add_field(
+            name="Priority Categories", 
+            value=", ".join(user_prefs.priority_categories) if user_prefs.priority_categories else "None",
             inline=False
         )
         embed.add_field(
@@ -247,6 +289,162 @@ class JobBotCommands(commands.Cog):
         embed.add_field(name="Your Companies", value=", ".join(user_prefs.companies))
         await ctx.send(embed=embed)
     
+    # New enhanced filtering commands
+    @commands.command(name="addexperience")
+    async def add_experience(self, ctx, experience: str = None):
+        """Add an experience level preference. Usage: !addexperience [level] or !addexperience for interactive selection"""
+        if not experience:
+            # Start interactive session
+            await self.interactive_ui.start_addexperience_session(ctx)
+            return
+        
+        user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
+        user_prefs.add_experience_level(experience)
+        self.storage_service.save_user_preferences(user_prefs)
+        
+        embed = discord.Embed(
+            title="👨‍💼 Experience Level Added!",
+            description=f"Added **{experience}** to your experience level preferences",
+            color=0x00ff00
+        )
+        embed.add_field(name="Your Experience Levels", value=", ".join(user_prefs.experience_levels))
+        await ctx.send(embed=embed)
+    
+    @commands.command(name="addsalary")
+    async def add_salary(self, ctx, salary_range: str = None):
+        """Add a salary range preference. Usage: !addsalary [range] or !addsalary for interactive selection"""
+        if not salary_range:
+            # Start interactive session
+            await self.interactive_ui.start_addsalary_session(ctx)
+            return
+        
+        user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
+        user_prefs.add_salary_range(salary_range)
+        self.storage_service.save_user_preferences(user_prefs)
+        
+        embed = discord.Embed(
+            title="💰 Salary Range Added!",
+            description=f"Added **{salary_range}** to your salary range preferences",
+            color=0x00ff00
+        )
+        embed.add_field(name="Your Salary Ranges", value=", ".join(user_prefs.salary_ranges))
+        await ctx.send(embed=embed)
+    
+    @commands.command(name="addwork")
+    async def add_work_arrangement(self, ctx, arrangement: str = None):
+        """Add a work arrangement preference. Usage: !addwork [arrangement] or !addwork for interactive selection"""
+        if not arrangement:
+            # Start interactive session
+            await self.interactive_ui.start_addwork_session(ctx)
+            return
+        
+        user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
+        user_prefs.add_work_arrangement(arrangement)
+        self.storage_service.save_user_preferences(user_prefs)
+        
+        embed = discord.Embed(
+            title="🏠 Work Arrangement Added!",
+            description=f"Added **{arrangement}** to your work arrangement preferences",
+            color=0x00ff00
+        )
+        embed.add_field(name="Your Work Arrangements", value=", ".join(user_prefs.work_arrangements))
+        await ctx.send(embed=embed)
+    
+    # Priority preference commands
+    @commands.command(name="addprioritycompany")
+    async def add_priority_company(self, ctx, company: str):
+        """Add a priority company for immediate alerts"""
+        user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
+        user_prefs.add_priority_company(company)
+        self.storage_service.save_user_preferences(user_prefs)
+        
+        embed = discord.Embed(
+            title="🔥 Priority Company Added!",
+            description=f"Added **{company}** to your priority companies",
+            color=0xff6b35
+        )
+        embed.add_field(name="Your Priority Companies", value=", ".join(user_prefs.priority_companies))
+        embed.add_field(name="Note", value="You'll get immediate alerts for jobs at priority companies!")
+        await ctx.send(embed=embed)
+    
+    @commands.command(name="addprioritycategory")
+    async def add_priority_category(self, ctx, category: str):
+        """Add a priority category for immediate alerts"""
+        user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
+        user_prefs.add_priority_category(category)
+        self.storage_service.save_user_preferences(user_prefs)
+        
+        embed = discord.Embed(
+            title="🔥 Priority Category Added!",
+            description=f"Added **{category}** to your priority categories",
+            color=0xff6b35
+        )
+        embed.add_field(name="Your Priority Categories", value=", ".join(user_prefs.priority_categories))
+        embed.add_field(name="Note", value="You'll get immediate alerts for jobs in priority categories!")
+        await ctx.send(embed=embed)
+    
+    @commands.command(name="setminsalary")
+    async def set_min_salary(self, ctx, salary_min: int):
+        """Set minimum salary requirement in thousands USD (e.g., !setminsalary 100 for $100k)"""
+        user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
+        user_prefs.set_priority_salary_min(salary_min)
+        self.storage_service.save_user_preferences(user_prefs)
+        
+        embed = discord.Embed(
+            title="💰 Minimum Salary Set!",
+            description=f"Set minimum salary requirement to **${salary_min}k**",
+            color=0x00ff00
+        )
+        embed.add_field(name="Note", value="You'll get priority alerts for jobs at or above this salary!")
+        await ctx.send(embed=embed)
+    
+    # Notification preference commands
+    @commands.command(name="setnotifications")
+    async def set_notification_frequency(self, ctx, frequency: str):
+        """Set notification frequency. Options: immediate, hourly, daily, weekly, digest"""
+        if frequency.lower() not in Config.NOTIFICATION_FREQUENCIES:
+            embed = discord.Embed(
+                title="❌ Invalid Frequency",
+                description=f"Valid options: {', '.join(Config.NOTIFICATION_FREQUENCIES)}",
+                color=0xff0000
+            )
+            await ctx.send(embed=embed)
+            return
+        
+        user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
+        user_prefs.notification_frequency = frequency.lower()
+        self.storage_service.save_user_preferences(user_prefs)
+        
+        embed = discord.Embed(
+            title="🔔 Notification Frequency Updated!",
+            description=f"Set to **{frequency}** notifications",
+            color=0x00ff00
+        )
+        await ctx.send(embed=embed)
+    
+    @commands.command(name="setnotificationtime")
+    async def set_notification_time(self, ctx, hour: int, minute: int = 0):
+        """Set notification time for scheduled notifications (24-hour format)"""
+        if not (0 <= hour <= 23 and 0 <= minute <= 59):
+            embed = discord.Embed(
+                title="❌ Invalid Time",
+                description="Hour must be 0-23, minute must be 0-59",
+                color=0xff0000
+            )
+            await ctx.send(embed=embed)
+            return
+        
+        user_prefs = self.storage_service.get_user_preferences(ctx.author.id)
+        user_prefs.set_notification_time(hour, minute)
+        self.storage_service.save_user_preferences(user_prefs)
+        
+        embed = discord.Embed(
+            title="⏰ Notification Time Set!",
+            description=f"Set to **{hour:02d}:{minute:02d}** daily",
+            color=0x00ff00
+        )
+        await ctx.send(embed=embed)
+    
     @commands.command(name="clearpreferences")
     async def clear_preferences(self, ctx):
         """Clear all your job preferences"""
@@ -254,6 +452,12 @@ class JobBotCommands(commands.Cog):
         user_prefs.categories = []
         user_prefs.locations = []
         user_prefs.companies = []
+        user_prefs.experience_levels = []
+        user_prefs.salary_ranges = []
+        user_prefs.work_arrangements = []
+        user_prefs.priority_companies = []
+        user_prefs.priority_categories = []
+        user_prefs.priority_salary_min = None
         self.storage_service.save_user_preferences(user_prefs)
         
         embed = discord.Embed(
@@ -280,6 +484,14 @@ class JobBotCommands(commands.Cog):
             ("!preferences", "Show your current preferences"),
             ("!addlocation", "Interactive location addition"),
             ("!addcompany", "Interactive company addition"),
+            ("!addexperience", "Interactive experience level addition"),
+            ("!addsalary", "Interactive salary range addition"),
+            ("!addwork", "Interactive work arrangement addition"),
+            ("!addprioritycompany", "Add priority company for alerts"),
+            ("!addprioritycategory", "Add priority category for alerts"),
+            ("!setminsalary", "Set minimum salary requirement"),
+            ("!setnotifications", "Set notification frequency"),
+            ("!setnotificationtime", "Set daily notification time"),
             ("!clearpreferences", "Clear all preferences"),
             ("!cancel", "Cancel your active interactive session"),
             ("!welcome", "Send yourself a welcome message"),
@@ -317,83 +529,19 @@ class JobBotCommands(commands.Cog):
         )
 
         embed.add_field(
+            name="🔥 Priority Features", 
+            value="Use priority commands to get immediate alerts for your dream companies and roles!",
+            inline=False
+        )
+
+        embed.add_field(
             name="ℹ️ Note", 
             value="Use `!help` for Discord's built-in help, or `!bothelp` for bot-specific commands.",
             inline=False
         )
 
         await ctx.send(embed=embed)
-        """Post the comprehensive guide embed to the channel"""
-        embed = discord.Embed(
-            title="🤖 Job Hunt Buddy - Complete Guide",
-            description="Welcome to Job Hunt Buddy! This bot automatically monitors job postings and sends personalized notifications.",
-            color=0x0099ff,
-            url="https://github.com/yourusername/jobhuntbuddy"  # Replace with your repo URL
-        )
-
-        # Privacy Tip
-        embed.add_field(
-            name="🔒 Privacy Tip",
-            value="For privacy, DM the bot directly to set your job preferences and use personal commands (like `!subscribe`, `!preferences`, etc.).",
-            inline=False
-        )
-        
-        # Quick Start Section
-        embed.add_field(
-            name="🚀 Quick Start",
-            value="```\n!subscribe software engineer\n!addlocation \"San Francisco\"\n!checknow\n```",
-            inline=False
-        )
-        
-        # Core Commands
-        embed.add_field(
-            name="🔍 Core Commands",
-            value="• `!checknow` - Check for new jobs\n• `!dumpjobs` - Interactive job search\n• `!preferences` - View your settings",
-            inline=True
-        )
-        
-        # Preference Commands
-        embed.add_field(
-            name="⚙️ Preference Commands",
-            value="• `!subscribe` - Interactive category subscription\n• `!addlocation` - Interactive location addition\n• `!addcompany` - Interactive company addition",
-            inline=True
-        )
-        
-        # Available Categories
-        categories_text = "• " + "\n• ".join(Config.DEFAULT_CATEGORIES[:6])  # Show first 6
-        embed.add_field(
-            name="📋 Popular Categories",
-            value=categories_text,
-            inline=True
-        )
-        
-        # Supported Companies
-        embed.add_field(
-            name="🏢 Supported Companies",
-            value="• Discord\n• Reddit\n• Monarch Money\n• Cribl\n• Gitlab",
-            inline=True
-        )
-        
-        # How it works
-        embed.add_field(
-            name="🔄 How It Works",
-            value="• Checks for new jobs every 2 hours\n• Filters based on your preferences\n• Sends notifications to this channel\n• No duplicates - each job posted once",
-            inline=False
-        )
-        
-        # Pro Tips
-        embed.add_field(
-            name="💡 Pro Tips",
-            value="• Use `!subscribe` for interactive category selection\n• Use `!dumpjobs` for interactive job filtering\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Check `!bothelp` for full command list",
-            inline=False
-        )
-
-        
-        embed.set_footer(text="Job Hunt Buddy v1.0 - Built with ❤️ for job seekers")
-        embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1234567890.png")  # Optional: Add bot avatar
-        
-        await ctx.send(embed=embed)
-
+    
     @commands.command(name="postguide")
     @commands.has_permissions(manage_messages=True)  # Only admins can post the guide
     async def post_guide_to_config(self, ctx):
@@ -425,7 +573,7 @@ class JobBotCommands(commands.Cog):
             # Quick Start Section
             embed.add_field(
                 name="🚀 Quick Start",
-                value="```\n!subscribe software engineer\n!addlocation \"San Francisco\"\n!checknow\n```",
+                value="```\n!subscribe software engineer\n!addlocation \"San Francisco\"\n!addprioritycompany discord\n!checknow\n```",
                 inline=False
             )
             
@@ -439,12 +587,19 @@ class JobBotCommands(commands.Cog):
             # Preference Commands
             embed.add_field(
                 name="⚙️ Preference Commands",
-                value="• `!subscribe` - Interactive category subscription\n• `!addlocation` - Interactive location addition\n• `!addcompany` - Interactive company addition",
+                value="• `!subscribe` - Interactive category subscription\n• `!addlocation` - Interactive location addition\n• `!addcompany` - Interactive company addition\n• `!addexperience` - Interactive experience level addition\n• `!addsalary` - Interactive salary range addition\n• `!addwork` - Interactive work arrangement addition",
+                inline=True
+            )
+            
+            # Priority Commands
+            embed.add_field(
+                name="🔥 Priority Commands",
+                value="• `!addprioritycompany` - Add priority company\n• `!addprioritycategory` - Add priority category\n• `!setminsalary` - Set minimum salary\n• `!setnotifications` - Set notification frequency",
                 inline=True
             )
             
             # Available Categories
-            categories_text = "• " + "\n• ".join(Config.DEFAULT_CATEGORIES[:6])  # Show first 6
+            categories_text = "• " + "\n• ".join(Config.DEFAULT_CATEGORIES[:8])  # Show first 8
             embed.add_field(
                 name="📋 Popular Categories",
                 value=categories_text,
@@ -461,22 +616,21 @@ class JobBotCommands(commands.Cog):
             # How it works
             embed.add_field(
                 name="🔄 How It Works",
-                value="• Checks for new jobs every 2 hours\n• Filters based on your preferences\n• Sends notifications to this channel\n• No duplicates - each job posted once",
+                value="• Checks for new jobs every 2 hours\n• Filters based on your preferences\n• Sends personalized notifications\n• Priority alerts for dream companies/roles\n• No duplicates - each job posted once",
                 inline=False
             )
             
             # Pro Tips
             embed.add_field(
                 name="💡 Pro Tips",
-                value="• Use `!subscribe` for interactive category selection\n• Use `!dumpjobs` for interactive job filtering\n• Add \"Remote\" as location for remote jobs\n• Use `!clearpreferences` to see all jobs\n• Check `!bothelp` for full command list",
+                value="• Use `!subscribe` for interactive category selection\n• Use `!dumpjobs` for interactive job filtering\n• Add \"Remote\" as location for remote jobs\n• Set priority companies for immediate alerts\n• Use `!clearpreferences` to see all jobs\n• Check `!bothelp` for full command list",
                 inline=False
             )
             
-            embed.set_footer(text="Job Hunt Buddy v1.0 - Built with ❤️ for job seekers")
+            embed.set_footer(text="Job Hunt Buddy v2.0 - Built with ❤️ for job seekers")
             embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1234567890.png")  # Optional: Add bot avatar
             
             await target_channel.send(embed=embed)
-            #await ctx.send(f"✅ Guide posted to configured channel: <#{Config.GUIDE_CHANNEL_ID}>")
             
         except Exception as e:
             await ctx.send(f"❌ Error posting guide: {e}")
@@ -496,7 +650,7 @@ class JobBotCommands(commands.Cog):
         
         embed.add_field(
             name="🚀 Get Started",
-            value="1. **Subscribe to job categories**: `!subscribe` (interactive)\n2. **Add location preferences**: `!addlocation` (interactive)\n3. **Search for jobs**: `!dumpjobs` (interactive)",
+            value="1. **Subscribe to job categories**: `!subscribe` (interactive)\n2. **Add location preferences**: `!addlocation` (interactive)\n3. **Set priority companies**: `!addprioritycompany discord`\n4. **Search for jobs**: `!dumpjobs` (interactive)",
             inline=False
         )
         
@@ -507,8 +661,14 @@ class JobBotCommands(commands.Cog):
         )
         
         embed.add_field(
+            name="🔥 Priority Features",
+            value="• `!addprioritycompany` - Get immediate alerts for dream companies\n• `!addprioritycategory` - Get immediate alerts for dream roles\n• `!setminsalary` - Set minimum salary requirements\n• `!setnotifications` - Customize notification frequency",
+            inline=False
+        )
+        
+        embed.add_field(
             name="💡 Quick Tips",
-            value="• I check for new jobs every 2 hours automatically\n• You'll only see jobs that match your preferences\n• Use `!clearpreferences` to see all jobs\n• Each job is posted only once\n• **NEW**: Most commands now have interactive UI!",
+            value="• I check for new jobs every 2 hours automatically\n• You'll only see jobs that match your preferences\n• Priority jobs get immediate alerts\n• Use `!clearpreferences` to see all jobs\n• Each job is posted only once\n• **NEW**: Enhanced filtering with experience, salary, and work arrangements!",
             inline=False
         )
         
