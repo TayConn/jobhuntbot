@@ -625,6 +625,7 @@ class AddLocationSession(UISession):
         self.step = 0
         self.messages: List[discord.Message] = []
         self.user_id = ctx.author.id
+        self.location_msg = None  # Initialize the location_msg attribute
 
     async def start(self):
         await self.send_location_message()
@@ -655,25 +656,48 @@ class AddLocationSession(UISession):
 
     async def handle_reaction(self, payload):
         emoji = str(payload.emoji)
+        print(f"[DEBUG] AddLocationSession.handle_reaction called")
+        print(f"[DEBUG] Emoji: {emoji}")
+        print(f"[DEBUG] Message ID: {payload.message_id}")
+        print(f"[DEBUG] Location msg ID: {self.location_msg.id if self.location_msg else 'None'}")
+        print(f"[DEBUG] Message IDs match: {payload.message_id == self.location_msg.id if self.location_msg else False}")
+        
         if payload.message_id == self.location_msg.id:
+            print(f"[DEBUG] Processing location reaction")
             await self.handle_location_reaction(emoji)
+        else:
+            print(f"[DEBUG] Message ID mismatch, ignoring reaction")
 
     async def handle_location_reaction(self, emoji):
         locations = ["Remote", "San Francisco", "New York", "Los Angeles", "Seattle", "Austin", "Boston", "Chicago"]
         emoji_to_index = {chr(0x1F1E6 + i): i for i in range(len(locations))}
+        
+        print(f"[DEBUG] Location reaction: {emoji} (code: {ord(emoji) if len(emoji) == 1 else 'multi-char'})")
+        print(f"[DEBUG] Available emojis: {list(emoji_to_index.keys())}")
+        print(f"[DEBUG] Current selections: {self.selected_locations}")
+        
         if emoji in emoji_to_index:
             idx = emoji_to_index[emoji]
             loc = locations[idx]
+            print(f"[DEBUG] Found location: {loc} at index {idx}")
             if loc in self.selected_locations:
                 self.selected_locations.remove(loc)
+                print(f"[DEBUG] Removed {loc} from selections")
             else:
                 self.selected_locations.add(loc)
+                print(f"[DEBUG] Added {loc} to selections")
+            print(f"[DEBUG] Updated selections: {self.selected_locations}")
         elif emoji == PENCIL_EMOJI:
+            print(f"[DEBUG] Pencil emoji clicked, prompting custom location")
             await self.prompt_custom_location()
         elif emoji == NEXT_EMOJI:
+            print(f"[DEBUG] Next emoji clicked, adding locations")
             await self.add_locations()
         elif emoji == CANCEL_EMOJI:
+            print(f"[DEBUG] Cancel emoji clicked")
             await self.cancel_session()
+        else:
+            print(f"[DEBUG] Unknown emoji: {emoji}")
 
     async def prompt_custom_location(self):
         prompt = await self.ctx.send(
@@ -688,15 +712,26 @@ class AddLocationSession(UISession):
         await self.ctx.send(f"✅ Added custom location(s): {', '.join(locs)}")
 
     async def add_locations(self):
+        print(f"[DEBUG] add_locations called")
+        print(f"[DEBUG] selected_locations: {self.selected_locations}")
+        print(f"[DEBUG] custom_locations: {self.custom_locations}")
+        print(f"[DEBUG] selected_locations empty: {not self.selected_locations}")
+        print(f"[DEBUG] custom_locations empty: {not self.custom_locations}")
+        print(f"[DEBUG] both empty: {not self.selected_locations and not self.custom_locations}")
+        
         if not self.selected_locations and not self.custom_locations:
+            print(f"[DEBUG] No locations selected, showing warning")
             await self.ctx.send("⚠️ Please select or enter at least one location to add.")
             return
+        
+        print(f"[DEBUG] Adding locations to user preferences")
         user_prefs = self.ui_system.storage_service.get_user_preferences(self.ctx.author.id)
         for loc in self.selected_locations:
             user_prefs.add_location(loc)
         for loc in self.custom_locations:
             user_prefs.add_location(loc)
         self.ui_system.storage_service.save_user_preferences(user_prefs)
+        
         embed = discord.Embed(
             title="✅ Location(s) Added!",
             description=f"Added: {', '.join(list(self.selected_locations) + list(self.custom_locations))}",
