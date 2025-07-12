@@ -103,7 +103,7 @@ Response: Bot sends interactive menu with emoji reactions for:
 - 🗂 Categories (backend, frontend, etc.)
 - 🌍 Locations (Remote, San Francisco, etc.)  
 - 🏢 Companies (Discord, Reddit, Cribl, etc.)
-- ➡️ Done (run search)
+- ✅ Done (run search)
 - ❌ Cancel
 
 Example 2: Interactive category subscription
