@@ -7,7 +7,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8000342002": {
     "title": "Senior Revenue Accountant",
@@ -17,7 +21,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7950420002": {
     "title": "Account Manager - Crossplatform Gaming",
@@ -27,7 +35,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8037540002": {
     "title": "Business Systems Analyst",
@@ -39,7 +51,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8021044002": {
     "title": "Senior Engineering Manager - Storage Platform",
@@ -49,7 +65,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8045535002": {
     "title": "Senior Engineering Manager, Client Platforms",
@@ -59,7 +79,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7979535002": {
     "title": "Senior Software Engineer - Desktop Platform",
@@ -71,7 +95,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7966411002": {
     "title": "Senior Software Engineer, Audio/Video Client",
@@ -83,7 +111,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7803984002": {
     "title": "Senior Staff Software Engineer, Client Platform",
@@ -95,7 +127,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7990178002": {
     "title": "Software Engineer, Safety Processing",
@@ -107,7 +143,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8015636002": {
     "title": "Software Engineer, Traffic Infrastructure",
@@ -120,7 +160,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8030630002": {
     "title": "Staff Software Engineer - Desktop Platform",
@@ -132,7 +176,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7953473002": {
     "title": "Staff Software Engineer, Audio/Video Infrastructure",
@@ -145,7 +193,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7972716002": {
     "title": "Sales Operations Manager",
@@ -155,7 +207,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8005871002": {
     "title": "Senior Software Engineer, Data Platform",
@@ -167,7 +223,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7977511002": {
     "title": "Data Engineer",
@@ -179,7 +239,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8035019002": {
     "title": "Data Scientist, Analytics - Safety Response",
@@ -191,7 +255,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7989482002": {
     "title": "Senior Developer Analytics Manager",
@@ -203,7 +271,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7990185002": {
     "title": "Senior Software Engineer, Game Experience",
@@ -215,7 +287,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8006210002": {
     "title": "Senior Financial Analyst, Business Partnership",
@@ -227,7 +303,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7963308002": {
     "title": "Senior Counsel, Intellectual Property",
@@ -237,7 +317,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7979061002": {
     "title": "Senior Litigation Counsel",
@@ -247,7 +331,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8065977002": {
     "title": "eDiscovery Lead",
@@ -257,7 +345,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7997969002": {
     "title": "Staff Software Engineer, Machine Learning",
@@ -270,7 +362,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7970933002": {
     "title": "Director of Marketing, Ads",
@@ -282,7 +378,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8040012002": {
     "title": "Group Product Marketing Manager, Shop",
@@ -294,7 +394,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8038557002": {
     "title": "Senior Product Marketing Manager, Media and Entertainment",
@@ -306,7 +410,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8036850002": {
     "title": "Senior Learning Experience Partner",
@@ -316,7 +424,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7964314002": {
     "title": "Head of Public Policy, Latin America",
@@ -326,7 +438,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8011526002": {
     "title": "Safety By Design Policy Expert, Developer Platform",
@@ -338,7 +454,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8061190002": {
     "title": "Product Designer, Player & Developer Experience",
@@ -351,7 +471,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8024582002": {
     "title": "Senior Product Designer, Core Product",
@@ -363,7 +487,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7963431002": {
     "title": "Senior Product Designer, Developer Platform",
@@ -376,7 +504,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8011672002": {
     "title": "Senior Product Designer, Safety (Temporary Position)",
@@ -388,7 +520,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7991189002": {
     "title": "Engineering Manager, Growth",
@@ -400,7 +536,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8049679002": {
     "title": "Senior Engineering Manager, Ads",
@@ -410,7 +550,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8073315002": {
     "title": "Senior Software Engineer, Core Product",
@@ -422,7 +566,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8047233002": {
     "title": "Software Engineer, Subscriptions",
@@ -434,7 +582,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8058456002": {
     "title": "Staff Software Engineer - UI and Interactions (Full-Stack)",
@@ -448,7 +600,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7854326002": {
     "title": "Staff Software Engineer \u2013 UI/UX Specialist",
@@ -462,7 +618,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7855519002": {
     "title": "Staff Software Engineer, Consumer Revenue",
@@ -474,7 +634,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7982515002": {
     "title": "Product Manager, Core Product",
@@ -486,7 +650,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": null,
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7928060002": {
     "title": "Product Manager, Experimentation",
@@ -498,7 +666,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7835247002": {
     "title": "Senior Technical Program Manager, Cost & Efficiency",
@@ -508,7 +680,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/7979501002": {
     "title": "Senior Director, Scaled Operations",
@@ -518,7 +694,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8037496002": {
     "title": "Sr. Program Manager, Safety Core Initiatives",
@@ -528,7 +708,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8060760002": {
     "title": "Threat Operations Specialist, Child Safety",
@@ -538,7 +722,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://discord.com/jobs/8021192002": {
     "title": "Workplace Operations Specialist",
@@ -548,7 +736,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6832510": {
     "title": "Community Specialist, Thailand, based in India (Contract)",
@@ -558,7 +750,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6982400": {
     "title": "Content Strategist, France (Contract)",
@@ -570,7 +766,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/7004411": {
     "title": "Content Strategist, India (Contract)",
@@ -582,7 +782,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/7012272": {
     "title": "Content Strategist, Singapore & Thailand (Contract)",
@@ -594,7 +798,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6982330": {
     "title": "Content Strategist, Spain (Contract)",
@@ -606,7 +814,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6945122": {
     "title": "Growth Builder (Contract) - DACH",
@@ -619,7 +831,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6982380": {
     "title": "Growth Builder, France (Contract)",
@@ -632,7 +848,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6982344": {
     "title": "Growth Builder, India (Contract)",
@@ -645,7 +865,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/7012316": {
     "title": "Growth Builder, Singapore & Thailand (Contract)",
@@ -658,7 +882,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6831483": {
     "title": "Manager, EMEA Community",
@@ -668,7 +896,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6961653": {
     "title": "Strategic Community Specialist (contract)",
@@ -678,7 +910,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6961935": {
     "title": "Strategic Community Specialist (contract)",
@@ -688,7 +924,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6967193": {
     "title": "Strategic Community Specialist (contract)",
@@ -698,7 +938,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/7030283": {
     "title": "Strategic Community Specialist - Dutch speaker (contract)",
@@ -708,7 +952,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6961976": {
     "title": "Strategic Community Specialist - Swedish speaker (contract)",
@@ -718,7 +966,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6988937": {
     "title": "Workday Senior Integrations Engineer, HR Applications",
@@ -728,7 +980,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6367798": {
     "title": "Senior Data Science Manager, Ads Marketplace",
@@ -738,7 +994,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6706371": {
     "title": "Staff Data Scientist, Ads",
@@ -750,7 +1010,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6686373": {
     "title": "Data Science Manager, User Growth",
@@ -762,7 +1026,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6745284": {
     "title": "Staff Data Scientist, Consumer",
@@ -774,7 +1042,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6781648": {
     "title": "Senior iOS Software Engineer, Reddit Chat",
@@ -786,7 +1058,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6781659": {
     "title": "Senior iOS Software Engineer, Reddit Chat",
@@ -798,7 +1074,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6781662": {
     "title": "Senior iOS Software Engineer, Reddit Chat",
@@ -810,7 +1090,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6781668": {
     "title": "Senior iOS Software Engineer, Reddit Chat",
@@ -822,7 +1106,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6781680": {
     "title": "Senior iOS Software Engineer, Reddit Chat",
@@ -834,7 +1122,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6848968": {
     "title": "Engineering Manager - Ad Formats Foundation",
@@ -844,7 +1136,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6573884": {
     "title": "Engineering Manager - Ads Auto-Bidding",
@@ -854,7 +1150,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6657054": {
     "title": "Engineering Manager - Ads Auto-Bidding",
@@ -864,7 +1164,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6874780": {
     "title": "Engineering Manager - Ads Experimentation Platform",
@@ -874,7 +1178,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6974427": {
     "title": "Machine Learning Engineer, Audience Intelligence",
@@ -886,7 +1194,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6983179": {
     "title": "Machine Learning Engineer, Audience Intelligence",
@@ -898,7 +1210,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6413800": {
     "title": "Machine Learning Manager - Ads Engagement Modeling",
@@ -910,7 +1226,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6517038": {
     "title": "Machine Learning Manager - Ads Engagement Modeling",
@@ -922,7 +1242,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6318048": {
     "title": "Machine Learning Manager - Ads Targeting Modeling",
@@ -934,7 +1258,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6520870": {
     "title": "Machine Learning Manager - Ads Targeting Modeling",
@@ -946,7 +1274,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6964782": {
     "title": "Principal Engineer - Ads Signals, Identity & Measurement",
@@ -956,7 +1288,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6253122": {
     "title": "Principal Software Engineer, Ads Backend Engineering",
@@ -969,7 +1305,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6982893": {
     "title": "Senior Frontend Engineer, Ads Formats",
@@ -981,7 +1321,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/7023451": {
     "title": "Senior Machine Learning Engineer, App Ads",
@@ -993,7 +1337,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6785660": {
     "title": "Senior Machine Learning Engineer, Conversion Lift",
@@ -1005,7 +1353,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6887765": {
     "title": "Senior Machine Learning Engineer, Conversion Lift",
@@ -1017,7 +1369,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6804832": {
     "title": "Senior Software Engineer - Ads Experimentation Platform",
@@ -1029,7 +1385,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6824828": {
     "title": "Senior Software Engineer, Ads Experimentation Platform",
@@ -1041,7 +1401,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6499299": {
     "title": "Senior Staff Machine Learning Engineer, Ads Measurement",
@@ -1053,7 +1417,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6874361": {
     "title": "Senior Staff Machine Learning Engineer, Ads Measurement",
@@ -1065,7 +1433,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6778794": {
     "title": "Senior Staff Machine Learning Engineer, Ads Targeting",
@@ -1077,7 +1449,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/5828920": {
     "title": "Senior Staff Software Engineer, Ads Formats",
@@ -1089,7 +1465,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6059420": {
     "title": "Senior Staff Software Engineer, Ads Formats",
@@ -1101,7 +1481,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6838679": {
     "title": "Staff Machine Learning Engineer, Ads Measurement",
@@ -1113,7 +1497,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6918152": {
     "title": "Staff Machine Learning Engineer, Ads Measurement",
@@ -1125,7 +1513,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6878929": {
     "title": "Staff Software Engineer, Ads Creative",
@@ -1137,7 +1529,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6996594": {
     "title": "Engineering Manager, Compute Platform Orchestration",
@@ -1147,7 +1543,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6790339": {
     "title": "Senior Software Engineer, GraphQL",
@@ -1159,7 +1559,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6684862": {
     "title": "Staff Software Engineer, Messaging Infrastructure",
@@ -1172,7 +1576,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6704193": {
     "title": "Staff Software Engineer, Messaging Infrastructure",
@@ -1185,7 +1593,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6704201": {
     "title": "Staff Software Engineer, Messaging Infrastructure",
@@ -1198,7 +1610,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6704206": {
     "title": "Staff Software Engineer, Messaging Infrastructure",
@@ -1211,7 +1627,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/7016978": {
     "title": "Principal Engineer, Android Performance",
@@ -1221,7 +1641,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6931879": {
     "title": "Senior Engineering Manager, Android Platform",
@@ -1231,7 +1655,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/5936181": {
     "title": "Senior Data Scientist, Consumer",
@@ -1243,7 +1671,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6884160": {
     "title": "Engineering Manager, Data Pipeline",
@@ -1253,7 +1685,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6851603": {
     "title": "Senior Machine Learning Engineer, Dev Platform Data and Discovery",
@@ -1265,7 +1701,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6897939": {
     "title": "Senior Software Engineer, AI Enablement",
@@ -1277,7 +1717,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6932236": {
     "title": "Senior Software Engineer, AI Enablement",
@@ -1289,7 +1733,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6932297": {
     "title": "Senior Software Engineer, AI Enablement",
@@ -1301,7 +1749,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6932306": {
     "title": "Senior Software Engineer, AI Enablement",
@@ -1313,7 +1765,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6763397": {
     "title": "Senior Software Engineer, Android Test Engineering",
@@ -1326,7 +1782,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/7031985": {
     "title": "Senior Machine Learning Engineer - Notifications Relevance New",
@@ -1338,7 +1798,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6758874": {
     "title": "Staff Backend Engineer, Top of Funnel",
@@ -1350,7 +1814,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6758882": {
     "title": "Staff Backend Engineer, Top of Funnel",
@@ -1362,7 +1830,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6742761": {
     "title": "Engineering Manager, ML Feature Platform",
@@ -1374,7 +1846,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6996710": {
     "title": "Engineering Manager, ML Understanding",
@@ -1386,7 +1862,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6534982": {
     "title": "Machine Learning Engineer, Search and Answers",
@@ -1398,7 +1878,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6861064": {
     "title": "Principal Software Engineer, ML Feature Platform",
@@ -1411,7 +1895,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/7050948": {
     "title": "Senior Machine Learning Engineer, LS Embeddings New",
@@ -1423,7 +1911,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6740925": {
     "title": "Staff Machine Learning Engineer - LS Embedding",
@@ -1435,7 +1927,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6742757": {
     "title": "Staff Machine Learning Engineer, ML Understanding",
@@ -1447,7 +1943,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6706315": {
     "title": "Staff Software Engineer, ML Training Platform",
@@ -1460,7 +1960,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6738050": {
     "title": "Senior Staff Engineer, GraphQL",
@@ -1470,7 +1974,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6685051": {
     "title": "Principal Machine Learning Engineer - Large Scale Embedding",
@@ -1482,7 +1990,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6987387": {
     "title": "Engineering Manager, Site Reliability",
@@ -1494,7 +2006,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6349847": {
     "title": "Senior Site Reliability Engineer",
@@ -1506,7 +2022,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6357597": {
     "title": "Senior Site Reliability Engineer",
@@ -1518,7 +2038,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6357598": {
     "title": "Senior Site Reliability Engineer",
@@ -1530,7 +2054,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6357599": {
     "title": "Senior Site Reliability Engineer",
@@ -1542,7 +2070,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6594264": {
     "title": "Senior Site Reliability Engineer",
@@ -1554,7 +2086,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/7056405": {
     "title": "Growth Initiatives LeadNew",
@@ -1566,7 +2102,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6821099": {
     "title": "Associate General Counsel, Intellectual Property",
@@ -1576,7 +2116,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6995348": {
     "title": "Trust & Safety Policy - Legal Removals Policy Senior Specialist",
@@ -1586,7 +2130,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6570398": {
     "title": "Content Strategist Weekend, India Focus (Contractor)",
@@ -1598,7 +2146,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6723187": {
     "title": "Director of Product, Ads Measurement (Monetization)",
@@ -1608,7 +2160,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6762983": {
     "title": "Principal Product Manager - Ads Manager (Monetization)",
@@ -1620,7 +2176,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6563939": {
     "title": "Staff Product Manager, Ads Marketplace - Supply Optimization & Ranking (Auction/Bidding)",
@@ -1632,7 +2192,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6721235": {
     "title": "Senior Product Manager, Reddit Answers",
@@ -1644,7 +2208,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/7014057": {
     "title": "Staff Product Manager, Compliance",
@@ -1656,7 +2224,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6793773": {
     "title": "Product Adoption Strategist - Scaled Programs",
@@ -1666,7 +2238,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/6375861": {
     "title": "Senior Creative Strategist, EC AutoNew",
@@ -1676,7 +2252,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/7005334": {
     "title": "Director, Global Strategic Accounts",
@@ -1686,7 +2266,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/7005340": {
     "title": "Director, Global Strategic Accounts",
@@ -1696,7 +2280,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/reddit/jobs/7005344": {
     "title": "Director, Global Strategic Accounts",
@@ -1706,7 +2294,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/ac72e1b8-95bb-49c4-a66f-f31e78f5d86d": {
     "title": "Engineering Manager, Core Product\n\nEngineering \u2022 Remote (US) \u2022 Full time \u2022 Remote",
@@ -1716,7 +2308,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/a000b494-40f0-4492-ae8b-5cb077736e62": {
     "title": "Future Engineering Opportunities\n\nEngineering \u2022 Remote \u2022 Full time \u2022 Remote",
@@ -1726,7 +2322,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/d15cd4b2-df3a-45d6-ad2b-c3f2c41edd50": {
     "title": "Product Engineer (Senior / Staff / Principal) - Outside the US\n\nEngineering \u2022 Remote (non-US) \u2022 Full time \u2022 Remote",
@@ -1736,7 +2336,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/9a0cd22d-65df-4a29-9b11-a4bbfdf4d2dd": {
     "title": "Product Engineer, Backend (Senior / Staff / Principal) - US\n\nEngineering \u2022 Remote (US) \u2022 Full time \u2022 Remote",
@@ -1748,7 +2352,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/6dfda44f-de2c-465a-800a-9b4f2df54982": {
     "title": "Senior Software Engineer, Database Infrastructure\n\nEngineering \u2022 Remote (US) \u2022 Full time \u2022 Remote",
@@ -1761,7 +2369,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/8e5f9383-fa23-49ac-8d4a-7001c70309f4": {
     "title": "Software Engineer, Machine Learning (Senior/Staff/Principal)\n\nEngineering \u2022 Remote (US) \u2022 Full time \u2022 Remote",
@@ -1774,7 +2386,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/cd1086d0-9195-4567-a4a0-d9f0e84485f1": {
     "title": "Senior Accountant\n\nFinance \u2022 Remote (US) \u2022 Full time \u2022 Remote",
@@ -1784,7 +2400,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/07af7a7d-73a0-4e2a-8da3-155381e1c7bb": {
     "title": "Future Opportunities\n\nFuture \u2022 Remote \u2022 Full time \u2022 Remote",
@@ -1794,7 +2414,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": null,
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/f4f1cb34-4085-49ea-9453-6f22c2b7c3a5": {
     "title": "Affiliate Partner Manager\n\nMarketing \u2022 Remote (US) \u2022 Full time \u2022 Remote",
@@ -1806,7 +2430,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/7867e42f-5afb-424d-9f6d-82252a1a1fe0": {
     "title": "Art Director\n\nMarketing \u2022 Remote (US) \u2022 Full time \u2022 Remote",
@@ -1818,7 +2446,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/babe256c-15ea-46fb-b52a-e2f462eaf8fc": {
     "title": "Data Analyst - Marketing\n\nMarketing \u2022 Remote (US) \u2022 Full time \u2022 Remote",
@@ -1831,7 +2463,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/c1045435-35e7-4a35-993d-d722bc3e7d06": {
     "title": "Growth Marketing Associate\n\nMarketing \u2022 Remote (US) \u2022 Full time \u2022 Remote",
@@ -1843,7 +2479,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/62119756-7632-4ba6-8819-977ae072e11c": {
     "title": "Head of Partnerships\n\nMarketing \u2022 Remote (US) \u2022 Full time \u2022 Remote",
@@ -1855,7 +2495,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/1d7a9f28-f84f-495e-ac91-fc3dedaff323": {
     "title": "Product Manager, Growth\n\nMarketing \u2022 Remote (US) \u2022 Full time \u2022 Remote",
@@ -1868,7 +2512,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/7fcca0c2-4b3b-43b0-9852-303a4334b203": {
     "title": "Senior Graphics Designer, Performance Marketing\n\nMarketing \u2022 Remote (US) \u2022 Full time \u2022 Remote",
@@ -1881,7 +2529,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/b6c62fed-de51-474c-ad60-0cd305d0158c": {
     "title": "Product Designer (Senior/Staff)\n\nProduct & Design \u2022 Remote (Canada) \u2022 Full time \u2022 Remote",
@@ -1893,7 +2545,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://jobs.ashbyhq.com/monarchmoney/6d2119b8-055d-492e-8412-ebdd77e4b39b": {
     "title": "Product Designer (Senior/Staff)\n\nProduct & Design \u2022 Remote (US) \u2022 Full time \u2022 Remote",
@@ -1905,7 +2561,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5492446004": {
     "title": "Customer Success Engineer- Netherlands",
@@ -1915,7 +2575,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5560161004": {
     "title": "Engineering Manager, Cribl Stream",
@@ -1925,7 +2589,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5560176004": {
     "title": "Manager, Software Engineering, Cribl Lake",
@@ -1937,7 +2605,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5516726004": {
     "title": "Principal Site Reliability Engineer",
@@ -1949,7 +2621,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5336055004": {
     "title": "Senior Site Reliability Engineer (SRE)",
@@ -1961,7 +2637,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5526670004": {
     "title": "Senior Software Engineer",
@@ -1973,7 +2653,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5568690004": {
     "title": "Senior Software Engineer",
@@ -1985,7 +2669,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5495138004": {
     "title": "Senior Software Engineer, Storage and Analysis",
@@ -1997,7 +2685,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5543303004": {
     "title": "Software Engineer, Cribl AI",
@@ -2009,7 +2701,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5489714004": {
     "title": "Sr Staff Software Engineer, Stream Integrations",
@@ -2021,7 +2717,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5545675004": {
     "title": "Staff Software Engineer, Search Integrations (Backend)",
@@ -2034,7 +2734,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5527219004": {
     "title": "Staff Software Engineer, Stream Control Plane (Backend)",
@@ -2047,7 +2751,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5551038004": {
     "title": "Staff Product Manager, Enterprise Applications (Partner Systems)",
@@ -2059,7 +2767,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5567600004": {
     "title": "Sales Development Representative",
@@ -2071,7 +2783,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5562905004": {
     "title": "Senior Manager, Search & AI/LLM Optimization",
@@ -2081,7 +2797,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5534569004": {
     "title": "Data Analytics Manager",
@@ -2091,7 +2811,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5558697004": {
     "title": "Data Analytics Manager",
@@ -2101,7 +2825,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5536815004": {
     "title": "Remote Operations Analyst",
@@ -2113,7 +2841,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5536826004": {
     "title": "Staff Product Manager, Search",
@@ -2125,7 +2857,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5536703004": {
     "title": "Regional Sales Manager, Austin, Tx (Enterprise)",
@@ -2135,7 +2871,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5526083004": {
     "title": "Regional Sales Manager, Bay Area (Enterprise)",
@@ -2145,7 +2885,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5546770004": {
     "title": "Regional Sales Manager, Bay Area (Strategic)",
@@ -2155,7 +2899,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5468758004": {
     "title": "Regional Sales Manager, Carolinas (Strategic)",
@@ -2165,7 +2913,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5498663004": {
     "title": "Regional Sales Manager, Chicago (Enterprise)",
@@ -2175,7 +2927,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5583035004": {
     "title": "Regional Sales Manager, Chicago (Strategic)New",
@@ -2185,7 +2941,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5427052004": {
     "title": "Regional Sales Manager, Indianapolis (Enterprise)",
@@ -2195,7 +2955,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5481475004": {
     "title": "Regional Sales Manager, Memphis (Enterprise)",
@@ -2205,7 +2969,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5427061004": {
     "title": "Regional Sales Manager, Michigan (Enterprise)",
@@ -2215,7 +2983,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5491317004": {
     "title": "Regional Sales Manager, Mid-Atlantic (Strategic)",
@@ -2225,7 +2997,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5457383004": {
     "title": "Regional Sales Manager, Netherlands (Enterprise)",
@@ -2235,7 +3011,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5502660004": {
     "title": "Regional Sales Manager, New York (SLED)",
@@ -2245,7 +3025,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5251078004": {
     "title": "Regional Sales Manager, Northeast (Strategic)",
@@ -2255,7 +3039,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5499301004": {
     "title": "Regional Sales Manager, NYC (Strategic)",
@@ -2265,7 +3053,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5438205004": {
     "title": "Regional Sales Manager, Philadelphia (Enterprise)",
@@ -2275,7 +3067,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5451541004": {
     "title": "Regional Sales Manager, PNW (Strategic)",
@@ -2285,7 +3081,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5457375004": {
     "title": "Regional Sales Manager, Sweden (Enterprise)",
@@ -2295,7 +3095,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5583049004": {
     "title": "Regional Sales Manager, Western Canada (Enterprise)New",
@@ -2305,7 +3109,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5540570004": {
     "title": "Revenue Enablement Manager, Sales Development",
@@ -2317,7 +3125,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": null,
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5541564004": {
     "title": "Revenue Strategy and Planning, Senior Manager",
@@ -2327,7 +3139,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5533087004": {
     "title": "Sales Director, Mid-Atlantic/Great Lakes",
@@ -2337,7 +3153,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5571911004": {
     "title": "Sales Engineer, Denver (Strategic)",
@@ -2347,7 +3167,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5499993004": {
     "title": "Sales Engineer (DoD & Intel)",
@@ -2357,7 +3181,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5552768004": {
     "title": "Sales Engineering Manager, East (Enterprise)",
@@ -2367,7 +3195,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5577677004": {
     "title": "Sales Engineer, Seattle (Strategic)",
@@ -2377,7 +3209,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5551848004": {
     "title": "Sales Engineer, Southwest (Enterprise)",
@@ -2387,7 +3223,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5576779004": {
     "title": "Sales Engineer, Spain",
@@ -2397,7 +3237,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5577565004": {
     "title": "Sales Engineer, Toronto/Boston (Enterprise)",
@@ -2407,7 +3251,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5566429004": {
     "title": "Senior Revenue Enablement Manager, Sales",
@@ -2417,7 +3265,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5527341004": {
     "title": "Senior Technical Support Engineer",
@@ -2427,7 +3279,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/cribl/jobs/5578479004": {
     "title": "Support Knowledge Manager",
@@ -2437,7 +3293,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": null,
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8015930002": {
     "title": "Engineering Manager, AI Powered: Custom Models",
@@ -2447,7 +3307,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8050481002": {
     "title": "Intermediate Backend Engineer(Ruby/Python), AI Engineering: Duo Chat",
@@ -2459,7 +3323,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8038046002": {
     "title": "Intermediate Frontend Engineer (Vue.js), AI Powered: Workflow Catalog",
@@ -2471,7 +3339,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8015961002": {
     "title": "Intermediate Machine Learning Engineer, AI Powered: Custom Models",
@@ -2483,7 +3355,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8015971002": {
     "title": "Senior Machine Learning Engineer, AI Framework",
@@ -2495,7 +3371,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7999066002": {
     "title": "Assigned Support Engineer / Senior Support Engineer (AMER)",
@@ -2505,7 +3385,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8021748002": {
     "title": "Assigned Support Engineer / Senior Support Engineer (EMEA)",
@@ -2515,7 +3399,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7846435002": {
     "title": "Associate Support Engineer (AMER)",
@@ -2525,7 +3413,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7935786002": {
     "title": "Associate Support Engineer (EMEA)",
@@ -2535,7 +3427,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8044697002": {
     "title": "Intermediate Support Engineer (APAC) - Shift",
@@ -2545,7 +3441,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8062849002": {
     "title": "Manager, Support Engineering (AMER)",
@@ -2555,7 +3455,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7999886002": {
     "title": "Support Engineer (EMEA)",
@@ -2565,7 +3469,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8033662002": {
     "title": "Support Engineer (Sunday Coverage - AMER)",
@@ -2575,7 +3483,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7916259002": {
     "title": "Intermediate Backend Engineer (Golang), Monitor: Platform Insights",
@@ -2587,7 +3499,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7891195002": {
     "title": "Principal Engineer (Golang), Monitor: Platform Insights",
@@ -2597,7 +3513,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8044318002": {
     "title": "Engineering Manager, Plan",
@@ -2607,7 +3527,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8016888002": {
     "title": "Engineering Manager, Verify: Pipeline Execution",
@@ -2617,7 +3541,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8046077002": {
     "title": "Intermediate Backend Engineer (Ruby on Rails), Plan",
@@ -2629,7 +3557,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7913211002": {
     "title": "Intermediate Backend Engineer (Ruby on Rails/PostgreSQL), CI Platform",
@@ -2641,7 +3573,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8014202002": {
     "title": "Intermediate Frontend Engineer (Vue.js), Plan: Knowledge Team",
@@ -2653,7 +3589,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8046081002": {
     "title": "Intermediate Fullstack Engineer (Ruby on Rails/Vue.js), Plan: Knowledge",
@@ -2666,7 +3606,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7912865002": {
     "title": "Senior Backend Engineer (Ruby on Rails), Create: Code Review",
@@ -2678,7 +3622,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8045581002": {
     "title": "Intermediate Fullstack Engineer (Ruby/Vue.js), Fulfillment: Provision",
@@ -2691,7 +3639,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8023567002": {
     "title": "Sr. Technical Program Manager",
@@ -2701,7 +3653,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7913735002": {
     "title": "Engineering Manager, Dedicated",
@@ -2711,7 +3667,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8017069002": {
     "title": "Intermediate Backend Engineer (Ruby), Switchboard",
@@ -2723,7 +3683,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8018942002": {
     "title": "Intermediate Backend Engineer (Ruby), Switchboard",
@@ -2735,7 +3699,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8019799002": {
     "title": "Intermediate Distribution Engineer, GitLab:Build",
@@ -2747,7 +3715,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7964360002": {
     "title": "Intermediate Site Reliability Engineer, Foundations",
@@ -2759,7 +3731,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7964431002": {
     "title": "Intermediate Site Reliability Engineer, Foundations",
@@ -2771,7 +3747,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7913752002": {
     "title": "Principal Engineer, Infrastructure Platforms",
@@ -2783,7 +3763,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7823452002": {
     "title": "Principal Software Engineer, Group Tenant Scale",
@@ -2795,7 +3779,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8034479002": {
     "title": "Senior Distribution Engineer, Gitlab:Build",
@@ -2807,7 +3795,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7918203002": {
     "title": "Senior Site Reliability Engineer, Environment Automation",
@@ -2819,7 +3811,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7918265002": {
     "title": "Senior Site Reliability Engineer, Environment Automation",
@@ -2831,7 +3827,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8037411002": {
     "title": "Senior Site Reliability Engineer, Environment Automation",
@@ -2843,7 +3843,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8040926002": {
     "title": "Intermediate Backend Engineer (Ruby on Rails), Security Risk Management: Security Insights",
@@ -2855,7 +3859,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8037488002": {
     "title": "Intermediate Backend Engineer (Ruby on Rails), Security Risk Management: Security Policies",
@@ -2867,7 +3875,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8040465002": {
     "title": "Intermediate Backend Engineer (Ruby), Software Supply Chain Security: Authentication",
@@ -2879,7 +3891,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8042423002": {
     "title": "Intermediate Fullstack Engineer (Ruby), Software Supply Chain Security: Pipeline Security",
@@ -2891,7 +3907,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8034319002": {
     "title": "Senior Backend Engineer (Ruby on Rails), Security Risk Management: Security Platform Management",
@@ -2903,7 +3923,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7972110002": {
     "title": "Senior Backend Engineer (Ruby), Software Supply Chain Security: Authentication",
@@ -2915,7 +3939,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8034325002": {
     "title": "Senior Frontend Engineer (Vue.js), Security Risk Management: Security Platform Management",
@@ -2927,7 +3955,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7971006002": {
     "title": "Senior Fullstack Engineer (Ruby/Vue.js), AST: Secret Detection",
@@ -2940,7 +3972,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8002169002": {
     "title": "Software Engineering Manager, Application Security Testing: Composition Analysis",
@@ -2953,7 +3989,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8040350002": {
     "title": "Software Engineering Manager, Application Security Testing: Dynamic Analysis",
@@ -2966,7 +4006,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7991124002": {
     "title": "Software Engineering Manager, Software Supply Chain Security: Authorization",
@@ -2978,7 +4022,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8044664002": {
     "title": "Software Engineering Manager, Software Supply Chain Security: Human Authentication",
@@ -2990,7 +4038,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8046776002": {
     "title": "Director, Business Analytics & Insights",
@@ -3000,7 +4052,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8019030002": {
     "title": "FP&A Analyst",
@@ -3012,7 +4068,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": null,
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8004464002": {
     "title": "Senior FP&A Analyst, Sales",
@@ -3024,7 +4084,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8030683002": {
     "title": "Manager, Payroll",
@@ -3034,7 +4098,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": null,
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8027623002": {
     "title": "Manager, Salesforce Development",
@@ -3046,7 +4114,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": null,
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8016752002": {
     "title": "Senior Analyst, SEC Reporting and Technical Accounting",
@@ -3058,7 +4130,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8049569002": {
     "title": "Senior Manager, IT SOX PMO",
@@ -3070,7 +4146,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8024571002": {
     "title": "Multinational Tax Manager",
@@ -3080,7 +4160,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7976115002": {
     "title": "Legal Counsel, Privacy",
@@ -3090,7 +4174,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8039164002": {
     "title": "Legal Counsel, Trade Compliance",
@@ -3100,7 +4188,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8007983002": {
     "title": "Senior Contract Manager - West Coast",
@@ -3110,7 +4202,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8055002002": {
     "title": "Senior Legal Counsel, Employment",
@@ -3120,7 +4216,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8029298002": {
     "title": "Senior People Business Partner, Security",
@@ -3130,7 +4230,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8055040002": {
     "title": "Staff Social Media ManagerNew",
@@ -3140,7 +4244,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7991420002": {
     "title": "Senior Corporate Events Manager",
@@ -3150,7 +4258,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8024172002": {
     "title": "Developer Advocate",
@@ -3162,7 +4274,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": null,
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8027634002": {
     "title": "Fullstack Engineer, Contributor Success, Strategy",
@@ -3174,7 +4290,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8027509002": {
     "title": "Senior Developer Advocate",
@@ -3186,7 +4306,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8037235002": {
     "title": "Senior Marketing Campaigns Manager",
@@ -3198,7 +4322,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8022587002": {
     "title": "Manager, Analytics Engineering (Go-To Market)",
@@ -3208,7 +4336,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8054330002": {
     "title": "Senior Analytics Engineer",
@@ -3218,7 +4350,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8046426002": {
     "title": "Senior Manager, Analytics Engineering (R&D)",
@@ -3228,7 +4364,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7990111002": {
     "title": "Field Marketing Manager, SLED",
@@ -3240,7 +4380,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8024643002": {
     "title": "Senior Partner Marketing Manager",
@@ -3252,7 +4396,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8049144002": {
     "title": "Business Development Representative - Financial Services",
@@ -3264,7 +4412,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8042339002": {
     "title": "Business Development Representative - French Speaking",
@@ -3276,7 +4428,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8015722002": {
     "title": "Business Development Representative - German Speaking",
@@ -3288,7 +4444,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8056783002": {
     "title": "Business Development Representative - Spanish Speaking",
@@ -3300,7 +4460,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8022470002": {
     "title": "Sr. Product Manager, Duo Agent Platform",
@@ -3312,7 +4476,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": null,
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8028152002": {
     "title": "Principal - Strategy & Operations, Technology Partnerships",
@@ -3322,7 +4490,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7968098002": {
     "title": "Senior Product Manager, Tenant Scale: Organizations",
@@ -3334,7 +4506,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8028407002": {
     "title": "Product Design Manager, Plan",
@@ -3344,7 +4520,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8014785002": {
     "title": "Senior Product Designer, Pipeline Security",
@@ -3356,7 +4536,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8035591002": {
     "title": "Senior Product Designer, Runner Fleet",
@@ -3368,7 +4552,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7972071002": {
     "title": "Senior UX Architect, Organizations",
@@ -3380,7 +4568,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8050277002": {
     "title": "Senior Product Manager, Software Supply Chain Security: Authentication & Identity",
@@ -3392,7 +4584,11 @@
     ],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7971558002": {
     "title": "Director, Technical Writing",
@@ -3402,7 +4598,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8013820002": {
     "title": "Director, Ecosystem Sales, APJ",
@@ -3412,7 +4612,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8052244002": {
     "title": "Customer Success Architect, META",
@@ -3422,7 +4626,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8049786002": {
     "title": "Associate Renewals Manager - Ireland",
@@ -3432,7 +4640,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8059150002": {
     "title": "Associate US Public Sector Renewals Manager",
@@ -3442,7 +4654,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8056880002": {
     "title": "Customer Success Architect New",
@@ -3452,7 +4668,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7942774002": {
     "title": "Customer Success Engineer",
@@ -3462,7 +4682,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7998157002": {
     "title": "Customer Success Manager",
@@ -3472,7 +4696,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": null,
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7976788002": {
     "title": "Customer Success Manager - Brazil",
@@ -3482,7 +4710,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "junior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8003585002": {
     "title": "Customer Success Manager, EMEA",
@@ -3492,7 +4724,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": null,
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7984323002": {
     "title": "Customer Success Manager - JapanNew",
@@ -3502,7 +4738,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": null,
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8044596002": {
     "title": "Customer Success Manager - West",
@@ -3512,7 +4752,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": null,
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7942792002": {
     "title": "Senior Customer Success Architect",
@@ -3522,7 +4766,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8007359002": {
     "title": "Sr. Director, Customer Success - Public Sector",
@@ -3532,7 +4780,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/7972045002": {
     "title": "Public Sector Solutions Architect",
@@ -3542,7 +4794,11 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   },
   "https://job-boards.greenhouse.io/gitlab/jobs/8049811002": {
     "title": "Senior Solutions Architect, Mumbai",
@@ -3552,6 +4808,10 @@
     "categories": [],
     "description": null,
     "posted_date": null,
-    "salary_range": null
+    "salary_range": null,
+    "experience_level": "senior",
+    "work_arrangement": "remote",
+    "salary_min": null,
+    "salary_max": null
   }
 }
