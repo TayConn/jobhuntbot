@@ -213,7 +213,7 @@ class DumpJobsSession(UISession):
             description="React to select companies. You can select multiple.",
             color=0x0099ff
         )
-        companies = ["Discord", "Reddit", "Monarch Money", "Cribl, Gitlab"]
+        companies = ["Discord", "Reddit", "Monarch Money", "Cribl", "GitLab"]
         for i, company in enumerate(companies):
             regional_emoji = chr(0x1F1E6 + i)  # 🇦, 🇧, ...
             embed.add_field(name=regional_emoji, value=company, inline=False)
@@ -307,7 +307,7 @@ class DumpJobsSession(UISession):
     
     async def handle_company_reaction(self, emoji):
         """Handle company selection"""
-        companies = ["Discord", "Reddit", "Monarch Money", "Cribl, Gitlab"]
+        companies = ["Discord", "Reddit", "Monarch Money", "Cribl", "GitLab"]
         emoji_to_index = {chr(0x1F1E6 + i): i for i in range(len(companies))}
         if emoji in emoji_to_index:
             idx = emoji_to_index[emoji]
@@ -451,7 +451,7 @@ class DumpJobsSession(UISession):
             self.selected_locations.discard(loc)
 
     async def handle_company_remove(self, emoji):
-        companies = ["Discord", "Reddit", "Monarch Money", "Cribl, Gitlab"]
+        companies = ["Discord", "Reddit", "Monarch Money", "Cribl", "GitLab"]
         emoji_to_index = {chr(0x1F1E6 + i): i for i in range(len(companies))}
         if emoji in emoji_to_index:
             idx = emoji_to_index[emoji]
@@ -728,7 +728,7 @@ class AddCompanySession(UISession):
             description="React to select companies to add. You can select multiple.",
             color=0x0099ff
         )
-        companies = ["Discord", "Reddit", "Monarch Money", "Cribl, Gitlab"]
+        companies = ["Discord", "Reddit", "Monarch Money", "Cribl", "GitLab"]
         for i, company in enumerate(companies):
             regional_emoji = chr(0x1F1E6 + i)  # 🇦, 🇧, ...
             embed.add_field(name=regional_emoji, value=company, inline=False)
@@ -748,7 +748,7 @@ class AddCompanySession(UISession):
             await self.handle_company_reaction(emoji)
 
     async def handle_company_reaction(self, emoji):
-        companies = ["Discord", "Reddit", "Monarch Money", "Cribl, Gitlab"]
+        companies = ["Discord", "Reddit", "Monarch Money", "Cribl", "GitLab"]
         emoji_to_index = {chr(0x1F1E6 + i): i for i in range(len(companies))}
         if emoji in emoji_to_index:
             idx = emoji_to_index[emoji]

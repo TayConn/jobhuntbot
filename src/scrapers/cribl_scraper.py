@@ -42,9 +42,17 @@ class CriblScraper(BaseScraper):
                         print(f"[DEBUG] Error parsing Cribl job: {e}")
                 
                 # Handle pagination
-                next_button = await page.query_selector("a.next_page")
-                is_disabled = await next_button.get_attribute("class") if next_button else "disabled"
-                if not next_button or "disabled" in is_disabled:
+                next_button = await page.query_selector("button.pagination__next")
+                if not next_button:
+                    # Fallback to old selector
+                    next_button = await page.query_selector("a.next_page")
+                
+                if not next_button:
+                    break
+                
+                # Check if button is disabled
+                is_disabled = await next_button.get_attribute("aria-disabled")
+                if is_disabled == "true":
                     break
                 
                 await next_button.click()
