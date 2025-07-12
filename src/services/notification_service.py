@@ -202,8 +202,44 @@ class NotificationService:
         if channel:
             embed = discord.Embed(
                 title="❌ Error",
-                description=f"An error occurred: {error}",
+                description=error,
                 color=0xff0000,
                 timestamp=datetime.now()
             )
-            await channel.send(embed=embed) 
+            await channel.send(embed=embed)
+    
+    async def send_cleanup_report(self, removed_jobs: List[Job]):
+        """Send a report of removed jobs (optional, for admin monitoring)"""
+        if not removed_jobs:
+            return
+            
+        channel = await self.bot.fetch_channel(self.channel_id)
+        if not channel:
+            return
+        
+        # Group removed jobs by company
+        jobs_by_company = {}
+        for job in removed_jobs:
+            if job.company not in jobs_by_company:
+                jobs_by_company[job.company] = []
+            jobs_by_company[job.company].append(job)
+        
+        embed = discord.Embed(
+            title="🧹 Job Database Cleanup Report",
+            description=f"Removed {len(removed_jobs)} inactive jobs from the database",
+            color=0xffff00,
+            timestamp=datetime.now()
+        )
+        
+        for company, jobs in jobs_by_company.items():
+            job_list = "\n".join([f"• {job.title}" for job in jobs[:5]])  # Show first 5
+            if len(jobs) > 5:
+                job_list += f"\n... and {len(jobs) - 5} more"
+            embed.add_field(
+                name=f"{company.title()} ({len(jobs)} removed)",
+                value=job_list,
+                inline=False
+            )
+        
+        embed.set_footer(text="These jobs are no longer available on the company's career site")
+        await channel.send(embed=embed) 

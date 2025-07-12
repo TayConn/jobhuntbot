@@ -29,6 +29,8 @@ class JobMonitor:
     async def run_job_check(self, user_preferences: UserPreferences = None) -> List[Job]:
         """Run a complete job check across all scrapers"""
         all_new_jobs = []
+        all_current_jobs = {}
+        removed_jobs = []
         
         for company, scraper in self.scrapers.items():
             try:
@@ -38,6 +40,12 @@ class JobMonitor:
                     jobs = await scraper.scrape_jobs(filter_us_only=True)
                 else:
                     jobs = await scraper.scrape_jobs()
+                
+                all_current_jobs[company] = jobs
+                
+                # Update active jobs and get removed jobs for this company
+                company_removed = self.storage_service.update_active_jobs(company, jobs)
+                removed_jobs.extend(company_removed)
                 
                 # Filter out already seen jobs
                 new_jobs = []
@@ -57,15 +65,25 @@ class JobMonitor:
                 all_new_jobs.extend(new_jobs)
                 print(f"[INFO] Found {len(new_jobs)} new {company} jobs")
                 
+                if company_removed:
+                    print(f"[INFO] Removed {len(company_removed)} inactive {company} jobs")
+                
             except Exception as e:
                 print(f"[ERROR] Failed to scrape {company} jobs: {e}")
                 await self.notification_service.send_error_message(f"Failed to scrape {company} jobs: {e}")
+        
+        # Perform final cleanup and report
+        if removed_jobs:
+            print(f"[INFO] Total cleanup: Removed {len(removed_jobs)} inactive jobs")
+            # Notify about removed jobs (useful for monitoring database health)
+            await self.notification_service.send_cleanup_report(removed_jobs)
         
         return all_new_jobs
     
     async def run_full_job_dump(self) -> Dict[str, List[Job]]:
         """Get all current jobs from all scrapers (for dump command)"""
         jobs_by_company = {}
+        removed_jobs = []
         
         for company, scraper in self.scrapers.items():
             try:
@@ -77,11 +95,22 @@ class JobMonitor:
                     jobs = await scraper.scrape_jobs()
                 
                 jobs_by_company[company] = jobs
+                
+                # Update active jobs and get removed jobs for this company
+                company_removed = self.storage_service.update_active_jobs(company, jobs)
+                removed_jobs.extend(company_removed)
+                
                 print(f"[INFO] Found {len(jobs)} {company} jobs")
+                if company_removed:
+                    print(f"[INFO] Removed {len(company_removed)} inactive {company} jobs")
                 
             except Exception as e:
                 print(f"[ERROR] Failed to scrape {company} jobs for dump: {e}")
                 jobs_by_company[company] = []
+        
+        # Report cleanup results
+        if removed_jobs:
+            print(f"[INFO] Total cleanup: Removed {len(removed_jobs)} inactive jobs")
         
         return jobs_by_company
     
