@@ -178,7 +178,7 @@ If you're having issues:
 • Use the interactive UI for easier preference management
 • Interactive sessions expire after 30 minutes - complete them quickly
 • You can only have one active session at a time - use !cancel if you get stuck
-• The ➡️ (arrow right) advances to the next step, 🔄 restarts the flow, ❌ cancels
+• The ✅ (arrow right) advances to the next step, 🔄 restarts the flow, ❌ cancels
 • Previous step messages are automatically cleaned up to reduce clutter
 • You can still use command arguments for quick actions (e.g., !subscribe backend)
 • Large job search results are automatically sent as files
